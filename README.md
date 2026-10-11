@@ -215,5 +215,4 @@ These are **vector previews**, not canonical figures: the manuscript still
 includes the checksum-pinned raster files in `figures/`, and the
 `\includegraphics` targets must not be swapped without re-verifying
 caption–artifact consistency. Labeled side-by-side comparison sheets
-(TikZ render vs canonical raster) can be regenerated with
-`scripts/make_tikz_review_sheets.py` into `figures_tikz/review/` (untracked).
+(TikZ render vs canonical raster) comparison sheets live in `figures_tikz/review/` (review aids only, generation script not deposited).
