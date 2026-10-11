@@ -1,0 +1,21 @@
+{
+  "row_id": "row_91e7a003ccd38f6b",
+  "parameters": {
+    "row_type": "static",
+    "N": 56,
+    "wq_wc": 1.0
+  },
+  "row_type": "static",
+  "N": 56,
+  "wq_wc": 1.0,
+  "eta": 1.15,
+  "qfi_low_truncation": 306.9566636090185,
+  "qfi_high_truncation": 306.9566636097608,
+  "cavity_truncations": [
+    48,
+    60
+  ],
+  "n_eig": 25,
+  "truncation_relative_change": 2.4183159869336263e-12,
+  "truncation_converged": true
+}

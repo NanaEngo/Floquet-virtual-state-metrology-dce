@@ -1,0 +1,6317 @@
+{
+  "schema": "trackB_multiparameter_gauge_qfi_v1",
+  "status": "model_specific_metric_and_representation_check",
+  "purpose": "Directional pure-state QFI and controlled unitary-representation consistency for the single-qubit Rabi/DCE model.",
+  "configuration": {
+    "static_eta_values": [
+      0.1,
+      0.15,
+      1.0
+    ],
+    "static_wq_values": [
+      1.027
+    ],
+    "drive_detuning_offsets": [
+      -0.02,
+      0.0,
+      0.02
+    ],
+    "eta": 0.15,
+    "gd_over_g0": 0.11923,
+    "wq_wc": 1.027,
+    "wd_wc": 2.077,
+    "phase": 0.0,
+    "cavity_truncations": [
+      12,
+      20
+    ],
+    "selected_gauge_truncation": 30,
+    "drive_windows": [
+      6,
+      10
+    ],
+    "time_points": 121,
+    "finite_difference_steps": [
+      0.01,
+      0.001,
+      0.0001
+    ],
+    "solver_atol": 1e-10,
+    "solver_rtol": 1e-08,
+    "numerical_eigenvalue_floor": -1e-08,
+    "qfi_convergence_tolerance": 0.05,
+    "gauge_tolerance": 1e-08,
+    "transform_angle": 0.37
+  },
+  "units": {
+    "eta": "g0/wc, dimensionless",
+    "wq_wc": "dimensionless",
+    "gd_over_g0": "existing normalized DCE coefficient, dimensionless",
+    "wd_wc": "dimensionless",
+    "phase": "radians",
+    "qfi": "inverse squared parameter units",
+    "time": "inverse cavity angular-frequency units; periods are dimensionless"
+  },
+  "solver": {
+    "method": "QuTiP sesolve",
+    "atol": 1e-10,
+    "rtol": 1e-08,
+    "collapse_operators": []
+  },
+  "parameter_names": [
+    "eta",
+    "wq_wc",
+    "gd_over_g0",
+    "phase"
+  ],
+  "validation": {
+    "all_rows_have_finite_metrics": true,
+    "minimum_psd_residual": 0.0,
+    "converged_row_count": 18,
+    "row_count": 18,
+    "gauge_check": {
+      "representation": "fixed_cavity_phase_similarity_transform",
+      "transform_angle_rad": 0.37,
+      "transformation": "U=exp(-i*angle*a^dagger*a); H'=UHU^dagger; |psi'>=U|psi>; O'=UOU^dagger",
+      "unitarity_error_frobenius": 1.5543122344752192e-15,
+      "state_fidelity_to_transformed_baseline": 0.9999999999999996,
+      "observable_comparisons": {
+        "n": {
+          "baseline": 1.2495017379418092,
+          "transformed": 1.2495017379439375,
+          "absolute_difference": 2.128297538206425e-12
+        },
+        "z": {
+          "baseline": -0.689084318459264,
+          "transformed": -0.6890843184584006,
+          "absolute_difference": 8.634204462509842e-13
+        }
+      },
+      "qfi_metric_relative_difference": 4.792062745735984e-09,
+      "status": "consistent"
+    }
+  },
+  "software": {
+    "python": "3.11.15",
+    "numpy": "1.26.4",
+    "qutip": "5.3.1"
+  },
+  "caveats": [
+    "The four-parameter tensor uses normalized parameters; raw entries with different units must not be compared without normalization.",
+    "The representation check is an explicitly unitary finite-dimensional similarity transform, not a proof of arbitrary USC gauge invariance under a laboratory control transformation.",
+    "Pure-state QFI excludes detector inefficiency, output-field measurement, thermal baths, and resource-normalized pump cost.",
+    "The existing Track B drive convention treats gd_over_g0 as an additive normalized coefficient; this is recorded rather than silently reinterpreted."
+  ],
+  "rows": [
+    {
+      "kind": "static",
+      "parameters": {
+        "eta": 0.1,
+        "wq_wc": 1.027
+      },
+      "n_cav": 12,
+      "parameter_names": [
+        "eta",
+        "wq_wc"
+      ],
+      "finite_difference": [
+        {
+          "step": 0.01,
+          "metric": {
+            "matrix": [
+              [
+                1.0032040533277227,
+                -0.04876343399853502
+              ],
+              [
+                -0.04876343399853502,
+                0.0023819596173736486
+              ]
+            ],
+            "eigenvalues": [
+              1.1654083638312687e-05,
+              1.005574358861458
+            ],
+            "eigenvectors": [
+              [
+                -0.0485509337094497,
+                -0.9988207080532224
+              ],
+              [
+                -0.9988207080532224,
+                0.0485509337094497
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                0.9999999999999998,
+                -0.9975448835154003
+              ],
+              [
+                -0.9975448835154003,
+                1.0
+              ]
+            ],
+            "condition_number": 86285.15034469482,
+            "numerical_rank": 2,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 0.004919918707789073
+          },
+          "fidelity_diagonal": [
+            1.0032554344174827,
+            0.0023820170369504012
+          ]
+        },
+        {
+          "step": 0.001,
+          "metric": {
+            "matrix": [
+              [
+                1.003177254281228,
+                -0.048761647947288454
+              ],
+              [
+                -0.048761647947288454,
+                0.002381846363547788
+              ]
+            ],
+            "eigenvalues": [
+              1.165115039990271e-05,
+              1.005547449494376
+            ],
+            "eigenvectors": [
+              [
+                -0.04855045339970091,
+                -0.9988207314001265
+              ],
+              [
+                -0.9988207314001265,
+                0.04855045339970091
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                -0.9975453854715228
+              ],
+              [
+                -0.9975453854715228,
+                0.9999999999999998
+              ]
+            ],
+            "condition_number": 86304.56349638851,
+            "numerical_rank": 2,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 0.00491878265013157
+          },
+          "fidelity_diagonal": [
+            1.0031777679664344,
+            0.002381848052124269
+          ]
+        },
+        {
+          "step": 0.0001,
+          "metric": {
+            "matrix": [
+              [
+                1.0031769862817248,
+                -0.048761630088824184
+              ],
+              [
+                -0.048761630088824184,
+                0.0023818452312584252
+              ]
+            ],
+            "eigenvalues": [
+              1.1651121093527242e-05,
+              1.0055471803918896
+            ],
+            "eigenvectors": [
+              [
+                -0.04855044859894584,
+                -0.9988207316334803
+              ],
+              [
+                -0.9988207316334803,
+                0.04855044859894584
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                -0.9975453904860937
+              ],
+              [
+                -0.9975453904860937,
+                1.0
+              ]
+            ],
+            "condition_number": 86304.75748385444,
+            "numerical_rank": 2,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 0.004918771299766922
+          },
+          "fidelity_diagonal": [
+            1.0031770525387174,
+            0.002381872477030811
+          ]
+        }
+      ],
+      "relative_step_changes": [
+        2.6769552121926592e-05,
+        2.6770427025225687e-07
+      ],
+      "convergence_status": "converged",
+      "final_metric": {
+        "matrix": [
+          [
+            1.0031769862817248,
+            -0.048761630088824184
+          ],
+          [
+            -0.048761630088824184,
+            0.0023818452312584252
+          ]
+        ],
+        "eigenvalues": [
+          1.1651121093527242e-05,
+          1.0055471803918896
+        ],
+        "eigenvectors": [
+          [
+            -0.04855044859894584,
+            -0.9988207316334803
+          ],
+          [
+            -0.9988207316334803,
+            0.04855044859894584
+          ]
+        ],
+        "normalized_correlations": [
+          [
+            1.0,
+            -0.9975453904860937
+          ],
+          [
+            -0.9975453904860937,
+            1.0
+          ]
+        ],
+        "condition_number": 86304.75748385444,
+        "numerical_rank": 2,
+        "psd_residual": 0.0,
+        "eta_effective_information_with_nuisance": 0.004918771299766922
+      },
+      "state_norm": 0.9999999999999999
+    },
+    {
+      "kind": "static",
+      "parameters": {
+        "eta": 0.15,
+        "wq_wc": 1.027
+      },
+      "n_cav": 12,
+      "parameter_names": [
+        "eta",
+        "wq_wc"
+      ],
+      "finite_difference": [
+        {
+          "step": 0.01,
+          "metric": {
+            "matrix": [
+              [
+                1.0411289801615324,
+                -0.07453357548608971
+              ],
+              [
+                -0.07453357548608971,
+                0.005393901742719977
+              ]
+            ],
+            "eigenvalues": [
+              5.78075152524787e-05,
+              1.0464650743889998
+            ],
+            "eigenvectors": [
+              [
+                -0.07141038450101156,
+                -0.9974470196383454
+              ],
+              [
+                -0.9974470196383454,
+                0.07141038450101156
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                -0.9945993528864714
+              ],
+              [
+                -0.9945993528864714,
+                0.9999999999999999
+              ]
+            ],
+            "condition_number": 18102.57835540041,
+            "numerical_rank": 2,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 0.011215173845273485
+          },
+          "fidelity_diagonal": [
+            1.0411838480806068,
+            0.005394030151428808
+          ]
+        },
+        {
+          "step": 0.001,
+          "metric": {
+            "matrix": [
+              [
+                1.0410996088878421,
+                -0.07453086486614782
+              ],
+              [
+                -0.07453086486614782,
+                0.005393649681545777
+              ]
+            ],
+            "eigenvalues": [
+              5.779310644120784e-05,
+              1.0464354654629466
+            ],
+            "eigenvectors": [
+              [
+                -0.07140980410372569,
+                -0.9974470611906515
+              ],
+              [
+                -0.9974470611906515,
+                0.07140980410372569
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0000000000000002,
+                -0.9946004501192197
+              ],
+              [
+                -0.9946004501192197,
+                1.0000000000000002
+              ]
+            ],
+            "condition_number": 18106.579311971604,
+            "numerical_rank": 2,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 0.011212585134380282
+          },
+          "fidelity_diagonal": [
+            1.0411001580834522,
+            0.005393651303364777
+          ]
+        },
+        {
+          "step": 0.0001,
+          "metric": {
+            "matrix": [
+              [
+                1.0410993151721053,
+                -0.07453083775632789
+              ],
+              [
+                -0.07453083775632789,
+                0.005393647160514317
+              ]
+            ],
+            "eigenvalues": [
+              5.7792962432400355e-05,
+              1.0464351693701874
+            ],
+            "eigenvectors": [
+              [
+                -0.07140979829634608,
+                -0.9974470616064169
+              ],
+              [
+                -0.9974470616064169,
+                0.07140979829634608
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0000000000000002,
+                -0.9946004610842097
+              ],
+              [
+                -0.9946004610842097,
+                1.0000000000000002
+              ]
+            ],
+            "condition_number": 18106.61930670518,
+            "numerical_rank": 2,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 0.011212559263069632
+          },
+          "fidelity_diagonal": [
+            1.0410993400711277,
+            0.0053936410893129505
+          ]
+        }
+      ],
+      "relative_step_changes": [
+        2.8306999144521113e-05,
+        2.8307355080965197e-07
+      ],
+      "convergence_status": "converged",
+      "final_metric": {
+        "matrix": [
+          [
+            1.0410993151721053,
+            -0.07453083775632789
+          ],
+          [
+            -0.07453083775632789,
+            0.005393647160514317
+          ]
+        ],
+        "eigenvalues": [
+          5.7792962432400355e-05,
+          1.0464351693701874
+        ],
+        "eigenvectors": [
+          [
+            -0.07140979829634608,
+            -0.9974470616064169
+          ],
+          [
+            -0.9974470616064169,
+            0.07140979829634608
+          ]
+        ],
+        "normalized_correlations": [
+          [
+            1.0000000000000002,
+            -0.9946004610842097
+          ],
+          [
+            -0.9946004610842097,
+            1.0000000000000002
+          ]
+        ],
+        "condition_number": 18106.61930670518,
+        "numerical_rank": 2,
+        "psd_residual": 0.0,
+        "eta_effective_information_with_nuisance": 0.011212559263069632
+      },
+      "state_norm": 1.0
+    },
+    {
+      "kind": "static",
+      "parameters": {
+        "eta": 1.0,
+        "wq_wc": 1.027
+      },
+      "n_cav": 12,
+      "parameter_names": [
+        "eta",
+        "wq_wc"
+      ],
+      "finite_difference": [
+        {
+          "step": 0.01,
+          "metric": {
+            "matrix": [
+              [
+                5.764321308641312,
+                -0.892749674030579
+              ],
+              [
+                -0.892749674030579,
+                0.17276130812177337
+              ]
+            ],
+            "eigenvalues": [
+              0.03368393700312752,
+              5.903398679759958
+            ],
+            "eigenvectors": [
+              [
+                -0.15392874854539723,
+                -0.9880819502304694
+              ],
+              [
+                -0.9880819502304694,
+                0.15392874854539723
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                -0.8946071564198034
+              ],
+              [
+                -0.8946071564198034,
+                1.0
+              ]
+            ],
+            "condition_number": 175.2585714434697,
+            "numerical_rank": 2,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 1.151008355952123
+          },
+          "fidelity_diagonal": [
+            5.764611226912741,
+            0.1727614306146208
+          ]
+        },
+        {
+          "step": 0.001,
+          "metric": {
+            "matrix": [
+              [
+                5.765638655436835,
+                -0.8928620579845608
+              ],
+              [
+                -0.8928620579845608,
+                0.17276348013908926
+              ]
+            ],
+            "eigenvalues": [
+              0.03368308347857066,
+              5.904719052097353
+            ],
+            "eigenvectors": [
+              [
+                -0.1539131015188135,
+                -0.9880843876819729
+              ],
+              [
+                -0.9880843876819729,
+                0.1539131015188135
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0000000000000002,
+                -0.8946119308421716
+              ],
+              [
+                -0.8946119308421716,
+                1.0
+              ]
+            ],
+            "condition_number": 175.30221233617058,
+            "numerical_rank": 2,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 1.1512221482756608
+          },
+          "fidelity_diagonal": [
+            5.765641555299794,
+            0.1727634812986878
+          ]
+        },
+        {
+          "step": 0.0001,
+          "metric": {
+            "matrix": [
+              [
+                5.765651831950056,
+                -0.8928631820146583
+              ],
+              [
+                -0.8928631820146583,
+                0.172763501859787
+              ]
+            ],
+            "eigenvalues": [
+              0.033683074943150815,
+              5.904732258866691
+            ],
+            "eigenvectors": [
+              [
+                -0.15391294503653938,
+                -0.9880844120570769
+              ],
+              [
+                -0.9880844120570769,
+                0.15391294503653938
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                -0.8946119785865584
+              ],
+              [
+                -0.8946119785865584,
+                1.0
+              ]
+            ],
+            "condition_number": 175.30264884760385,
+            "numerical_rank": 2,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 1.1512242866902724
+          },
+          "fidelity_diagonal": [
+            5.765651778233405,
+            0.17276327035631311
+          ]
+        }
+      ],
+      "relative_step_changes": [
+        0.00022471516503929615,
+        2.247664102352503e-06
+      ],
+      "convergence_status": "converged",
+      "final_metric": {
+        "matrix": [
+          [
+            5.765651831950056,
+            -0.8928631820146583
+          ],
+          [
+            -0.8928631820146583,
+            0.172763501859787
+          ]
+        ],
+        "eigenvalues": [
+          0.033683074943150815,
+          5.904732258866691
+        ],
+        "eigenvectors": [
+          [
+            -0.15391294503653938,
+            -0.9880844120570769
+          ],
+          [
+            -0.9880844120570769,
+            0.15391294503653938
+          ]
+        ],
+        "normalized_correlations": [
+          [
+            1.0,
+            -0.8946119785865584
+          ],
+          [
+            -0.8946119785865584,
+            1.0
+          ]
+        ],
+        "condition_number": 175.30264884760385,
+        "numerical_rank": 2,
+        "psd_residual": 0.0,
+        "eta_effective_information_with_nuisance": 1.1512242866902724
+      },
+      "state_norm": 1.0
+    },
+    {
+      "kind": "static",
+      "parameters": {
+        "eta": 0.1,
+        "wq_wc": 1.027
+      },
+      "n_cav": 20,
+      "parameter_names": [
+        "eta",
+        "wq_wc"
+      ],
+      "finite_difference": [
+        {
+          "step": 0.01,
+          "metric": {
+            "matrix": [
+              [
+                1.003204053327455,
+                -0.04876343399844673
+              ],
+              [
+                -0.04876343399844673,
+                0.0023819596173657253
+              ]
+            ],
+            "eigenvalues": [
+              1.1654083638340442e-05,
+              1.0055743588611825
+            ],
+            "eigenvectors": [
+              [
+                -0.04855093370937491,
+                -0.998820708053226
+              ],
+              [
+                -0.998820708053226,
+                0.04855093370937491
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                -0.9975448835153864
+              ],
+              [
+                -0.9975448835153864,
+                0.9999999999999998
+              ]
+            ],
+            "condition_number": 86285.15034446567,
+            "numerical_rank": 2,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 0.004919918707815718
+          },
+          "fidelity_diagonal": [
+            1.0032554344174827,
+            0.002382017028068617
+          ]
+        },
+        {
+          "step": 0.001,
+          "metric": {
+            "matrix": [
+              [
+                1.0031772542784394,
+                -0.04876164794626393
+              ],
+              [
+                -0.04876164794626393,
+                0.0023818463634548846
+              ]
+            ],
+            "eigenvalues": [
+              1.1651150400010264e-05,
+              1.0055474494914942
+            ],
+            "eigenvectors": [
+              [
+                -0.048550453398817854,
+                -0.9988207314001692
+              ],
+              [
+                -0.9988207314001692,
+                0.048550453398817854
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                -0.9975453854714047
+              ],
+              [
+                -0.9975453854714047,
+                1.0
+              ]
+            ],
+            "condition_number": 86304.5634953445,
+            "numerical_rank": 2,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 0.004918782650354503
+          },
+          "fidelity_diagonal": [
+            1.0031777679664344,
+            0.00238184583167822
+          ]
+        },
+        {
+          "step": 0.0001,
+          "metric": {
+            "matrix": [
+              [
+                1.0031769862746687,
+                -0.0487616300801687
+              ],
+              [
+                -0.0487616300801687,
+                0.0023818452304418644
+              ]
+            ],
+            "eigenvalues": [
+              1.1651121101722943e-05,
+              1.0055471803840088
+            ],
+            "eigenvectors": [
+              [
+                -0.048550448590689244,
+                -0.9988207316338817
+              ],
+              [
+                -0.9988207316338817,
+                0.048550448590689244
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0000000000000002,
+                -0.9975453904835244
+              ],
+              [
+                -0.9975453904835244,
+                1.0
+              ]
+            ],
+            "condition_number": 86304.75742246903,
+            "numerical_rank": 2,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 0.004918771304874836
+          },
+          "fidelity_diagonal": [
+            1.0031770969476383,
+            0.002381916885951796
+          ]
+        }
+      ],
+      "relative_step_changes": [
+        2.6769554742016165e-05,
+        2.6770950557135883e-07
+      ],
+      "convergence_status": "converged",
+      "final_metric": {
+        "matrix": [
+          [
+            1.0031769862746687,
+            -0.0487616300801687
+          ],
+          [
+            -0.0487616300801687,
+            0.0023818452304418644
+          ]
+        ],
+        "eigenvalues": [
+          1.1651121101722943e-05,
+          1.0055471803840088
+        ],
+        "eigenvectors": [
+          [
+            -0.048550448590689244,
+            -0.9988207316338817
+          ],
+          [
+            -0.9988207316338817,
+            0.048550448590689244
+          ]
+        ],
+        "normalized_correlations": [
+          [
+            1.0000000000000002,
+            -0.9975453904835244
+          ],
+          [
+            -0.9975453904835244,
+            1.0
+          ]
+        ],
+        "condition_number": 86304.75742246903,
+        "numerical_rank": 2,
+        "psd_residual": 0.0,
+        "eta_effective_information_with_nuisance": 0.004918771304874836
+      },
+      "state_norm": 1.0
+    },
+    {
+      "kind": "static",
+      "parameters": {
+        "eta": 0.15,
+        "wq_wc": 1.027
+      },
+      "n_cav": 20,
+      "parameter_names": [
+        "eta",
+        "wq_wc"
+      ],
+      "finite_difference": [
+        {
+          "step": 0.01,
+          "metric": {
+            "matrix": [
+              [
+                1.0411289801613715,
+                -0.07453357548605051
+              ],
+              [
+                -0.07453357548605051,
+                0.005393901742715603
+              ]
+            ],
+            "eigenvalues": [
+              5.78075152528907e-05,
+              1.0464650743888342
+            ],
+            "eigenvectors": [
+              [
+                -0.07141038450098519,
+                -0.9974470196383474
+              ],
+              [
+                -0.9974470196383474,
+                0.07141038450098519
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                0.9999999999999998,
+                -0.9945993528864284
+              ],
+              [
+                -0.9945993528864284,
+                1.0
+              ]
+            ],
+            "condition_number": 18102.578355268524,
+            "numerical_rank": 2,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 0.011215173845360749
+          },
+          "fidelity_diagonal": [
+            1.0411838480894886,
+            0.005394030160310592
+          ]
+        },
+        {
+          "step": 0.001,
+          "metric": {
+            "matrix": [
+              [
+                1.0410996088879805,
+                -0.07453086486579534
+              ],
+              [
+                -0.07453086486579534,
+                0.005393649681491478
+              ]
+            ],
+            "eigenvalues": [
+              5.779310643810442e-05,
+              1.046435465463034
+            ],
+            "eigenvectors": [
+              [
+                -0.07140980410338003,
+                -0.9974470611906763
+              ],
+              [
+                -0.9974470611906763,
+                0.07140980410338003
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                0.9999999999999998,
+                -0.9946004501194559
+              ],
+              [
+                -0.9946004501194559,
+                0.9999999999999999
+              ]
+            ],
+            "condition_number": 18106.579312945414,
+            "numerical_rank": 2,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 0.011212585133891784
+          },
+          "fidelity_diagonal": [
+            1.0411001589716307,
+            0.005393652191543197
+          ]
+        },
+        {
+          "step": 0.0001,
+          "metric": {
+            "matrix": [
+              [
+                1.041099315153311,
+                -0.07453083775982203
+              ],
+              [
+                -0.07453083775982203,
+                0.005393647161083496
+              ]
+            ],
+            "eigenvalues": [
+              5.779296240508193e-05,
+              1.0464351693519895
+            ],
+            "eigenvectors": [
+              [
+                -0.07140979830095757,
+                -0.9974470616060866
+              ],
+              [
+                -0.9974470616060866,
+                0.07140979830095757
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                -0.9946004610873366
+              ],
+              [
+                -0.9946004610873366,
+                0.9999999999999999
+              ]
+            ],
+            "condition_number": 18106.619314949203,
+            "numerical_rank": 2,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 0.011212559256391197
+          },
+          "fidelity_diagonal": [
+            1.0410994732978907,
+            0.0053936854982339355
+          ]
+        }
+      ],
+      "relative_step_changes": [
+        2.8306998916097418e-05,
+        2.8309081266757484e-07
+      ],
+      "convergence_status": "converged",
+      "final_metric": {
+        "matrix": [
+          [
+            1.041099315153311,
+            -0.07453083775982203
+          ],
+          [
+            -0.07453083775982203,
+            0.005393647161083496
+          ]
+        ],
+        "eigenvalues": [
+          5.779296240508193e-05,
+          1.0464351693519895
+        ],
+        "eigenvectors": [
+          [
+            -0.07140979830095757,
+            -0.9974470616060866
+          ],
+          [
+            -0.9974470616060866,
+            0.07140979830095757
+          ]
+        ],
+        "normalized_correlations": [
+          [
+            1.0,
+            -0.9946004610873366
+          ],
+          [
+            -0.9946004610873366,
+            0.9999999999999999
+          ]
+        ],
+        "condition_number": 18106.619314949203,
+        "numerical_rank": 2,
+        "psd_residual": 0.0,
+        "eta_effective_information_with_nuisance": 0.011212559256391197
+      },
+      "state_norm": 0.9999999999999999
+    },
+    {
+      "kind": "static",
+      "parameters": {
+        "eta": 1.0,
+        "wq_wc": 1.027
+      },
+      "n_cav": 20,
+      "parameter_names": [
+        "eta",
+        "wq_wc"
+      ],
+      "finite_difference": [
+        {
+          "step": 0.01,
+          "metric": {
+            "matrix": [
+              [
+                5.7643278227987675,
+                -0.8927500858943322
+              ],
+              [
+                -0.8927500858943322,
+                0.17276132896651936
+              ]
+            ],
+            "eigenvalues": [
+              0.033683986416560674,
+              5.903405165348726
+            ],
+            "eigenvectors": [
+              [
+                -0.1539286483439066,
+                -0.9880819658403941
+              ],
+              [
+                -0.9880819658403941,
+                0.1539286483439066
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                -0.8946070096808346
+              ],
+              [
+                -0.8946070096808346,
+                1.0
+              ]
+            ],
+            "condition_number": 175.25850688641552,
+            "numerical_rank": 2,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 1.1510111700958099
+          },
+          "fidelity_diagonal": [
+            5.76461775320114,
+            0.1727614514690501
+          ]
+        },
+        {
+          "step": 0.001,
+          "metric": {
+            "matrix": [
+              [
+                5.765645137834849,
+                -0.8928624684474151
+              ],
+              [
+                -0.8928624684474151,
+                0.17276350098196347
+              ]
+            ],
+            "eigenvalues": [
+              0.033683132545064165,
+              5.904725506271749
+            ],
+            "eigenvectors": [
+              [
+                -0.15391300194500232,
+                -0.9880844031924995
+              ],
+              [
+                -0.9880844031924995,
+                0.15391300194500232
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0000000000000002,
+                -0.8946117852317848
+              ],
+              [
+                -0.8946117852317848,
+                1.0
+              ]
+            ],
+            "condition_number": 175.30214858644467,
+            "numerical_rank": 2,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 1.151224944733765
+          },
+          "fidelity_diagonal": [
+            5.765648037225901,
+            0.17276350261496987
+          ]
+        },
+        {
+          "step": 0.0001,
+          "metric": {
+            "matrix": [
+              [
+                5.765658314214608,
+                -0.892863592487543
+              ],
+              [
+                -0.892863592487543,
+                0.17276352270320294
+              ]
+            ],
+            "eigenvalues": [
+              0.033683124003773435,
+              5.904738712914037
+            ],
+            "eigenvectors": [
+              [
+                -0.15391284546815842,
+                -0.9880844275667413
+              ],
+              [
+                -0.9880844275667413,
+                0.15391284546815842
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                -0.8946118329958035
+              ],
+              [
+                -0.8946118329958035,
+                1.0
+              ]
+            ],
+            "condition_number": 175.30258512400883,
+            "numerical_rank": 2,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 1.151227082922162
+          },
+          "fidelity_diagonal": [
+            5.765658439571553,
+            0.1727633147652341
+          ]
+        }
+      ],
+      "relative_step_changes": [
+        0.0002247095393921658,
+        2.247639493999507e-06
+      ],
+      "convergence_status": "converged",
+      "final_metric": {
+        "matrix": [
+          [
+            5.765658314214608,
+            -0.892863592487543
+          ],
+          [
+            -0.892863592487543,
+            0.17276352270320294
+          ]
+        ],
+        "eigenvalues": [
+          0.033683124003773435,
+          5.904738712914037
+        ],
+        "eigenvectors": [
+          [
+            -0.15391284546815842,
+            -0.9880844275667413
+          ],
+          [
+            -0.9880844275667413,
+            0.15391284546815842
+          ]
+        ],
+        "normalized_correlations": [
+          [
+            1.0,
+            -0.8946118329958035
+          ],
+          [
+            -0.8946118329958035,
+            1.0
+          ]
+        ],
+        "condition_number": 175.30258512400883,
+        "numerical_rank": 2,
+        "psd_residual": 0.0,
+        "eta_effective_information_with_nuisance": 1.151227082922162
+      },
+      "state_norm": 1.0
+    },
+    {
+      "kind": "driven",
+      "parameters": {
+        "eta": 0.15,
+        "wq_wc": 1.027,
+        "gd_over_g0": 0.11923,
+        "wd_wc": 2.03546,
+        "phase": 0.0,
+        "drive_detuning_offset": -0.02
+      },
+      "n_cav": 12,
+      "n_drive_periods": 6,
+      "parameter_names": [
+        "eta",
+        "wq_wc",
+        "gd_over_g0",
+        "phase"
+      ],
+      "finite_difference": [
+        {
+          "step": 0.01,
+          "metric": {
+            "matrix": [
+              [
+                354.15834416393676,
+                41.96845840683534,
+                -127.60248765081562,
+                7.4682934787075705
+              ],
+              [
+                41.96845840683534,
+                26.659157778206776,
+                -6.197913035443074,
+                6.606665777912164
+              ],
+              [
+                -127.60248765081562,
+                -6.197913035443074,
+                130.38230157478685,
+                0.16015234474993337
+              ],
+              [
+                7.4682934787075705,
+                6.606665777912164,
+                0.16015234474993337,
+                2.1278213614919212
+              ]
+            ],
+            "eigenvalues": [
+              0.42778697974123864,
+              21.135282804533215,
+              75.37851987730512,
+              416.3860352168427
+            ],
+            "eigenvectors": [
+              [
+                0.008243329036157106,
+                0.18698182783353545,
+                -0.3766635515972103,
+                -0.9072455083849175
+              ],
+              [
+                -0.25779810914902007,
+                -0.935388431953577,
+                -0.21834316148754784,
+                -0.1044743036264909
+              ],
+              [
+                -0.005391670578814357,
+                0.16569761183965462,
+                -0.8982447733917742,
+                0.40702771207052324
+              ],
+              [
+                0.9661485974393177,
+                -0.25026102145178936,
+                -0.06005963539814629,
+                -0.01786474191774501
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                0.9999999999999999,
+                0.431917763039302,
+                -0.5938148858481535,
+                0.2720539616123231
+              ],
+              [
+                0.431917763039302,
+                1.0000000000000002,
+                -0.10512667878497058,
+                0.8771856982353428
+              ],
+              [
+                -0.5938148858481535,
+                -0.10512667878497058,
+                1.0,
+                0.009615157390603117
+              ],
+              [
+                0.2720539616123231,
+                0.8771856982353428,
+                0.009615157390603117,
+                0.9999999999999998
+              ]
+            ],
+            "condition_number": 973.3490146631106,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 176.30502523276164
+          },
+          "fidelity_diagonal": [
+            357.0729681301454,
+            26.699582911120512,
+            130.71996464407042,
+            2.128016989899617
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.001,
+          "metric": {
+            "matrix": [
+              [
+                359.3722803229468,
+                42.263495486709495,
+                -128.84359523816047,
+                7.5276314457503615
+              ],
+              [
+                42.263495486709495,
+                26.72742153778364,
+                -6.211901593323487,
+                6.617026411619789
+              ],
+              [
+                -128.84359523816047,
+                -6.211901593323487,
+                130.81080408364065,
+                0.15866606025475657
+              ],
+              [
+                7.5276314457503615,
+                6.617026411619789,
+                0.15866606025475657,
+                2.1281166215482017
+              ]
+            ],
+            "eigenvalues": [
+              0.4275766611122794,
+              21.212094622259723,
+              75.6710550960339,
+              421.7278961865135
+            ],
+            "eigenvectors": [
+              [
+                0.008087089562264303,
+                0.18556885885433505,
+                -0.3745054835431103,
+                -0.9084296562761771
+              ],
+              [
+                -0.25739239523784296,
+                -0.935805405662812,
+                -0.21732664380147282,
+                -0.10385820863068057
+              ],
+              [
+                -0.00544731760115414,
+                0.1654752934590878,
+                -0.8994083751644744,
+                0.4045402682917747
+              ],
+              [
+                0.966257771294539,
+                -0.24990071750675025,
+                -0.059827647238790096,
+                -0.017782109784616786
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                0.9999999999999999,
+                0.43123558797121875,
+                -0.5942493830537506,
+                0.2722001425041135
+              ],
+              [
+                0.43123558797121875,
+                1.0,
+                -0.10505681444850344,
+                0.8773777660449119
+              ],
+              [
+                -0.5942493830537506,
+                -0.10505681444850344,
+                1.0,
+                0.009509649682651026
+              ],
+              [
+                0.2722001425041135,
+                0.8773777660449119,
+                0.009509649682651026,
+                1.0
+              ]
+            ],
+            "condition_number": 986.3211314889097,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 178.99804745432593
+          },
+          "fidelity_diagonal": [
+            359.4017666415095,
+            26.727826493377904,
+            130.81419413807362,
+            2.128118578470506
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.0001,
+          "metric": {
+            "matrix": [
+              [
+                359.42484903802523,
+                42.26645892402774,
+                -128.8560747850704,
+                7.528226591926444
+              ],
+              [
+                42.26645892402774,
+                26.72810502248396,
+                -6.212039887284903,
+                6.617130123905772
+              ],
+              [
+                -128.8560747850704,
+                -6.212039887284903,
+                130.81506673837708,
+                0.15865190150553685
+              ],
+              [
+                7.528226591926444,
+                6.617130123905772,
+                0.15865190150553685,
+                2.128119597737293
+              ]
+            ],
+            "eigenvalues": [
+              0.42757452199538176,
+              21.212861911488552,
+              75.67395748471074,
+              421.7817464784288
+            ],
+            "eigenvectors": [
+              [
+                0.008085540453798924,
+                0.1855548104655186,
+                -0.37448389443147745,
+                -0.9084414395876649
+              ],
+              [
+                -0.25738835070052063,
+                -0.9358095265264036,
+                -0.21731663324687733,
+                -0.10385204812778387
+              ],
+              [
+                -0.005447873019531631,
+                0.16547317738818257,
+                -0.8994199348474755,
+                0.4045154249760876
+              ],
+              [
+                0.9662588585046963,
+                -0.24989711871206538,
+                -0.05982536689932486,
+                -0.017781279368206556
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                0.9999999999999999,
+                0.43122877249441904,
+                -0.5942537960795513,
+                0.2722015647209356
+              ],
+              [
+                0.43122877249441904,
+                0.9999999999999999,
+                -0.10505609833219998,
+                0.877379685862255
+              ],
+              [
+                -0.5942537960795513,
+                -0.10505609833219998,
+                1.0000000000000002,
+                0.009508639504051746
+              ],
+              [
+                0.2722015647209356,
+                0.877379685862255,
+                0.009508639504051746,
+                1.0000000000000002
+              ]
+            ],
+            "condition_number": 986.4520096054378,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 179.02516315465473
+          },
+          "fidelity_diagonal": [
+            359.4251438698848,
+            26.728108970530684,
+            130.81510064072432,
+            2.128119636068959
+          ],
+          "base_norm": 1.0
+        }
+      ],
+      "relative_step_changes": [
+        0.012902380661029595,
+        0.00013002139461766032
+      ],
+      "convergence_status": "converged",
+      "final_metric": {
+        "matrix": [
+          [
+            359.42484903802523,
+            42.26645892402774,
+            -128.8560747850704,
+            7.528226591926444
+          ],
+          [
+            42.26645892402774,
+            26.72810502248396,
+            -6.212039887284903,
+            6.617130123905772
+          ],
+          [
+            -128.8560747850704,
+            -6.212039887284903,
+            130.81506673837708,
+            0.15865190150553685
+          ],
+          [
+            7.528226591926444,
+            6.617130123905772,
+            0.15865190150553685,
+            2.128119597737293
+          ]
+        ],
+        "eigenvalues": [
+          0.42757452199538176,
+          21.212861911488552,
+          75.67395748471074,
+          421.7817464784288
+        ],
+        "eigenvectors": [
+          [
+            0.008085540453798924,
+            0.1855548104655186,
+            -0.37448389443147745,
+            -0.9084414395876649
+          ],
+          [
+            -0.25738835070052063,
+            -0.9358095265264036,
+            -0.21731663324687733,
+            -0.10385204812778387
+          ],
+          [
+            -0.005447873019531631,
+            0.16547317738818257,
+            -0.8994199348474755,
+            0.4045154249760876
+          ],
+          [
+            0.9662588585046963,
+            -0.24989711871206538,
+            -0.05982536689932486,
+            -0.017781279368206556
+          ]
+        ],
+        "normalized_correlations": [
+          [
+            0.9999999999999999,
+            0.43122877249441904,
+            -0.5942537960795513,
+            0.2722015647209356
+          ],
+          [
+            0.43122877249441904,
+            0.9999999999999999,
+            -0.10505609833219998,
+            0.877379685862255
+          ],
+          [
+            -0.5942537960795513,
+            -0.10505609833219998,
+            1.0000000000000002,
+            0.009508639504051746
+          ],
+          [
+            0.2722015647209356,
+            0.877379685862255,
+            0.009508639504051746,
+            1.0000000000000002
+          ]
+        ],
+        "condition_number": 986.4520096054378,
+        "numerical_rank": 4,
+        "psd_residual": 0.0,
+        "eta_effective_information_with_nuisance": 179.02516315465473
+      },
+      "state_norm": 1.0
+    },
+    {
+      "kind": "driven",
+      "parameters": {
+        "eta": 0.15,
+        "wq_wc": 1.027,
+        "gd_over_g0": 0.11923,
+        "wd_wc": 2.03546,
+        "phase": 0.0,
+        "drive_detuning_offset": -0.02
+      },
+      "n_cav": 12,
+      "n_drive_periods": 10,
+      "parameter_names": [
+        "eta",
+        "wq_wc",
+        "gd_over_g0",
+        "phase"
+      ],
+      "finite_difference": [
+        {
+          "step": 0.01,
+          "metric": {
+            "matrix": [
+              [
+                813.3986399967847,
+                144.75014609386972,
+                -157.98772635780637,
+                24.44369610180364
+              ],
+              [
+                144.75014609386972,
+                96.3888328546318,
+                -35.927495636415706,
+                10.048168558393304
+              ],
+              [
+                -157.98772635780637,
+                -35.927495636415706,
+                111.2224898645087,
+                -1.9371446071026484
+              ],
+              [
+                24.44369610180364,
+                10.048168558393304,
+                -1.9371446071026484,
+                2.5107116756953984
+              ]
+            ],
+            "eigenvalues": [
+              1.1564107747926178,
+              66.54294637981786,
+              79.24422401182083,
+              876.5770932251894
+            ],
+            "eigenvectors": [
+              [
+                0.023055057949542414,
+                0.09412182890107286,
+                0.26391969548134986,
+                -0.9596644934373115
+              ],
+              [
+                0.08647045979997854,
+                -0.9066462690129458,
+                -0.3676769427981732,
+                -0.1879602835746793
+              ],
+              [
+                0.04380621466591447,
+                -0.40031697989274073,
+                0.8916165403039881,
+                0.20699583624446502
+              ],
+              [
+                -0.9950237883797386,
+                -0.09423343259574506,
+                0.013416598971683309,
+                -0.02945701294579591
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                0.9999999999999999,
+                0.5169564150659873,
+                -0.525261200064526,
+                0.5408996913376916
+              ],
+              [
+                0.5169564150659873,
+                0.9999999999999999,
+                -0.3469902549181968,
+                0.6459146425430821
+              ],
+              [
+                -0.525261200064526,
+                -0.3469902549181968,
+                1.0000000000000002,
+                -0.11592238671053635
+              ],
+              [
+                0.5408996913376916,
+                0.6459146425430821,
+                -0.11592238671053635,
+                1.0
+              ]
+            ],
+            "condition_number": 758.0153284047257,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 396.4517841823108
+          },
+          "fidelity_diagonal": [
+            853.4060053415526,
+            96.81617661808417,
+            112.10125653878133,
+            2.5116043208250893
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.001,
+          "metric": {
+            "matrix": [
+              [
+                865.2110868770587,
+                147.50176983601682,
+                -164.45690380467994,
+                24.954679190811408
+              ],
+              [
+                147.50176983601682,
+                97.08075289225292,
+                -36.30033297655718,
+                10.090267331677934
+              ],
+              [
+                -164.45690380467994,
+                -36.30033297655718,
+                112.0919499300258,
+                -1.968917515063823
+              ],
+              [
+                24.954679190811408,
+                10.090267331677934,
+                -1.968917515063823,
+                2.5119481522968363
+              ]
+            ],
+            "eigenvalues": [
+              1.1586746555363048,
+              67.37713311730805,
+              80.30033062860633,
+              928.0595994501834
+            ],
+            "eigenvectors": [
+              [
+                0.022194820992287385,
+                0.07281405084513004,
+                0.26117724374015866,
+                -0.962284755814482
+              ],
+              [
+                0.08708944004238588,
+                -0.8831753876127775,
+                -0.4242929434155066,
+                -0.1799782273385565
+              ],
+              [
+                0.043741696312415264,
+                -0.45338517563940256,
+                0.8670153684589672,
+                0.20202202199290314
+              ],
+              [
+                -0.9949922026618785,
+                -0.09560978624058657,
+                0.0068041440357993355,
+                -0.028337061263175777
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0000000000000002,
+                0.5089435625660313,
+                -0.5280850339047201,
+                0.5352856705351776
+              ],
+              [
+                0.5089435625660313,
+                1.0,
+                -0.34798203922450255,
+                0.6461461621679331
+              ],
+              [
+                -0.5280850339047201,
+                -0.34798203922450255,
+                1.0000000000000002,
+                -0.11733699851464494
+              ],
+              [
+                0.5352856705351776,
+                0.6461461621679331,
+                -0.11733699851464494,
+                1.0
+              ]
+            ],
+            "condition_number": 800.9665137800233,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 425.3343199589187
+          },
+          "fidelity_diagonal": [
+            865.6270762987806,
+            97.08504072958313,
+            112.10082679480315,
+            2.511957083228822
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.0001,
+          "metric": {
+            "matrix": [
+              [
+                865.745765936578,
+                147.52944571000154,
+                -164.5227580827439,
+                24.959828254474317
+              ],
+              [
+                147.52944571000154,
+                97.08769154040155,
+                -36.30408487589831,
+                10.090689232770115
+              ],
+              [
+                -164.5227580827439,
+                -36.30408487589831,
+                112.10067796858618,
+                -1.9692377782020132
+              ],
+              [
+                24.959828254474317,
+                10.090689232770115,
+                -1.9692377782020132,
+                2.511960607738435
+              ]
+            ],
+            "eigenvalues": [
+              1.1586975297883775,
+              67.38492311872652,
+              80.31142600634911,
+              928.5910493984401
+            ],
+            "eigenvectors": [
+              [
+                0.022186386167979813,
+                0.072608669933987,
+                0.2611418237058421,
+                -0.9623100816425075
+              ],
+              [
+                0.08709551986380484,
+                -0.8829275598564444,
+                -0.4248403641855004,
+                -0.17989985943388082
+              ],
+              [
+                0.04374099825057639,
+                -0.45389815935772804,
+                0.8667584452447311,
+                0.20197272984402115
+              ],
+              [
+                -0.994991889293828,
+                -0.09562094973398196,
+                0.006738728904981064,
+                -0.02832602591636369
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                0.5088636574673013,
+                -0.5281127757478609,
+                0.5352294384527748
+              ],
+              [
+                0.5088636574673013,
+                1.0000000000000002,
+                -0.34799202145531416,
+                0.6461484865990602
+              ],
+              [
+                -0.5281127757478609,
+                -0.34799202145531416,
+                1.0000000000000002,
+                -0.11735122485234749
+              ],
+              [
+                0.5352294384527748,
+                0.6461484865990602,
+                -0.11735122485234749,
+                1.0
+              ]
+            ],
+            "condition_number": 801.4093631217427,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 425.6330425315527
+          },
+          "fidelity_diagonal": [
+            865.7499274811187,
+            97.08773445193941,
+            112.1007666027296,
+            2.5119608615398192
+          ],
+          "base_norm": 1.0
+        }
+      ],
+      "relative_step_changes": [
+        0.05650878132036348,
+        0.0005824863772294369
+      ],
+      "convergence_status": "converged",
+      "final_metric": {
+        "matrix": [
+          [
+            865.745765936578,
+            147.52944571000154,
+            -164.5227580827439,
+            24.959828254474317
+          ],
+          [
+            147.52944571000154,
+            97.08769154040155,
+            -36.30408487589831,
+            10.090689232770115
+          ],
+          [
+            -164.5227580827439,
+            -36.30408487589831,
+            112.10067796858618,
+            -1.9692377782020132
+          ],
+          [
+            24.959828254474317,
+            10.090689232770115,
+            -1.9692377782020132,
+            2.511960607738435
+          ]
+        ],
+        "eigenvalues": [
+          1.1586975297883775,
+          67.38492311872652,
+          80.31142600634911,
+          928.5910493984401
+        ],
+        "eigenvectors": [
+          [
+            0.022186386167979813,
+            0.072608669933987,
+            0.2611418237058421,
+            -0.9623100816425075
+          ],
+          [
+            0.08709551986380484,
+            -0.8829275598564444,
+            -0.4248403641855004,
+            -0.17989985943388082
+          ],
+          [
+            0.04374099825057639,
+            -0.45389815935772804,
+            0.8667584452447311,
+            0.20197272984402115
+          ],
+          [
+            -0.994991889293828,
+            -0.09562094973398196,
+            0.006738728904981064,
+            -0.02832602591636369
+          ]
+        ],
+        "normalized_correlations": [
+          [
+            1.0,
+            0.5088636574673013,
+            -0.5281127757478609,
+            0.5352294384527748
+          ],
+          [
+            0.5088636574673013,
+            1.0000000000000002,
+            -0.34799202145531416,
+            0.6461484865990602
+          ],
+          [
+            -0.5281127757478609,
+            -0.34799202145531416,
+            1.0000000000000002,
+            -0.11735122485234749
+          ],
+          [
+            0.5352294384527748,
+            0.6461484865990602,
+            -0.11735122485234749,
+            1.0
+          ]
+        ],
+        "condition_number": 801.4093631217427,
+        "numerical_rank": 4,
+        "psd_residual": 0.0,
+        "eta_effective_information_with_nuisance": 425.6330425315527
+      },
+      "state_norm": 1.0
+    },
+    {
+      "kind": "driven",
+      "parameters": {
+        "eta": 0.15,
+        "wq_wc": 1.027,
+        "gd_over_g0": 0.11923,
+        "wd_wc": 2.077,
+        "phase": 0.0,
+        "drive_detuning_offset": 0.0
+      },
+      "n_cav": 12,
+      "n_drive_periods": 6,
+      "parameter_names": [
+        "eta",
+        "wq_wc",
+        "gd_over_g0",
+        "phase"
+      ],
+      "finite_difference": [
+        {
+          "step": 0.01,
+          "metric": {
+            "matrix": [
+              [
+                324.50074614992593,
+                71.09449859700644,
+                -89.49084320545609,
+                15.86976512182748
+              ],
+              [
+                71.09449859700644,
+                32.684025001419094,
+                -2.5826225130466653,
+                7.8735476985545025
+              ],
+              [
+                -89.49084320545609,
+                -2.5826225130466653,
+                138.15426864358628,
+                0.4316769867801464
+              ],
+              [
+                15.86976512182748,
+                7.8735476985545025,
+                0.4316769867801464,
+                2.273742704940104
+              ]
+            ],
+            "eigenvalues": [
+              0.34332609694576877,
+              14.009624955059003,
+              108.84850466717243,
+              374.41132678069414
+            ],
+            "eigenvectors": [
+              [
+                0.006569581567299917,
+                0.27312855173065026,
+                -0.29434924465943335,
+                -0.9158144773893727
+              ],
+              [
+                -0.2504109248889066,
+                -0.9148245657984612,
+                -0.2503900694377863,
+                -0.1941525061256728
+              ],
+              [
+                -0.0034591651680677075,
+                0.17868293388055714,
+                -0.9199456662652389,
+                0.3489418496483078
+              ],
+              [
+                0.968111173094626,
+                -0.23784284134909392,
+                -0.0660553284388748,
+                -0.042757840604608625
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0000000000000002,
+                0.6903357726341297,
+                -0.422657515876221,
+                0.5842409446984282
+              ],
+              [
+                0.6903357726341297,
+                1.0000000000000002,
+                -0.038433595179901595,
+                0.9133390711645151
+              ],
+              [
+                -0.422657515876221,
+                -0.038433595179901595,
+                1.0,
+                0.024356006601639134
+              ],
+              [
+                0.5842409446984282,
+                0.9133390711645151,
+                0.024356006601639134,
+                0.9999999999999998
+              ]
+            ],
+            "condition_number": 1090.5414127019758,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 117.83228172957337
+          },
+          "fidelity_diagonal": [
+            326.762797405411,
+            32.725318046566976,
+            138.47133785599874,
+            2.273923493887331
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.001,
+          "metric": {
+            "matrix": [
+              [
+                328.5492476009518,
+                71.4704355265664,
+                -90.09189503119585,
+                15.96640756619275
+              ],
+              [
+                71.4704355265664,
+                32.75735622156352,
+                -2.5561994363875176,
+                7.884086196103822
+              ],
+              [
+                -90.09189503119585,
+                -2.5561994363875176,
+                138.6365691840713,
+                0.4317805123225591
+              ],
+              [
+                15.96640756619275,
+                7.884086196103822,
+                0.4317805123225591,
+                2.274022835170938
+              ]
+            ],
+            "eigenvalues": [
+              0.3433112092030219,
+              14.124113838479719,
+              109.35694861474548,
+              378.3928221793294
+            ],
+            "eigenvectors": [
+              [
+                0.006292131524045924,
+                0.2712576215314582,
+                -0.29254930932627143,
+                -0.9169485337000662
+              ],
+              [
+                -0.24967366617082498,
+                -0.9156230414305689,
+                -0.24898645853056411,
+                -0.1931404926230157
+              ],
+              [
+                -0.0035391461520448333,
+                0.17829555195462604,
+                -0.9209281813318174,
+                0.3465392552461842
+              ],
+              [
+                0.9683031260644666,
+                -0.23720127511403766,
+                -0.06566528694827664,
+                -0.042575594277203546
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                0.9999999999999998,
+                0.6889247199924826,
+                -0.4221303544803506,
+                0.5841300677653734
+              ],
+              [
+                0.6889247199924826,
+                1.0000000000000002,
+                -0.037931621804355595,
+                0.9134810265431498
+              ],
+              [
+                -0.4221303544803506,
+                -0.037931621804355595,
+                1.0,
+                0.0243179367957523
+              ],
+              [
+                0.5841300677653734,
+                0.9134810265431498,
+                0.0243179367957523,
+                1.0
+              ]
+            ],
+            "condition_number": 1102.1860400589528,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 120.05468857535669
+          },
+          "fidelity_diagonal": [
+            328.5721472576775,
+            32.75776974098754,
+            138.63975229311265,
+            2.2740246445884793
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.0001,
+          "metric": {
+            "matrix": [
+              [
+                328.5900630987524,
+                71.47420366112468,
+                -90.09795222858506,
+                15.967376205281074
+              ],
+              [
+                71.47420366112468,
+                32.75809041967938,
+                -2.555936764324402,
+                7.884191741770503
+              ],
+              [
+                -90.09795222858506,
+                -2.555936764324402,
+                138.64142399576963,
+                0.43178055917309793
+              ],
+              [
+                15.967376205281074,
+                7.884191741770503,
+                0.43178055917309793,
+                2.274025631702253
+              ]
+            ],
+            "eigenvalues": [
+              0.3433109387145674,
+              14.125264717515435,
+              109.36205088036792,
+              378.4329766093057
+            ],
+            "eigenvectors": [
+              [
+                0.006289392067870383,
+                0.2712389096979589,
+                -0.2925313878121005,
+                -0.9169598053121008
+              ],
+              [
+                -0.2496663483426929,
+                -0.9156309905479821,
+                -0.24897245143729502,
+                -0.1931303240784567
+              ],
+              [
+                -0.003539927827070252,
+                0.17829165066844382,
+                -0.9209379391194309,
+                0.3465153221768936
+              ],
+              [
+                0.968305027852082,
+                -0.23719492051033697,
+                -0.06566138789643411,
+                -0.04257375787956819
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                0.9999999999999998,
+                0.6889105312028596,
+                -0.4221251249863487,
+                0.5841288642916717
+              ],
+              [
+                0.6889105312028596,
+                1.0,
+                -0.037926634904446484,
+                0.9134824567941385
+              ],
+              [
+                -0.4221251249863487,
+                -0.037926634904446484,
+                1.0,
+                0.024317498707082497
+              ],
+              [
+                0.5841288642916717,
+                0.9134824567941385,
+                0.024317498707082497,
+                1.0
+              ]
+            ],
+            "condition_number": 1102.3038707308394,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 120.07713332454426
+          },
+          "fidelity_diagonal": [
+            328.59029210907664,
+            32.758094747897815,
+            138.6414557380533,
+            2.274025634463328
+          ],
+          "base_norm": 1.0
+        }
+      ],
+      "relative_step_changes": [
+        0.010660519199811903,
+        0.0001074496433430945
+      ],
+      "convergence_status": "converged",
+      "final_metric": {
+        "matrix": [
+          [
+            328.5900630987524,
+            71.47420366112468,
+            -90.09795222858506,
+            15.967376205281074
+          ],
+          [
+            71.47420366112468,
+            32.75809041967938,
+            -2.555936764324402,
+            7.884191741770503
+          ],
+          [
+            -90.09795222858506,
+            -2.555936764324402,
+            138.64142399576963,
+            0.43178055917309793
+          ],
+          [
+            15.967376205281074,
+            7.884191741770503,
+            0.43178055917309793,
+            2.274025631702253
+          ]
+        ],
+        "eigenvalues": [
+          0.3433109387145674,
+          14.125264717515435,
+          109.36205088036792,
+          378.4329766093057
+        ],
+        "eigenvectors": [
+          [
+            0.006289392067870383,
+            0.2712389096979589,
+            -0.2925313878121005,
+            -0.9169598053121008
+          ],
+          [
+            -0.2496663483426929,
+            -0.9156309905479821,
+            -0.24897245143729502,
+            -0.1931303240784567
+          ],
+          [
+            -0.003539927827070252,
+            0.17829165066844382,
+            -0.9209379391194309,
+            0.3465153221768936
+          ],
+          [
+            0.968305027852082,
+            -0.23719492051033697,
+            -0.06566138789643411,
+            -0.04257375787956819
+          ]
+        ],
+        "normalized_correlations": [
+          [
+            0.9999999999999998,
+            0.6889105312028596,
+            -0.4221251249863487,
+            0.5841288642916717
+          ],
+          [
+            0.6889105312028596,
+            1.0,
+            -0.037926634904446484,
+            0.9134824567941385
+          ],
+          [
+            -0.4221251249863487,
+            -0.037926634904446484,
+            1.0,
+            0.024317498707082497
+          ],
+          [
+            0.5841288642916717,
+            0.9134824567941385,
+            0.024317498707082497,
+            1.0
+          ]
+        ],
+        "condition_number": 1102.3038707308394,
+        "numerical_rank": 4,
+        "psd_residual": 0.0,
+        "eta_effective_information_with_nuisance": 120.07713332454426
+      },
+      "state_norm": 1.0
+    },
+    {
+      "kind": "driven",
+      "parameters": {
+        "eta": 0.15,
+        "wq_wc": 1.027,
+        "gd_over_g0": 0.11923,
+        "wd_wc": 2.077,
+        "phase": 0.0,
+        "drive_detuning_offset": 0.0
+      },
+      "n_cav": 12,
+      "n_drive_periods": 10,
+      "parameter_names": [
+        "eta",
+        "wq_wc",
+        "gd_over_g0",
+        "phase"
+      ],
+      "finite_difference": [
+        {
+          "step": 0.01,
+          "metric": {
+            "matrix": [
+              [
+                1098.960443512202,
+                289.6701860935581,
+                -138.03904390829993,
+                56.94868927234934
+              ],
+              [
+                289.6701860935581,
+                136.29819295970623,
+                -27.781441173243856,
+                22.841423861642422
+              ],
+              [
+                -138.03904390829993,
+                -27.781441173243856,
+                233.6360105994355,
+                4.609704807774578
+              ],
+              [
+                56.94868927234934,
+                22.841423861642422,
+                4.609704807774578,
+                5.984242868627215
+              ]
+            ],
+            "eigenvalues": [
+              1.4566773890718014,
+              55.87517220818382,
+              214.7532979280188,
+              1202.7937424146962
+            ],
+            "eigenvectors": [
+              [
+                -0.024545618589403653,
+                0.27956996303812237,
+                -0.11674798514397201,
+                -0.9526846573445742
+              ],
+              [
+                -0.1252188245340992,
+                -0.9511626634383772,
+                -0.10075271707761291,
+                -0.26355022987011023
+              ],
+              [
+                -0.0492438189751411,
+                0.0712916961611985,
+                -0.9859211413099328,
+                0.14301064110520564
+              ],
+              [
+                0.990602243528201,
+                -0.1097620950334552,
+                -0.06463977942738086,
+                -0.049811409600017835
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                0.9999999999999998,
+                0.7484584899930685,
+                -0.2724212751088112,
+                0.7022440967904408
+              ],
+              [
+                0.7484584899930685,
+                1.0000000000000002,
+                -0.15568251225859706,
+                0.7997854858615266
+              ],
+              [
+                -0.2724212751088112,
+                -0.15568251225859706,
+                0.9999999999999999,
+                0.12328170125082222
+              ],
+              [
+                0.7022440967904408,
+                0.7997854858615266,
+                0.12328170125082222,
+                1.0
+              ]
+            ],
+            "condition_number": 825.7104499858541,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 380.159223738705
+          },
+          "fidelity_diagonal": [
+            1123.8893290771189,
+            136.5920685481159,
+            235.17081576893028,
+            5.985306658615741
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.001,
+          "metric": {
+            "matrix": [
+              [
+                1143.7718165793865,
+                293.0208355313393,
+                -140.75915742004784,
+                57.83790691433852
+              ],
+              [
+                293.0208355313393,
+                136.94116252344878,
+                -27.976294161030125,
+                22.90501720089811
+              ],
+              [
+                -140.75915742004784,
+                -27.976294161030125,
+                235.85080458018717,
+                4.5579145553147855
+              ],
+              [
+                57.83790691433852,
+                22.90501720089811,
+                4.5579145553147855,
+                5.985951837038805
+              ]
+            ],
+            "eigenvalues": [
+              1.458121756211678,
+              57.99856869518511,
+              216.9413256085997,
+              1246.151719460065
+            ],
+            "eigenvectors": [
+              [
+                -0.02383510970918544,
+                0.2720645196885972,
+                -0.11548663502446846,
+                -0.9550265031937537
+              ],
+              [
+                -0.12595273880072289,
+                -0.9533801809435101,
+                -0.09613601992471432,
+                -0.2568267973669256
+              ],
+              [
+                -0.04860893690875651,
+                0.06820813418615869,
+                -0.9866097756955704,
+                0.13994989169477623
+              ],
+              [
+                0.9905579066295662,
+                -0.11133183795112686,
+                -0.0634180834281222,
+                -0.04876886472309223
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                0.9999999999999998,
+                0.7403921435239846,
+                -0.2710118506915397,
+                0.6989985315382873
+              ],
+              [
+                0.7403921435239846,
+                1.0,
+                -0.15566984734459094,
+                0.8000129332355996
+              ],
+              [
+                -0.2710118506915397,
+                -0.15566984734459094,
+                1.0,
+                0.12130561089655612
+              ],
+              [
+                0.6989985315382873,
+                0.8000129332355996,
+                0.12130561089655612,
+                1.0000000000000002
+              ]
+            ],
+            "condition_number": 854.628026878682,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 406.63063891795844
+          },
+          "fidelity_diagonal": [
+            1144.0305660508354,
+            136.94410509468293,
+            235.86633488625887,
+            5.985962476140472
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.0001,
+          "metric": {
+            "matrix": [
+              [
+                1144.2312775631788,
+                293.0543567370469,
+                -140.7867247959596,
+                57.846800393701585
+              ],
+              [
+                293.0543567370469,
+                136.9475919975759,
+                -27.978193405395352,
+                22.905652215705626
+              ],
+              [
+                -140.7867247959596,
+                -27.978193405395352,
+                235.87269545891326,
+                4.557399092258617
+              ],
+              [
+                57.846800393701585,
+                22.905652215705626,
+                4.557399092258617,
+                5.985969312726487
+              ]
+            ],
+            "eigenvalues": [
+              1.4581389853248155,
+              58.019955116911625,
+              216.96299666802182,
+              1246.5964435621363
+            ],
+            "eigenvectors": [
+              [
+                -0.023828003607407833,
+                0.2719895640530523,
+                -0.11547370361510517,
+                -0.9550495940335908
+              ],
+              [
+                -0.12596019926677693,
+                -0.9534019427795254,
+                -0.09608996021405511,
+                -0.25675958258838627
+              ],
+              [
+                -0.04860265991222529,
+                0.06817725221087263,
+                -0.9866165579389908,
+                0.13991930292511132
+              ],
+              [
+                0.990557436948618,
+                -0.11134754075161626,
+                -0.06340592180616529,
+                -0.048758367017998454
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                0.7403107820849798,
+                -0.27099792358602326,
+                0.6989646176088041
+              ],
+              [
+                0.7403107820849798,
+                1.0,
+                -0.15566953668977265,
+                0.8000151644412236
+              ],
+              [
+                -0.27099792358602326,
+                -0.15566953668977265,
+                1.0,
+                0.12128608661360782
+              ],
+              [
+                0.6989646176088041,
+                0.8000151644412236,
+                0.12128608661360782,
+                1.0000000000000002
+              ]
+            ],
+            "condition_number": 854.9229230603447,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 406.90460800397943
+          },
+          "fidelity_diagonal": [
+            1144.2338657685625,
+            136.94762137639316,
+            235.87285125081792,
+            5.98596934242579
+          ],
+          "base_norm": 1.0
+        }
+      ],
+      "relative_step_changes": [
+        0.03577749040352882,
+        0.00036653945963352377
+      ],
+      "convergence_status": "converged",
+      "final_metric": {
+        "matrix": [
+          [
+            1144.2312775631788,
+            293.0543567370469,
+            -140.7867247959596,
+            57.846800393701585
+          ],
+          [
+            293.0543567370469,
+            136.9475919975759,
+            -27.978193405395352,
+            22.905652215705626
+          ],
+          [
+            -140.7867247959596,
+            -27.978193405395352,
+            235.87269545891326,
+            4.557399092258617
+          ],
+          [
+            57.846800393701585,
+            22.905652215705626,
+            4.557399092258617,
+            5.985969312726487
+          ]
+        ],
+        "eigenvalues": [
+          1.4581389853248155,
+          58.019955116911625,
+          216.96299666802182,
+          1246.5964435621363
+        ],
+        "eigenvectors": [
+          [
+            -0.023828003607407833,
+            0.2719895640530523,
+            -0.11547370361510517,
+            -0.9550495940335908
+          ],
+          [
+            -0.12596019926677693,
+            -0.9534019427795254,
+            -0.09608996021405511,
+            -0.25675958258838627
+          ],
+          [
+            -0.04860265991222529,
+            0.06817725221087263,
+            -0.9866165579389908,
+            0.13991930292511132
+          ],
+          [
+            0.990557436948618,
+            -0.11134754075161626,
+            -0.06340592180616529,
+            -0.048758367017998454
+          ]
+        ],
+        "normalized_correlations": [
+          [
+            1.0,
+            0.7403107820849798,
+            -0.27099792358602326,
+            0.6989646176088041
+          ],
+          [
+            0.7403107820849798,
+            1.0,
+            -0.15566953668977265,
+            0.8000151644412236
+          ],
+          [
+            -0.27099792358602326,
+            -0.15566953668977265,
+            1.0,
+            0.12128608661360782
+          ],
+          [
+            0.6989646176088041,
+            0.8000151644412236,
+            0.12128608661360782,
+            1.0000000000000002
+          ]
+        ],
+        "condition_number": 854.9229230603447,
+        "numerical_rank": 4,
+        "psd_residual": 0.0,
+        "eta_effective_information_with_nuisance": 406.90460800397943
+      },
+      "state_norm": 1.0
+    },
+    {
+      "kind": "driven",
+      "parameters": {
+        "eta": 0.15,
+        "wq_wc": 1.027,
+        "gd_over_g0": 0.11923,
+        "wd_wc": 2.11854,
+        "phase": 0.0,
+        "drive_detuning_offset": 0.02
+      },
+      "n_cav": 12,
+      "n_drive_periods": 6,
+      "parameter_names": [
+        "eta",
+        "wq_wc",
+        "gd_over_g0",
+        "phase"
+      ],
+      "finite_difference": [
+        {
+          "step": 0.01,
+          "metric": {
+            "matrix": [
+              [
+                288.5633789693614,
+                85.90110608833541,
+                -51.13141497439976,
+                19.932708544756274
+              ],
+              [
+                85.90110608833541,
+                37.61624410204465,
+                5.317333631727499,
+                8.739414710758929
+              ],
+              [
+                -51.13141497439976,
+                5.317333631727499,
+                146.79526663877485,
+                0.7541956801296921
+              ],
+              [
+                19.932708544756274,
+                8.739414710758929,
+                0.7541956801296921,
+                2.334769743965304
+              ]
+            ],
+            "eigenvalues": [
+              0.28477811986880186,
+              8.352801352232083,
+              137.76211342779695,
+              328.9099665542484
+            ],
+            "eigenvectors": [
+              [
+                0.006004813218442382,
+                0.32213686318461515,
+                -0.19231791649780677,
+                -0.9269334402154938
+              ],
+              [
+                -0.2418021272314065,
+                -0.9055102619933114,
+                -0.21985187947467122,
+                -0.270643765460477
+              ],
+              [
+                0.00587663902256054,
+                0.15500024678532287,
+                -0.9551925885802274,
+                0.2520863092904716
+              ],
+              [
+                0.9702892035874544,
+                -0.22859118596059208,
+                -0.047813061048222125,
+                -0.06323640008691314
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                0.9999999999999998,
+                0.8244995701586821,
+                -0.24843408344241574,
+                0.7679336191066545
+              ],
+              [
+                0.8244995701586821,
+                1.0,
+                0.07155667786383152,
+                0.9325510276496001
+              ],
+              [
+                -0.24843408344241574,
+                0.07155667786383152,
+                1.0,
+                0.040738589298496865
+              ],
+              [
+                0.7679336191066545,
+                0.9325510276496001,
+                0.040738589298496865,
+                1.0
+              ]
+            ],
+            "condition_number": 1154.9692325582394,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 64.8045587432581
+          },
+          "fidelity_diagonal": [
+            290.1919067059011,
+            37.65404624749724,
+            147.08655320441187,
+            2.3349208296541413
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.001,
+          "metric": {
+            "matrix": [
+              [
+                291.41406355948806,
+                86.25739121595231,
+                -51.2084178285873,
+                20.02533139957548
+              ],
+              [
+                86.25739121595231,
+                37.685353372474474,
+                5.386537274810045,
+                8.748519653958661
+              ],
+              [
+                -51.2084178285873,
+                5.386537274810045,
+                147.32787172766615,
+                0.757652569983237
+              ],
+              [
+                20.02533139957548,
+                8.748519653958661,
+                0.757652569983237,
+                2.335013806212833
+              ]
+            ],
+            "eigenvalues": [
+              0.2847655008475712,
+              8.472012662747446,
+              138.3890941974842,
+              331.6164301047622
+            ],
+            "eigenvectors": [
+              [
+                0.005566790324355721,
+                0.32042084362972717,
+                -0.19053734046032855,
+                -0.9278981709775074
+              ],
+              [
+                -0.24069685023941548,
+                -0.9064536657183655,
+                -0.21845264496626277,
+                -0.26960196604959247
+              ],
+              [
+                0.00575502164144171,
+                0.1545724886882087,
+                -0.9558900690436211,
+                0.2496966186603681
+              ],
+              [
+                0.9705673170142377,
+                -0.2275512702976736,
+                -0.04741455157786382,
+                -0.06301874981598396
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                0.8231041089682426,
+                -0.2471403439528293,
+                0.7676791265389789
+              ],
+              [
+                0.8231041089682426,
+                1.0,
+                0.07229044796167262,
+                0.9326174763573313
+              ],
+              [
+                -0.2471403439528293,
+                0.07229044796167262,
+                0.9999999999999998,
+                0.04084913990827257
+              ],
+              [
+                0.7676791265389789,
+                0.9326174763573313,
+                0.04084913990827257,
+                1.0000000000000002
+              ]
+            ],
+            "condition_number": 1164.524596967486,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 66.28580261886299
+          },
+          "fidelity_diagonal": [
+            291.43055724323295,
+            37.685731825609636,
+            147.33079603401757,
+            2.3350153146584063
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.0001,
+          "metric": {
+            "matrix": [
+              [
+                291.4427957054543,
+                86.26095946707588,
+                -51.20919555604445,
+                20.02625747361384
+              ],
+              [
+                86.26095946707588,
+                37.68604487364494,
+                5.387227690606701,
+                8.748610801523748
+              ],
+              [
+                -51.20919555604445,
+                5.387227690606701,
+                147.3333766264675,
+                0.757687658383374
+              ],
+              [
+                20.02625747361384,
+                8.748610801523748,
+                0.757687658383374,
+                2.335015963325618
+              ]
+            ],
+            "eigenvalues": [
+              0.2847649540872544,
+              8.473219098067682,
+              138.39552408110012,
+              331.6437250356373
+            ],
+            "eigenvectors": [
+              [
+                0.005562491191382131,
+                0.3204036135844283,
+                -0.19051982344603935,
+                -0.9279077432416843
+              ],
+              [
+                -0.24068595091190648,
+                -0.9064630839921611,
+                -0.2184385631505094,
+                -0.2695914400009623
+              ],
+              [
+                0.0057538235778322976,
+                0.15456801834985695,
+                -0.9558969767569475,
+                0.24967296818951226
+              ],
+              [
+                0.9705700516910731,
+                -0.22754105006538652,
+                -0.047410556100501086,
+                -0.06301654120760809
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                0.8230900312683617,
+                -0.24712729772822928,
+                0.7676764295194998
+              ],
+              [
+                0.8230900312683617,
+                1.0,
+                0.07229769973716488,
+                0.9326182057429133
+              ],
+              [
+                -0.24712729772822928,
+                0.07229769973716488,
+                1.0,
+                0.04085024966734605
+              ],
+              [
+                0.7676764295194998,
+                0.9326182057429133,
+                0.04085024966734605,
+                1.0000000000000002
+              ]
+            ],
+            "condition_number": 1164.622683639711,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 66.30081936222552
+          },
+          "fidelity_diagonal": [
+            291.4429604761182,
+            37.686048370844105,
+            147.33340580885823,
+            2.335015825138953
+          ],
+          "base_norm": 1.0
+        }
+      ],
+      "relative_step_changes": [
+        0.008209708641578379,
+        8.279151783423446e-05
+      ],
+      "convergence_status": "converged",
+      "final_metric": {
+        "matrix": [
+          [
+            291.4427957054543,
+            86.26095946707588,
+            -51.20919555604445,
+            20.02625747361384
+          ],
+          [
+            86.26095946707588,
+            37.68604487364494,
+            5.387227690606701,
+            8.748610801523748
+          ],
+          [
+            -51.20919555604445,
+            5.387227690606701,
+            147.3333766264675,
+            0.757687658383374
+          ],
+          [
+            20.02625747361384,
+            8.748610801523748,
+            0.757687658383374,
+            2.335015963325618
+          ]
+        ],
+        "eigenvalues": [
+          0.2847649540872544,
+          8.473219098067682,
+          138.39552408110012,
+          331.6437250356373
+        ],
+        "eigenvectors": [
+          [
+            0.005562491191382131,
+            0.3204036135844283,
+            -0.19051982344603935,
+            -0.9279077432416843
+          ],
+          [
+            -0.24068595091190648,
+            -0.9064630839921611,
+            -0.2184385631505094,
+            -0.2695914400009623
+          ],
+          [
+            0.0057538235778322976,
+            0.15456801834985695,
+            -0.9558969767569475,
+            0.24967296818951226
+          ],
+          [
+            0.9705700516910731,
+            -0.22754105006538652,
+            -0.047410556100501086,
+            -0.06301654120760809
+          ]
+        ],
+        "normalized_correlations": [
+          [
+            1.0,
+            0.8230900312683617,
+            -0.24712729772822928,
+            0.7676764295194998
+          ],
+          [
+            0.8230900312683617,
+            1.0,
+            0.07229769973716488,
+            0.9326182057429133
+          ],
+          [
+            -0.24712729772822928,
+            0.07229769973716488,
+            1.0,
+            0.04085024966734605
+          ],
+          [
+            0.7676764295194998,
+            0.9326182057429133,
+            0.04085024966734605,
+            1.0000000000000002
+          ]
+        ],
+        "condition_number": 1164.622683639711,
+        "numerical_rank": 4,
+        "psd_residual": 0.0,
+        "eta_effective_information_with_nuisance": 66.30081936222552
+      },
+      "state_norm": 1.0
+    },
+    {
+      "kind": "driven",
+      "parameters": {
+        "eta": 0.15,
+        "wq_wc": 1.027,
+        "gd_over_g0": 0.11923,
+        "wd_wc": 2.11854,
+        "phase": 0.0,
+        "drive_detuning_offset": 0.02
+      },
+      "n_cav": 12,
+      "n_drive_periods": 10,
+      "parameter_names": [
+        "eta",
+        "wq_wc",
+        "gd_over_g0",
+        "phase"
+      ],
+      "finite_difference": [
+        {
+          "step": 0.01,
+          "metric": {
+            "matrix": [
+              [
+                1233.3672020118424,
+                369.1790537408988,
+                -12.865657282698287,
+                69.8284184611304
+              ],
+              [
+                369.1790537408988,
+                161.55609060272545,
+                33.16150822460147,
+                28.45072989362229
+              ],
+              [
+                -12.865657282698287,
+                33.16150822460147,
+                339.76915207547853,
+                13.56842942180396
+              ],
+              [
+                69.8284184611304,
+                28.45072989362229,
+                13.56842942180396,
+                6.675209205598897
+              ]
+            ],
+            "eigenvalues": [
+              1.3328184754949872,
+              43.0127215491623,
+              344.60400198177086,
+              1352.418111889217
+            ],
+            "eigenvectors": [
+              [
+                -0.017585858629009722,
+                -0.29933130763793775,
+                -0.03607194698040666,
+                -0.9533049462187244
+              ],
+              [
+                -0.12972122929417135,
+                0.9392513175463401,
+                0.11347932290950706,
+                -0.2968194879550073
+              ],
+              [
+                -0.027688875350369412,
+                -0.1231565979401101,
+                0.9919995325009301,
+                0.0016450178071762444
+              ],
+              [
+                0.9910078034145449,
+                0.11419362127126088,
+                0.04193072180369268,
+                -0.05572400740664611
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0000000000000002,
+                0.8270450885745401,
+                -0.019874389986665845,
+                0.7695796364598605
+              ],
+              [
+                0.8270450885745401,
+                1.0,
+                0.1415404700914117,
+                0.8663618184395208
+              ],
+              [
+                -0.019874389986665845,
+                0.1415404700914117,
+                1.0,
+                0.2849083424606752
+              ],
+              [
+                0.7695796364598605,
+                0.8663618184395208,
+                0.2849083424606752,
+                1.0000000000000002
+              ]
+            ],
+            "condition_number": 1014.7054056907118,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 334.3504872550767
+          },
+          "fidelity_diagonal": [
+            1248.504050728787,
+            161.69795773569362,
+            341.720373817429,
+            6.675853384439101
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.001,
+          "metric": {
+            "matrix": [
+              [
+                1270.050502286177,
+                372.5687729254647,
+                -10.998302307713093,
+                70.6249654942093
+              ],
+              [
+                372.5687729254647,
+                162.05385835295274,
+                33.85863038182932,
+                28.50131860357438
+              ],
+              [
+                -10.998302307713093,
+                33.85863038182932,
+                343.30798811452775,
+                13.628282870465826
+              ],
+              [
+                70.6249654942093,
+                28.50131860357438,
+                13.628282870465826,
+                6.676435204622309
+              ]
+            ],
+            "eigenvalues": [
+              1.3345036020870218,
+              44.77254768560993,
+              348.13817903418135,
+              1387.8435536364018
+            ],
+            "eigenvectors": [
+              [
+                -0.017140929049094,
+                -0.29384374233890415,
+                -0.036948037357384264,
+                -0.954985280606481
+              ],
+              [
+                -0.13027904867086998,
+                0.9409001720707636,
+                0.11286991788659487,
+                -0.29153836336045685
+              ],
+              [
+                -0.027143917584051647,
+                -0.12279968001283473,
+                0.9920601968255328,
+                -0.00011046004248652166
+              ],
+              [
+                0.9909574994756016,
+                0.1152517239533553,
+                0.041373784528322625,
+                -0.054849651891751366
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                0.9999999999999998,
+                0.8212327651570944,
+                -0.01665609553594414,
+                0.7669648030483356
+              ],
+              [
+                0.8212327651570944,
+                1.0000000000000002,
+                0.1435481977383422,
+                0.8664887847870905
+              ],
+              [
+                -0.01665609553594414,
+                0.1435481977383422,
+                1.0,
+                0.28466027570296765
+              ],
+              [
+                0.7669648030483356,
+                0.8664887847870905,
+                0.28466027570296765,
+                0.9999999999999999
+              ]
+            ],
+            "condition_number": 1039.9698820340102,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 355.9066658261322
+          },
+          "fidelity_diagonal": [
+            1270.2083406817,
+            162.0552769447947,
+            343.32774171863537,
+            6.676441639097419
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.0001,
+          "metric": {
+            "matrix": [
+              [
+                1270.426217658698,
+                372.6027579095612,
+                -10.980005700416498,
+                70.63293901424966
+              ],
+              [
+                372.6027579095612,
+                162.0588370009662,
+                33.865663405153356,
+                28.50182452982241
+              ],
+              [
+                -10.980005700416498,
+                33.865663405153356,
+                343.34344913649045,
+                13.62887402808892
+              ],
+              [
+                70.63293901424966,
+                28.50182452982241,
+                13.62887402808892,
+                6.676448517250145
+              ]
+            ],
+            "eigenvalues": [
+              1.3345229161496548,
+              44.79038241568423,
+              348.1736345936992,
+              1388.2064123878718
+            ],
+            "eigenvectors": [
+              [
+                -0.01713643241227953,
+                -0.2937884896931284,
+                -0.03695624837146071,
+                -0.95500204278018
+              ],
+              [
+                -0.13028481073497897,
+                0.9409164488073595,
+                0.11286511550495587,
+                -0.2914851113822992
+              ],
+              [
+                -0.027138485453260967,
+                -0.12279711799511438,
+                0.9920606605742053,
+                -0.00012712382812007925
+              ],
+              [
+                0.9909569684820997,
+                0.11526242882948533,
+                0.04136843179805729,
+                -0.054840787445696655
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                0.8211736067624938,
+                -0.016625069094795452,
+                0.766937196197707
+              ],
+              [
+                0.8211736067624938,
+                1.0,
+                0.14356839516546502,
+                0.8664899917889919
+              ],
+              [
+                -0.016625069094795452,
+                0.14356839516546502,
+                1.0,
+                0.2846576386017553
+              ],
+              [
+                0.766937196197707,
+                0.8664899917889919,
+                0.2846576386017553,
+                1.0
+              ]
+            ],
+            "condition_number": 1040.2267324064421,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 356.12959588863225
+          },
+          "fidelity_diagonal": [
+            1270.427796229434,
+            162.05885118303343,
+            343.34364684696084,
+            6.67644839413839
+          ],
+          "base_norm": 1.0
+        }
+      ],
+      "relative_step_changes": [
+        0.026049739049333855,
+        0.0002665280284251679
+      ],
+      "convergence_status": "converged",
+      "final_metric": {
+        "matrix": [
+          [
+            1270.426217658698,
+            372.6027579095612,
+            -10.980005700416498,
+            70.63293901424966
+          ],
+          [
+            372.6027579095612,
+            162.0588370009662,
+            33.865663405153356,
+            28.50182452982241
+          ],
+          [
+            -10.980005700416498,
+            33.865663405153356,
+            343.34344913649045,
+            13.62887402808892
+          ],
+          [
+            70.63293901424966,
+            28.50182452982241,
+            13.62887402808892,
+            6.676448517250145
+          ]
+        ],
+        "eigenvalues": [
+          1.3345229161496548,
+          44.79038241568423,
+          348.1736345936992,
+          1388.2064123878718
+        ],
+        "eigenvectors": [
+          [
+            -0.01713643241227953,
+            -0.2937884896931284,
+            -0.03695624837146071,
+            -0.95500204278018
+          ],
+          [
+            -0.13028481073497897,
+            0.9409164488073595,
+            0.11286511550495587,
+            -0.2914851113822992
+          ],
+          [
+            -0.027138485453260967,
+            -0.12279711799511438,
+            0.9920606605742053,
+            -0.00012712382812007925
+          ],
+          [
+            0.9909569684820997,
+            0.11526242882948533,
+            0.04136843179805729,
+            -0.054840787445696655
+          ]
+        ],
+        "normalized_correlations": [
+          [
+            1.0,
+            0.8211736067624938,
+            -0.016625069094795452,
+            0.766937196197707
+          ],
+          [
+            0.8211736067624938,
+            1.0,
+            0.14356839516546502,
+            0.8664899917889919
+          ],
+          [
+            -0.016625069094795452,
+            0.14356839516546502,
+            1.0,
+            0.2846576386017553
+          ],
+          [
+            0.766937196197707,
+            0.8664899917889919,
+            0.2846576386017553,
+            1.0
+          ]
+        ],
+        "condition_number": 1040.2267324064421,
+        "numerical_rank": 4,
+        "psd_residual": 0.0,
+        "eta_effective_information_with_nuisance": 356.12959588863225
+      },
+      "state_norm": 1.0
+    },
+    {
+      "kind": "driven",
+      "parameters": {
+        "eta": 0.15,
+        "wq_wc": 1.027,
+        "gd_over_g0": 0.11923,
+        "wd_wc": 2.03546,
+        "phase": 0.0,
+        "drive_detuning_offset": -0.02
+      },
+      "n_cav": 20,
+      "n_drive_periods": 6,
+      "parameter_names": [
+        "eta",
+        "wq_wc",
+        "gd_over_g0",
+        "phase"
+      ],
+      "finite_difference": [
+        {
+          "step": 0.01,
+          "metric": {
+            "matrix": [
+              [
+                354.1858978729299,
+                41.960289376993536,
+                -127.61499914460175,
+                7.462997646877178
+              ],
+              [
+                41.960289376993536,
+                26.655883523257767,
+                -6.198693792047035,
+                6.604388216392373
+              ],
+              [
+                -127.61499914460175,
+                -6.198693792047035,
+                130.35948732647495,
+                0.16008117164758448
+              ],
+              [
+                7.462997646877178,
+                6.604388216392373,
+                0.16008117164758448,
+                2.1263593524301165
+              ]
+            ],
+            "eigenvalues": [
+              0.4272903861303253,
+              21.134422486427717,
+              75.35343691741664,
+              416.41247828511814
+            ],
+            "eigenvectors": [
+              [
+                0.008245876162851109,
+                0.18694999672132845,
+                -0.37664529730345603,
+                -0.9072596234107373
+              ],
+              [
+                -0.2577457927064531,
+                -0.93540612611275,
+                -0.2183412579981414,
+                -0.10444893790101012
+              ],
+              [
+                -0.005387842398007716,
+                0.1657072195785138,
+                -0.8982540632848918,
+                0.40700334928110066
+              ],
+              [
+                0.966162555175227,
+                -0.2502123005293531,
+                -0.060042092461551295,
+                -0.01785129614128669
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                0.43184341425811595,
+                -0.5939019718977593,
+                0.27194391223102593
+              ],
+              [
+                0.43184341425811595,
+                0.9999999999999999,
+                -0.10515557932363144,
+                0.8772385775360095
+              ],
+              [
+                -0.5939019718977593,
+                -0.10515557932363144,
+                1.0,
+                0.009615029067928924
+              ],
+              [
+                0.27194391223102593,
+                0.8772385775360095,
+                0.009615029067928924,
+                0.9999999999999998
+              ]
+            ],
+            "condition_number": 974.542118900168,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 176.29983248120666
+          },
+          "fidelity_diagonal": [
+            357.1009676167813,
+            26.696297596102703,
+            130.69538897663602,
+            2.1265533868586317
+          ],
+          "base_norm": 1.0000000000000002
+        },
+        {
+          "step": 0.001,
+          "metric": {
+            "matrix": [
+              [
+                359.40089167486457,
+                42.25529417348624,
+                -128.85554015634833,
+                7.522302154913063
+              ],
+              [
+                42.25529417348624,
+                26.724130812243523,
+                -6.212715058057347,
+                6.614741882294135
+              ],
+              [
+                -128.85554015634833,
+                -6.212715058057347,
+                130.78730243666774,
+                0.15859105240813862
+              ],
+              [
+                7.522302154913063,
+                6.614741882294135,
+                0.15859105240813862,
+                2.1266528088747396
+              ]
+            ],
+            "eigenvalues": [
+              0.4270798083682292,
+              21.211261472882235,
+              75.64588961759327,
+              421.75474683380673
+            ],
+            "eigenvectors": [
+              [
+                0.008089587709533944,
+                0.18553599795262432,
+                -0.374485641282978,
+                -0.9084445258282368
+              ],
+              [
+                -0.25734009504728744,
+                -0.9358235614849169,
+                -0.21732239464603587,
+                -0.10383310664740525
+              ],
+              [
+                -0.005443643170496559,
+                0.165482894334675,
+                -0.8994188556100365,
+                0.4045139065653777
+              ],
+              [
+                0.9662717013349686,
+                -0.24985209007736603,
+                -0.05980972689556,
+                -0.017768760561029273
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                0.4311612873301096,
+                -0.5943342106642978,
+                0.2720902013154274
+              ],
+              [
+                0.4311612873301096,
+                0.9999999999999999,
+                -0.10508648115776974,
+                0.8774306694116482
+              ],
+              [
+                -0.5943342106642978,
+                -0.10508648115776974,
+                1.0000000000000002,
+                0.009509279070999906
+              ],
+              [
+                0.2720902013154274,
+                0.8774306694116482,
+                0.009509279070999906,
+                1.0
+              ]
+            ],
+            "condition_number": 987.5314603264242,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 178.99416971197496
+          },
+          "fidelity_diagonal": [
+            359.4303825935619,
+            26.724535650002323,
+            130.7906747163301,
+            2.126654746303913
+          ],
+          "base_norm": 1.0000000000000002
+        },
+        {
+          "step": 0.0001,
+          "metric": {
+            "matrix": [
+              [
+                359.45346762502817,
+                42.25825655136926,
+                -128.86797771299229,
+                7.522896070702935
+              ],
+              [
+                42.25825655136926,
+                26.724814121522655,
+                -6.212856441041613,
+                6.614845484567012
+              ],
+              [
+                -128.86797771299229,
+                -6.212856441041613,
+                130.79160432429225,
+                0.1585788416601439
+              ],
+              [
+                7.522896070702935,
+                6.614845484567012,
+                0.1585788416601439,
+                2.1266556214376355
+              ]
+            ],
+            "eigenvalues": [
+              0.42707750845286113,
+              21.212033396327378,
+              75.64885140801123,
+              421.80857937948923
+            ],
+            "eigenvectors": [
+              [
+                0.008088028998264074,
+                0.18552182461961872,
+                -0.3744640790581533,
+                -0.9084563224898927
+              ],
+              [
+                -0.25733604093425577,
+                -0.9358277588298947,
+                -0.21731205914467855,
+                -0.10382695598928116
+              ],
+              [
+                -0.005444229162367386,
+                0.16548047571824506,
+                -0.8994304856219044,
+                0.40448902835409073
+              ],
+              [
+                0.9662727907749623,
+                -0.24984849519116234,
+                -0.059807390675182336,
+                -0.017767928390894396
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0000000000000002,
+                0.43115446699273086,
+                -0.5943383319235112,
+                0.2720916028781173
+              ],
+              [
+                0.43115446699273086,
+                0.9999999999999999,
+                -0.10508580089219238,
+                0.8774326143326379
+              ],
+              [
+                -0.5943383319235112,
+                -0.10508580089219238,
+                1.0,
+                0.009508384239846743
+              ],
+              [
+                0.2720916028781173,
+                0.8774326143326379,
+                0.009508384239846743,
+                1.0
+              ]
+            ],
+            "condition_number": 987.6628270768479,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 179.02141268377116
+          },
+          "fidelity_diagonal": [
+            359.45376235524407,
+            26.72481804744109,
+            130.79163789786463,
+            2.1266554295351625
+          ],
+          "base_norm": 1.0000000000000002
+        }
+      ],
+      "relative_step_changes": [
+        0.012903318074240505,
+        0.0001299936556097892
+      ],
+      "convergence_status": "converged",
+      "final_metric": {
+        "matrix": [
+          [
+            359.45346762502817,
+            42.25825655136926,
+            -128.86797771299229,
+            7.522896070702935
+          ],
+          [
+            42.25825655136926,
+            26.724814121522655,
+            -6.212856441041613,
+            6.614845484567012
+          ],
+          [
+            -128.86797771299229,
+            -6.212856441041613,
+            130.79160432429225,
+            0.1585788416601439
+          ],
+          [
+            7.522896070702935,
+            6.614845484567012,
+            0.1585788416601439,
+            2.1266556214376355
+          ]
+        ],
+        "eigenvalues": [
+          0.42707750845286113,
+          21.212033396327378,
+          75.64885140801123,
+          421.80857937948923
+        ],
+        "eigenvectors": [
+          [
+            0.008088028998264074,
+            0.18552182461961872,
+            -0.3744640790581533,
+            -0.9084563224898927
+          ],
+          [
+            -0.25733604093425577,
+            -0.9358277588298947,
+            -0.21731205914467855,
+            -0.10382695598928116
+          ],
+          [
+            -0.005444229162367386,
+            0.16548047571824506,
+            -0.8994304856219044,
+            0.40448902835409073
+          ],
+          [
+            0.9662727907749623,
+            -0.24984849519116234,
+            -0.059807390675182336,
+            -0.017767928390894396
+          ]
+        ],
+        "normalized_correlations": [
+          [
+            1.0000000000000002,
+            0.43115446699273086,
+            -0.5943383319235112,
+            0.2720916028781173
+          ],
+          [
+            0.43115446699273086,
+            0.9999999999999999,
+            -0.10508580089219238,
+            0.8774326143326379
+          ],
+          [
+            -0.5943383319235112,
+            -0.10508580089219238,
+            1.0,
+            0.009508384239846743
+          ],
+          [
+            0.2720916028781173,
+            0.8774326143326379,
+            0.009508384239846743,
+            1.0
+          ]
+        ],
+        "condition_number": 987.6628270768479,
+        "numerical_rank": 4,
+        "psd_residual": 0.0,
+        "eta_effective_information_with_nuisance": 179.02141268377116
+      },
+      "state_norm": 1.0000000000000002
+    },
+    {
+      "kind": "driven",
+      "parameters": {
+        "eta": 0.15,
+        "wq_wc": 1.027,
+        "gd_over_g0": 0.11923,
+        "wd_wc": 2.03546,
+        "phase": 0.0,
+        "drive_detuning_offset": -0.02
+      },
+      "n_cav": 20,
+      "n_drive_periods": 10,
+      "parameter_names": [
+        "eta",
+        "wq_wc",
+        "gd_over_g0",
+        "phase"
+      ],
+      "finite_difference": [
+        {
+          "step": 0.01,
+          "metric": {
+            "matrix": [
+              [
+                828.3702150685262,
+                146.59054827265453,
+                -168.67005626371923,
+                25.752723203640677
+              ],
+              [
+                146.59054827265453,
+                95.99625954518756,
+                -38.67859393981591,
+                10.083557921348444
+              ],
+              [
+                -168.67005626371923,
+                -38.67859393981591,
+                114.19539665227451,
+                -2.877067387299987
+              ],
+              [
+                25.752723203640677,
+                10.083557921348444,
+                -2.877067387299987,
+                2.5628343254463655
+              ]
+            ],
+            "eigenvalues": [
+              1.1960213745220811,
+              65.16944312879451,
+              78.99958094209056,
+              895.7596601460276
+            ],
+            "eigenvectors": [
+              [
+                0.024010597929265725,
+                0.0733378732145674,
+                0.2764187178289423,
+                -0.9579341000158871
+              ],
+              [
+                0.0848771171780916,
+                -0.8847405717758744,
+                -0.41866375981191006,
+                -0.18641526722184276
+              ],
+              [
+                0.03955069264351273,
+                -0.45107056808940316,
+                0.865034586549982,
+                0.21607001038372714
+              ],
+              [
+                -0.9953165872615783,
+                -0.09160250875148701,
+                0.0053397309165789724,
+                -0.03041971048741651
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0000000000000002,
+                0.5198362679066514,
+                -0.5484050604620784,
+                0.5589212947430485
+              ],
+              [
+                0.5198362679066514,
+                0.9999999999999999,
+                -0.36941899606686246,
+                0.6428747605997416
+              ],
+              [
+                -0.5484050604620784,
+                -0.36941899606686246,
+                1.0,
+                -0.1681765617609267
+              ],
+              [
+                0.5589212947430485,
+                0.6428747605997416,
+                -0.1681765617609267,
+                1.0
+              ]
+            ],
+            "condition_number": 748.9495415614664,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 391.2114195775735
+          },
+          "fidelity_diagonal": [
+            869.4526480413799,
+            96.41926597970584,
+            115.1630513452595,
+            2.563780489033274
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.001,
+          "metric": {
+            "matrix": [
+              [
+                881.8239857653775,
+                149.40863102152764,
+                -175.45567641832707,
+                26.331226526919508
+              ],
+              [
+                149.40863102152764,
+                96.68132411889826,
+                -38.972559329409584,
+                10.125081165412029
+              ],
+              [
+                -175.45567641832707,
+                -38.972559329409584,
+                115.08305859310772,
+                -2.8721526460273927
+              ],
+              [
+                26.331226526919508,
+                10.125081165412029,
+                -2.8721526460273927,
+                2.564142403885562
+              ]
+            ],
+            "eigenvalues": [
+              1.1954712244431167,
+              65.96087108701835,
+              80.15727915741975,
+              948.8388894123877
+            ],
+            "eigenvectors": [
+              [
+                -0.023200603530963503,
+                0.05438588740196073,
+                -0.27120503651310607,
+                -0.9607037708977859
+              ],
+              [
+                -0.0855219246723103,
+                -0.8621318555035518,
+                0.46645574104620624,
+                -0.1784200262621367
+              ],
+              [
+                -0.03990890694788969,
+                -0.4951598038944562,
+                -0.8419423197666779,
+                0.21061143829178308
+              ],
+              [
+                0.9952663018219634,
+                -0.09266934544232072,
+                -9.298758308327869e-07,
+                -0.029281066784865688
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                0.511697668126433,
+                -0.5507706278474116,
+                0.5537440403276442
+              ],
+              [
+                0.511697668126433,
+                1.0,
+                -0.36947234254468475,
+                0.6430668880805275
+              ],
+              [
+                -0.5507706278474116,
+                -0.36947234254468475,
+                1.0,
+                -0.16719787340643477
+              ],
+              [
+                0.5537440403276442,
+                0.6430668880805275,
+                -0.16719787340643477,
+                1.0
+              ]
+            ],
+            "condition_number": 793.6944612400712,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 419.2145801374607
+          },
+          "fidelity_diagonal": [
+            882.2513878206096,
+            96.6855682591472,
+            115.09282602650828,
+            2.564151867501252
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.0001,
+          "metric": {
+            "matrix": [
+              [
+                882.3757953520787,
+                149.43697494205045,
+                -175.52450015637334,
+                26.337070653344714
+              ],
+              [
+                149.43697494205045,
+                96.68819265694566,
+                -38.975514450778135,
+                10.125496678623566
+              ],
+              [
+                -175.52450015637334,
+                -38.975514450778135,
+                115.09206222339456,
+                -2.8721018989660227
+              ],
+              [
+                26.337070653344714,
+                10.125496678623566,
+                -2.8721018989660227,
+                2.564156197488662
+              ]
+            ],
+            "eigenvalues": [
+              1.1954666317465505,
+              65.96834870654473,
+              80.16945902227957,
+              949.3869320693368
+            ],
+            "eigenvectors": [
+              [
+                -0.02319263391701425,
+                0.05420666347004641,
+                -0.27114663722604543,
+                -0.9607305764304808
+              ],
+              [
+                -0.08552826582296333,
+                -0.8619017027150754,
+                0.46690969270042193,
+                -0.17834155282650233
+              ],
+              [
+                -0.03991233278904355,
+                -0.495578291303367,
+                -0.8417094732625378,
+                0.21055717869565374
+              ],
+              [
+                0.9952658052845205,
+                -0.09267820499521029,
+                5.102456928793054e-05,
+                -0.029269857306017312
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                0.5116165128172623,
+                -0.550792814413502,
+                0.5536922402537848
+              ],
+              [
+                0.5116165128172623,
+                1.0,
+                -0.36947278078012213,
+                0.6430687061580506
+              ],
+              [
+                -0.550792814413502,
+                -0.36947278078012213,
+                1.0000000000000002,
+                -0.1671879296176811
+              ],
+              [
+                0.5536922402537848,
+                0.6430687061580506,
+                -0.1671879296176811,
+                1.0
+              ]
+            ],
+            "condition_number": 794.1559445137362,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 419.5046482034285
+          },
+          "fidelity_diagonal": [
+            882.3800707435936,
+            96.68823492958722,
+            115.09215993577016,
+            2.5641561318678896
+          ],
+          "base_norm": 1.0
+        }
+      ],
+      "relative_step_changes": [
+        0.05707029790307848,
+        0.0005884004995256203
+      ],
+      "convergence_status": "converged",
+      "final_metric": {
+        "matrix": [
+          [
+            882.3757953520787,
+            149.43697494205045,
+            -175.52450015637334,
+            26.337070653344714
+          ],
+          [
+            149.43697494205045,
+            96.68819265694566,
+            -38.975514450778135,
+            10.125496678623566
+          ],
+          [
+            -175.52450015637334,
+            -38.975514450778135,
+            115.09206222339456,
+            -2.8721018989660227
+          ],
+          [
+            26.337070653344714,
+            10.125496678623566,
+            -2.8721018989660227,
+            2.564156197488662
+          ]
+        ],
+        "eigenvalues": [
+          1.1954666317465505,
+          65.96834870654473,
+          80.16945902227957,
+          949.3869320693368
+        ],
+        "eigenvectors": [
+          [
+            -0.02319263391701425,
+            0.05420666347004641,
+            -0.27114663722604543,
+            -0.9607305764304808
+          ],
+          [
+            -0.08552826582296333,
+            -0.8619017027150754,
+            0.46690969270042193,
+            -0.17834155282650233
+          ],
+          [
+            -0.03991233278904355,
+            -0.495578291303367,
+            -0.8417094732625378,
+            0.21055717869565374
+          ],
+          [
+            0.9952658052845205,
+            -0.09267820499521029,
+            5.102456928793054e-05,
+            -0.029269857306017312
+          ]
+        ],
+        "normalized_correlations": [
+          [
+            1.0,
+            0.5116165128172623,
+            -0.550792814413502,
+            0.5536922402537848
+          ],
+          [
+            0.5116165128172623,
+            1.0,
+            -0.36947278078012213,
+            0.6430687061580506
+          ],
+          [
+            -0.550792814413502,
+            -0.36947278078012213,
+            1.0000000000000002,
+            -0.1671879296176811
+          ],
+          [
+            0.5536922402537848,
+            0.6430687061580506,
+            -0.1671879296176811,
+            1.0
+          ]
+        ],
+        "condition_number": 794.1559445137362,
+        "numerical_rank": 4,
+        "psd_residual": 0.0,
+        "eta_effective_information_with_nuisance": 419.5046482034285
+      },
+      "state_norm": 1.0
+    },
+    {
+      "kind": "driven",
+      "parameters": {
+        "eta": 0.15,
+        "wq_wc": 1.027,
+        "gd_over_g0": 0.11923,
+        "wd_wc": 2.077,
+        "phase": 0.0,
+        "drive_detuning_offset": 0.0
+      },
+      "n_cav": 20,
+      "n_drive_periods": 6,
+      "parameter_names": [
+        "eta",
+        "wq_wc",
+        "gd_over_g0",
+        "phase"
+      ],
+      "finite_difference": [
+        {
+          "step": 0.01,
+          "metric": {
+            "matrix": [
+              [
+                324.51356629215917,
+                71.0939863223943,
+                -89.48925717278875,
+                15.869307459263291
+              ],
+              [
+                71.0939863223943,
+                32.683064443711395,
+                -2.5862684665873292,
+                7.872820299852402
+              ],
+              [
+                -89.48925717278875,
+                -2.5862684665873292,
+                138.150448266801,
+                0.4298720805817749
+              ],
+              [
+                15.869307459263291,
+                7.872820299852402,
+                0.4298720805817749,
+                2.2732204835839442
+              ]
+            ],
+            "eigenvalues": [
+              0.3431311560517544,
+              14.011124774122608,
+              108.84516242926698,
+              374.4208811268142
+            ],
+            "eigenvectors": [
+              [
+                0.006566599182361879,
+                0.27310719199163075,
+                -0.2943443532381124,
+                -0.9158224408554657
+              ],
+              [
+                -0.25038980022671314,
+                -0.9148434283176324,
+                -0.2503439965276152,
+                -0.19415028459688294
+              ],
+              [
+                -0.0034548346197732466,
+                0.17864092796584866,
+                -0.9199612687490731,
+                0.3489222649457146
+              ],
+              [
+                0.9681166726357704,
+                -0.2378263698625313,
+                -0.06603445404495871,
+                -0.042757184678599326
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0000000000000002,
+                0.6903273064081475,
+                -0.42264752032315606,
+                0.5842796567727794
+              ],
+              [
+                0.6903273064081475,
+                0.9999999999999998,
+                -0.038488950605556016,
+                0.9133730078276433
+              ],
+              [
+                -0.42264752032315606,
+                -0.038488950605556016,
+                1.0,
+                0.024257291647599172
+              ],
+              [
+                0.5842796567727794,
+                0.9133730078276433,
+                0.024257291647599172,
+                0.9999999999999998
+              ]
+            ],
+            "condition_number": 1091.1888195612885,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 117.85263570540289
+          },
+          "fidelity_diagonal": [
+            326.7759211801846,
+            32.72435455234479,
+            138.46714645416645,
+            2.2734006401425866
+          ],
+          "base_norm": 0.9999999999999999
+        },
+        {
+          "step": 0.001,
+          "metric": {
+            "matrix": [
+              [
+                328.5627486161207,
+                71.4699146655334,
+                -90.09016373272125,
+                15.965939578692431
+              ],
+              [
+                71.4699146655334,
+                32.75639147342733,
+                -2.5596775158283993,
+                7.883356715406283
+              ],
+              [
+                -90.09016373272125,
+                -2.5596775158283993,
+                138.6326656000508,
+                0.43008067812655415
+              ],
+              [
+                15.965939578692431,
+                7.883356715406283,
+                0.43008067812655415,
+                2.273499734717925
+              ]
+            ],
+            "eigenvalues": [
+              0.34311515585750735,
+              14.125593616855435,
+              109.35374602226729,
+              378.40285062933646
+            ],
+            "eigenvectors": [
+              [
+                0.006288923052777492,
+                0.2712360777487326,
+                -0.29254320036173975,
+                -0.9169568776646099
+              ],
+              [
+                -0.2496520665744377,
+                -0.9156418327712764,
+                -0.2489410044472143,
+                -0.19313791973401573
+              ],
+              [
+                -0.0035354048631915445,
+                0.17825463885232365,
+                -0.9209438460524143,
+                0.3465187109785958
+              ],
+              [
+                0.9683087297006064,
+                -0.23718412243312129,
+                -0.06564514182412554,
+                -0.04257477429321851
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                0.6889156896889539,
+                -0.42211951240253626,
+                0.5841681382756823
+              ],
+              [
+                0.6889156896889539,
+                1.0,
+                -0.03798432737416085,
+                0.9135150321103006
+              ],
+              [
+                -0.42211951240253626,
+                -0.03798432737416085,
+                1.0,
+                0.024225329396808305
+              ],
+              [
+                0.5841681382756823,
+                0.9135150321103006,
+                0.024225329396808305,
+                1.0
+              ]
+            ],
+            "condition_number": 1102.8450482860155,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 120.07563601921458
+          },
+          "fidelity_diagonal": [
+            328.5856513324248,
+            32.756804958289365,
+            138.63584551909724,
+            2.2735015396957436
+          ],
+          "base_norm": 0.9999999999999999
+        },
+        {
+          "step": 0.0001,
+          "metric": {
+            "matrix": [
+              [
+                328.60357101347444,
+                71.47368246604681,
+                -90.09622666970708,
+                15.966908119948885
+              ],
+              [
+                71.47368246604681,
+                32.757125251031056,
+                -2.5594139999792507,
+                7.883462154384585
+              ],
+              [
+                -90.09622666970708,
+                -2.5594139999792507,
+                138.63745694674586,
+                0.4300832349684837
+              ],
+              [
+                15.966908119948885,
+                7.883462154384585,
+                0.4300832349684837,
+                2.273502525840854
+              ]
+            ],
+            "eigenvalues": [
+              0.3431148841765258,
+              14.126741526688658,
+              109.35879241067047,
+              378.44300691555657
+            ],
+            "eigenvectors": [
+              [
+                0.006286171658929742,
+                0.27121739218260194,
+                -0.2925251834167048,
+                -0.9169681713617799
+              ],
+              [
+                -0.24964472574482593,
+                -0.9156497577445308,
+                -0.2489271041493904,
+                -0.19312775271817145
+              ],
+              [
+                -0.003536211412867506,
+                0.1782508671993134,
+                -0.9209536006806874,
+                0.3464947170518087
+              ],
+              [
+                0.9683106372247021,
+                -0.23717773011550503,
+                -0.06564129249259679,
+                -0.04257293617604275
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0000000000000002,
+                0.6889014968505538,
+                -0.4221144035337952,
+                0.584166928153245
+              ],
+              [
+                0.6889014968505538,
+                1.0,
+                -0.03797933523308417,
+                0.9135164577027192
+              ],
+              [
+                -0.4221144035337952,
+                -0.03797933523308417,
+                1.0,
+                0.024225039923869932
+              ],
+              [
+                0.584166928153245,
+                0.9135164577027192,
+                0.024225039923869932,
+                1.0
+              ]
+            ],
+            "condition_number": 1102.962956048433,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 120.0980606231584
+          },
+          "fidelity_diagonal": [
+            328.6038001037994,
+            32.75712934236452,
+            138.63748895559524,
+            2.2735026306008876
+          ],
+          "base_norm": 0.9999999999999999
+        }
+      ],
+      "relative_step_changes": [
+        0.010661816356020702,
+        0.00010744979682000847
+      ],
+      "convergence_status": "converged",
+      "final_metric": {
+        "matrix": [
+          [
+            328.60357101347444,
+            71.47368246604681,
+            -90.09622666970708,
+            15.966908119948885
+          ],
+          [
+            71.47368246604681,
+            32.757125251031056,
+            -2.5594139999792507,
+            7.883462154384585
+          ],
+          [
+            -90.09622666970708,
+            -2.5594139999792507,
+            138.63745694674586,
+            0.4300832349684837
+          ],
+          [
+            15.966908119948885,
+            7.883462154384585,
+            0.4300832349684837,
+            2.273502525840854
+          ]
+        ],
+        "eigenvalues": [
+          0.3431148841765258,
+          14.126741526688658,
+          109.35879241067047,
+          378.44300691555657
+        ],
+        "eigenvectors": [
+          [
+            0.006286171658929742,
+            0.27121739218260194,
+            -0.2925251834167048,
+            -0.9169681713617799
+          ],
+          [
+            -0.24964472574482593,
+            -0.9156497577445308,
+            -0.2489271041493904,
+            -0.19312775271817145
+          ],
+          [
+            -0.003536211412867506,
+            0.1782508671993134,
+            -0.9209536006806874,
+            0.3464947170518087
+          ],
+          [
+            0.9683106372247021,
+            -0.23717773011550503,
+            -0.06564129249259679,
+            -0.04257293617604275
+          ]
+        ],
+        "normalized_correlations": [
+          [
+            1.0000000000000002,
+            0.6889014968505538,
+            -0.4221144035337952,
+            0.584166928153245
+          ],
+          [
+            0.6889014968505538,
+            1.0,
+            -0.03797933523308417,
+            0.9135164577027192
+          ],
+          [
+            -0.4221144035337952,
+            -0.03797933523308417,
+            1.0,
+            0.024225039923869932
+          ],
+          [
+            0.584166928153245,
+            0.9135164577027192,
+            0.024225039923869932,
+            1.0
+          ]
+        ],
+        "condition_number": 1102.962956048433,
+        "numerical_rank": 4,
+        "psd_residual": 0.0,
+        "eta_effective_information_with_nuisance": 120.0980606231584
+      },
+      "state_norm": 0.9999999999999999
+    },
+    {
+      "kind": "driven",
+      "parameters": {
+        "eta": 0.15,
+        "wq_wc": 1.027,
+        "gd_over_g0": 0.11923,
+        "wd_wc": 2.077,
+        "phase": 0.0,
+        "drive_detuning_offset": 0.0
+      },
+      "n_cav": 20,
+      "n_drive_periods": 10,
+      "parameter_names": [
+        "eta",
+        "wq_wc",
+        "gd_over_g0",
+        "phase"
+      ],
+      "finite_difference": [
+        {
+          "step": 0.01,
+          "metric": {
+            "matrix": [
+              [
+                1103.329560506859,
+                290.5121126724343,
+                -139.88895365038715,
+                58.007762455813385
+              ],
+              [
+                290.5121126724343,
+                136.12593179299867,
+                -28.597761291420074,
+                23.052055226450776
+              ],
+              [
+                -139.88895365038715,
+                -28.597761291420074,
+                233.98113632761536,
+                4.218344163103518
+              ],
+              [
+                58.007762455813385,
+                23.052055226450776,
+                4.218344163103518,
+                6.185258973035566
+              ]
+            ],
+            "eigenvalues": [
+              1.5788835577143798,
+              55.63837116088055,
+              214.54726052552863,
+              1207.857372356385
+            ],
+            "eigenvectors": [
+              [
+                -0.025194950731106506,
+                0.27912763682198866,
+                -0.11867748636947029,
+                -0.9525589908498336
+              ],
+              [
+                -0.125644634963694,
+                -0.951412517816462,
+                -0.09890206911870023,
+                -0.2631463991222753
+              ],
+              [
+                -0.04860619147448431,
+                0.06898760773851759,
+                -0.9859236580565481,
+                0.14433533390427014
+              ],
+              [
+                0.9905635155369105,
+                -0.11019388949859402,
+                -0.0639419692960657,
+                -0.050523786149393526
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                0.9999999999999998,
+                0.7496200341821939,
+                -0.27532165521208374,
+                0.7021898421317591
+              ],
+              [
+                0.7496200341821939,
+                1.0,
+                -0.16024009031486958,
+                0.7944384851007167
+              ],
+              [
+                -0.27532165521208374,
+                -0.16024009031486958,
+                1.0000000000000002,
+                0.11088495966885391
+              ],
+              [
+                0.7021898421317591,
+                0.7944384851007167,
+                0.11088495966885391,
+                1.0
+              ]
+            ],
+            "condition_number": 765.0072524061882,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 381.7889116794764
+          },
+          "fidelity_diagonal": [
+            1128.3009912047626,
+            136.41857195143768,
+            235.55985840298277,
+            6.186569126040986
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.001,
+          "metric": {
+            "matrix": [
+              [
+                1148.479795113276,
+                293.8852031059358,
+                -142.71273095633555,
+                58.93369811132241
+              ],
+              [
+                293.8852031059358,
+                136.76683652636981,
+                -28.765606504729057,
+                23.116397520490274
+              ],
+              [
+                -142.71273095633555,
+                -28.765606504729057,
+                236.24237272168787,
+                4.175737069670752
+              ],
+              [
+                58.93369811132241,
+                23.116397520490274,
+                4.175737069670752,
+                6.187312711719283
+              ]
+            ],
+            "eigenvalues": [
+              1.5789567745489834,
+              57.758170748812056,
+              216.77853133175296,
+              1251.560658217939
+            ],
+            "eigenvectors": [
+              [
+                -0.024503363123954895,
+                0.27162690770596903,
+                -0.1173508029796546,
+                -0.954906905015216
+              ],
+              [
+                -0.12632255939524295,
+                -0.953610632938627,
+                -0.0944717674449638,
+                -0.25640681911768887
+              ],
+              [
+                -0.04801282252069968,
+                0.06611129561574991,
+                -0.9865918018412235,
+                0.14128227774668164
+              ],
+              [
+                0.9905235812725747,
+                -0.11169100388344202,
+                -0.0627733282178244,
+                -0.04947387046633307
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                0.7415247307064731,
+                -0.2739820680017288,
+                0.6991188008414105
+              ],
+              [
+                0.7415247307064731,
+                1.0,
+                -0.16003104329042542,
+                0.794655182906981
+              ],
+              [
+                -0.2739820680017288,
+                -0.16003104329042542,
+                0.9999999999999999,
+                0.10922026199315003
+              ],
+              [
+                0.6991188008414105,
+                0.794655182906981,
+                0.10922026199315003,
+                1.0000000000000002
+              ]
+            ],
+            "condition_number": 792.6503615499147,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 408.2014854216227
+          },
+          "fidelity_diagonal": [
+            1148.7390428743804,
+            136.7697667296053,
+            236.2583548269903,
+            6.18732581303405
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.0001,
+          "metric": {
+            "matrix": [
+              [
+                1148.943143983703,
+                293.91902825406993,
+                -142.74172479747253,
+                58.94297794947098
+              ],
+              [
+                293.91902825406993,
+                136.77325860063758,
+                -28.767353960756957,
+                23.117043497285938
+              ],
+              [
+                -142.74172479747253,
+                -28.767353960756957,
+                236.26469030275834,
+                4.175305114528877
+              ],
+              [
+                58.94297794947098,
+                23.117043497285938,
+                4.175305114528877,
+                6.18733386012318
+              ]
+            ],
+            "eigenvalues": [
+              1.5789585668551107,
+              57.77952502243916,
+              216.80049378421748,
+              1252.0094493737104
+            ],
+            "eigenvectors": [
+              [
+                -0.024496441945564065,
+                0.27155199480306574,
+                -0.11733753566732275,
+                -0.9549300189930165
+              ],
+              [
+                -0.12632952468716618,
+                -0.9536322074149522,
+                -0.0944275747633499,
+                -0.2563394181500625
+              ],
+              [
+                -0.048007038157286866,
+                0.0660824201300321,
+                -0.9865983444984815,
+                0.14125206076365016
+              ],
+              [
+                0.9905231445108628,
+                -0.11170604660948107,
+                -0.06276179156689948,
+                -0.04946328798721744
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                0.7414431157179737,
+                -0.2739695274025027,
+                0.6990866833102559
+              ],
+              [
+                0.7414431157179737,
+                1.0,
+                -0.16002944880570838,
+                0.7946573741651117
+              ],
+              [
+                -0.2739695274025027,
+                -0.16002944880570838,
+                0.9999999999999999,
+                0.10920361911148345
+              ],
+              [
+                0.6990866833102559,
+                0.7946573741651117,
+                0.10920361911148345,
+                0.9999999999999999
+              ]
+            ],
+            "condition_number": 792.9336941800816,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 408.47465102691933
+          },
+          "fidelity_diagonal": [
+            1148.9457368174526,
+            136.77328773997743,
+            236.2648506837317,
+            6.18733391188897
+          ],
+          "base_norm": 1.0
+        }
+      ],
+      "relative_step_changes": [
+        0.03590765436386187,
+        0.000368236776368066
+      ],
+      "convergence_status": "converged",
+      "final_metric": {
+        "matrix": [
+          [
+            1148.943143983703,
+            293.91902825406993,
+            -142.74172479747253,
+            58.94297794947098
+          ],
+          [
+            293.91902825406993,
+            136.77325860063758,
+            -28.767353960756957,
+            23.117043497285938
+          ],
+          [
+            -142.74172479747253,
+            -28.767353960756957,
+            236.26469030275834,
+            4.175305114528877
+          ],
+          [
+            58.94297794947098,
+            23.117043497285938,
+            4.175305114528877,
+            6.18733386012318
+          ]
+        ],
+        "eigenvalues": [
+          1.5789585668551107,
+          57.77952502243916,
+          216.80049378421748,
+          1252.0094493737104
+        ],
+        "eigenvectors": [
+          [
+            -0.024496441945564065,
+            0.27155199480306574,
+            -0.11733753566732275,
+            -0.9549300189930165
+          ],
+          [
+            -0.12632952468716618,
+            -0.9536322074149522,
+            -0.0944275747633499,
+            -0.2563394181500625
+          ],
+          [
+            -0.048007038157286866,
+            0.0660824201300321,
+            -0.9865983444984815,
+            0.14125206076365016
+          ],
+          [
+            0.9905231445108628,
+            -0.11170604660948107,
+            -0.06276179156689948,
+            -0.04946328798721744
+          ]
+        ],
+        "normalized_correlations": [
+          [
+            1.0,
+            0.7414431157179737,
+            -0.2739695274025027,
+            0.6990866833102559
+          ],
+          [
+            0.7414431157179737,
+            1.0,
+            -0.16002944880570838,
+            0.7946573741651117
+          ],
+          [
+            -0.2739695274025027,
+            -0.16002944880570838,
+            0.9999999999999999,
+            0.10920361911148345
+          ],
+          [
+            0.6990866833102559,
+            0.7946573741651117,
+            0.10920361911148345,
+            0.9999999999999999
+          ]
+        ],
+        "condition_number": 792.9336941800816,
+        "numerical_rank": 4,
+        "psd_residual": 0.0,
+        "eta_effective_information_with_nuisance": 408.47465102691933
+      },
+      "state_norm": 1.0
+    },
+    {
+      "kind": "driven",
+      "parameters": {
+        "eta": 0.15,
+        "wq_wc": 1.027,
+        "gd_over_g0": 0.11923,
+        "wd_wc": 2.11854,
+        "phase": 0.0,
+        "drive_detuning_offset": 0.02
+      },
+      "n_cav": 20,
+      "n_drive_periods": 6,
+      "parameter_names": [
+        "eta",
+        "wq_wc",
+        "gd_over_g0",
+        "phase"
+      ],
+      "finite_difference": [
+        {
+          "step": 0.01,
+          "metric": {
+            "matrix": [
+              [
+                288.56362243946296,
+                85.90166383266425,
+                -51.13017223164093,
+                19.93299281093197
+              ],
+              [
+                85.90166383266425,
+                37.61615639681652,
+                5.315800749859455,
+                8.739364190847459
+              ],
+              [
+                -51.13017223164093,
+                5.315800749859455,
+                146.7973836745439,
+                0.7532343544909692
+              ],
+              [
+                19.93299281093197,
+                8.739364190847459,
+                0.7532343544909692,
+                2.334735458654612
+              ]
+            ],
+            "eigenvalues": [
+              0.2847596731564126,
+              8.353038088796778,
+              137.76382601506026,
+              328.91027419246456
+            ],
+            "eigenvectors": [
+              [
+                0.006004753694173948,
+                0.3221361010618564,
+                -0.19232153982296304,
+                -0.9269329536950677
+              ],
+              [
+                -0.2418015249344954,
+                -0.9055132500730582,
+                -0.21983697173878947,
+                -0.2706464157128236
+              ],
+              [
+                0.0058802957454785025,
+                0.15498347329695095,
+                -0.9551956649111168,
+                0.25208488027204
+              ],
+              [
+                0.9702893318976412,
+                -0.22859179630862975,
+                -0.04780557406676371,
+                -0.0632378854340534
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0000000000000002,
+                0.8245055368934828,
+                -0.2484261491233392,
+                0.7679498854267234
+              ],
+              [
+                0.8245055368934828,
+                0.9999999999999998,
+                0.07153561705797244,
+                0.9325535711513113
+              ],
+              [
+                -0.2484261491233392,
+                0.07153561705797244,
+                1.0,
+                0.040686667743690376
+              ],
+              [
+                0.7679498854267234,
+                0.9325535711513113,
+                0.040686667743690376,
+                1.0
+              ]
+            ],
+            "condition_number": 1155.0451317304362,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 64.80625376089097
+          },
+          "fidelity_diagonal": [
+            290.1921858618195,
+            37.65395824293138,
+            147.0887990747416,
+            2.334886468793318
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.001,
+          "metric": {
+            "matrix": [
+              [
+                291.4144709017972,
+                86.25796131447798,
+                -51.20717418714556,
+                20.02562559235912
+              ],
+              [
+                86.25796131447798,
+                37.68526520624695,
+                5.3850886099382675,
+                8.748468928306892
+              ],
+              [
+                -51.20717418714556,
+                5.3850886099382675,
+                147.32994451410306,
+                0.7567501640844112
+              ],
+              [
+                20.02562559235912,
+                8.748468928306892,
+                0.7567501640844112,
+                2.334979292637632
+              ]
+            ],
+            "eigenvalues": [
+              0.28474732425476795,
+              8.472227375270743,
+              138.3908166226319,
+              331.61686859262755
+            ],
+            "eigenvectors": [
+              [
+                0.0055663933815588715,
+                0.3204200275694507,
+                -0.19054039918621776,
+                -0.9278978270666824
+              ],
+              [
+                -0.2406954766815053,
+                -0.9064567673756042,
+                -0.21843818885982802,
+                -0.2696044770245308
+              ],
+              [
+                0.005758287522208966,
+                0.1545564326870399,
+                -0.9558931142967241,
+                0.2496948242955358
+              ],
+              [
+                0.9705676405560802,
+                -0.22755096995270852,
+                -0.04740746740446503,
+                -0.06302018100005621
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                0.8231099366590018,
+                -0.24713243073609303,
+                0.7676955416258764
+              ],
+              [
+                0.8231099366590018,
+                0.9999999999999998,
+                0.07227058218792039,
+                0.9326200522990408
+              ],
+              [
+                -0.24713243073609303,
+                0.07227058218792039,
+                1.0,
+                0.04080050085769744
+              ],
+              [
+                0.7676955416258764,
+                0.9326200522990408,
+                0.04080050085769744,
+                1.0
+              ]
+            ],
+            "condition_number": 1164.6004732810927,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 66.28746187183938
+          },
+          "fidelity_diagonal": [
+            291.4309650317026,
+            37.68564366213312,
+            147.3328699297394,
+            2.3349808040418196
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.0001,
+          "metric": {
+            "matrix": [
+              [
+                291.4432114034638,
+                86.2615293993423,
+                -51.20795970167187,
+                20.02655337200643
+              ],
+              [
+                86.2615293993423,
+                37.68595685493393,
+                5.385782202198594,
+                8.748560047643629
+              ],
+              [
+                -51.20795970167187,
+                5.385782202198594,
+                147.33530909638725,
+                0.7567845763690547
+              ],
+              [
+                20.02655337200643,
+                8.748560047643629,
+                0.7567845763690547,
+                2.334981755770421
+              ]
+            ],
+            "eigenvalues": [
+              0.2847470841144482,
+              8.473429664554075,
+              138.39711706851855,
+              331.64416529336825
+            ],
+            "eigenvectors": [
+              [
+                0.00556208449843107,
+                0.3204028121208111,
+                -0.19052267916075802,
+                -0.9279074360767433
+              ],
+              [
+                -0.24068455836351166,
+                -0.9064661540526224,
+                -0.21842424734744653,
+                -0.26959395967475025
+              ],
+              [
+                0.0057571008518763605,
+                0.15455215620109738,
+                -0.955900029099092,
+                0.24967102589553497
+              ],
+              [
+                0.9705703799164567,
+                -0.22754072285135205,
+                -0.047403494222096734,
+                -0.06301798004256325
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                0.8230958436769801,
+                -0.24711953681224486,
+                0.7676928481458593
+              ],
+              [
+                0.8230958436769801,
+                1.0,
+                0.07227791138432371,
+                0.9326207157679608
+              ],
+              [
+                -0.24711953681224486,
+                0.07227791138432371,
+                0.9999999999999998,
+                0.04080159186189808
+              ],
+              [
+                0.7676928481458593,
+                0.9326207157679608,
+                0.04080159186189808,
+                1.0
+              ]
+            ],
+            "condition_number": 1164.6973184107153,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 66.30245058948464
+          },
+          "fidelity_diagonal": [
+            291.44337623243644,
+            37.68596066322516,
+            147.33533835187274,
+            2.3349816302697946
+          ],
+          "base_norm": 1.0
+        }
+      ],
+      "relative_step_changes": [
+        0.00821012361455855,
+        8.274416732638534e-05
+      ],
+      "convergence_status": "converged",
+      "final_metric": {
+        "matrix": [
+          [
+            291.4432114034638,
+            86.2615293993423,
+            -51.20795970167187,
+            20.02655337200643
+          ],
+          [
+            86.2615293993423,
+            37.68595685493393,
+            5.385782202198594,
+            8.748560047643629
+          ],
+          [
+            -51.20795970167187,
+            5.385782202198594,
+            147.33530909638725,
+            0.7567845763690547
+          ],
+          [
+            20.02655337200643,
+            8.748560047643629,
+            0.7567845763690547,
+            2.334981755770421
+          ]
+        ],
+        "eigenvalues": [
+          0.2847470841144482,
+          8.473429664554075,
+          138.39711706851855,
+          331.64416529336825
+        ],
+        "eigenvectors": [
+          [
+            0.00556208449843107,
+            0.3204028121208111,
+            -0.19052267916075802,
+            -0.9279074360767433
+          ],
+          [
+            -0.24068455836351166,
+            -0.9064661540526224,
+            -0.21842424734744653,
+            -0.26959395967475025
+          ],
+          [
+            0.0057571008518763605,
+            0.15455215620109738,
+            -0.955900029099092,
+            0.24967102589553497
+          ],
+          [
+            0.9705703799164567,
+            -0.22754072285135205,
+            -0.047403494222096734,
+            -0.06301798004256325
+          ]
+        ],
+        "normalized_correlations": [
+          [
+            1.0,
+            0.8230958436769801,
+            -0.24711953681224486,
+            0.7676928481458593
+          ],
+          [
+            0.8230958436769801,
+            1.0,
+            0.07227791138432371,
+            0.9326207157679608
+          ],
+          [
+            -0.24711953681224486,
+            0.07227791138432371,
+            0.9999999999999998,
+            0.04080159186189808
+          ],
+          [
+            0.7676928481458593,
+            0.9326207157679608,
+            0.04080159186189808,
+            1.0
+          ]
+        ],
+        "condition_number": 1164.6973184107153,
+        "numerical_rank": 4,
+        "psd_residual": 0.0,
+        "eta_effective_information_with_nuisance": 66.30245058948464
+      },
+      "state_norm": 1.0
+    },
+    {
+      "kind": "driven",
+      "parameters": {
+        "eta": 0.15,
+        "wq_wc": 1.027,
+        "gd_over_g0": 0.11923,
+        "wd_wc": 2.11854,
+        "phase": 0.0,
+        "drive_detuning_offset": 0.02
+      },
+      "n_cav": 20,
+      "n_drive_periods": 10,
+      "parameter_names": [
+        "eta",
+        "wq_wc",
+        "gd_over_g0",
+        "phase"
+      ],
+      "finite_difference": [
+        {
+          "step": 0.01,
+          "metric": {
+            "matrix": [
+              [
+                1232.5127293665112,
+                369.1119416527688,
+                -12.830612136128808,
+                69.9281036274735
+              ],
+              [
+                369.1119416527688,
+                161.5691842691544,
+                33.23883434949456,
+                28.512094343452713
+              ],
+              [
+                -12.830612136128808,
+                33.23883434949456,
+                339.8563182940391,
+                13.610104169306839
+              ],
+              [
+                69.9281036274735,
+                28.512094343452713,
+                13.610104169306839,
+                6.73227750275491
+              ]
+            ],
+            "eigenvalues": [
+              1.3676061160556845,
+              42.977355932184786,
+              344.70814126513125,
+              1351.6174061190882
+            ],
+            "eigenvectors": [
+              [
+                -0.017534649188793026,
+                -0.2994797120078973,
+                -0.03620812709248385,
+                -0.9532541160183614
+              ],
+              [
+                -0.13021196586002817,
+                0.9391234391152196,
+                0.11360699888169856,
+                -0.2969603674842198
+              ],
+              [
+                -0.027722429294273723,
+                -0.12334425009878303,
+                0.99197538353304,
+                0.0015815644378933296
+              ],
+              [
+                0.9909434125815243,
+                0.1146527983419419,
+                0.04203878925500365,
+                -0.05584468722822766
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0000000000000002,
+                0.8271478077674173,
+                -0.0198245800270389,
+                0.7676708317205478
+              ],
+              [
+                0.8271478077674173,
+                1.0,
+                0.14184657204118276,
+                0.8645076658445581
+              ],
+              [
+                -0.0198245800270389,
+                0.14184657204118276,
+                1.0000000000000002,
+                0.28453308356891904
+              ],
+              [
+                0.7676708317205478,
+                0.8645076658445581,
+                0.28453308356891904,
+                1.0
+              ]
+            ],
+            "condition_number": 988.3089803790075,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 334.69534283986445
+          },
+          "fidelity_diagonal": [
+            1247.6150909831852,
+            161.71105331626688,
+            341.80619975495705,
+            6.733000502379127
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.001,
+          "metric": {
+            "matrix": [
+              [
+                1269.1780550655662,
+                372.5017172482904,
+                -11.018749682744627,
+                70.73159430257878
+              ],
+              [
+                372.5017172482904,
+                162.06702987058677,
+                33.93242213641353,
+                28.56289879691618
+              ],
+              [
+                -11.018749682744627,
+                33.93242213641353,
+                343.39035089842685,
+                13.667476474041058
+              ],
+              [
+                70.73159430257878,
+                28.56289879691618,
+                13.667476474041058,
+                6.733614798102674
+              ]
+            ],
+            "eigenvalues": [
+              1.3692283662804179,
+              44.73441523317434,
+              348.2403801329489,
+              1387.0250269002788
+            ],
+            "eigenvectors": [
+              [
+                -0.01710976020384851,
+                -0.29399181579653655,
+                -0.037045003158764536,
+                -0.9549365089320802
+              ],
+              [
+                -0.13072527801355222,
+                0.9407738057283351,
+                0.11305389561468766,
+                -0.2916751014914493
+              ],
+              [
+                -0.027178971060417365,
+                -0.12302772466479418,
+                0.9920309812885,
+                -0.00012107714952043747
+              ],
+              [
+                0.9908983102852396,
+                0.11566173811543455,
+                0.04148513699008352,
+                -0.054971669238684746
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                0.8213337432838932,
+                -0.016690793969051276,
+                0.7651173246188329
+              ],
+              [
+                0.8213337432838932,
+                1.0,
+                0.14383794870780223,
+                0.8646310156038711
+              ],
+              [
+                -0.016690793969051276,
+                0.14383794870780223,
+                1.0000000000000002,
+                0.28423015830173864
+              ],
+              [
+                0.7651173246188329,
+                0.8646310156038711,
+                0.28423015830173864,
+                1.0
+              ]
+            ],
+            "condition_number": 1012.9975839371532,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 356.215183263834
+          },
+          "fidelity_diagonal": [
+            1269.335550464268,
+            162.06844848776214,
+            343.4100915924443,
+            6.7336220226366095
+          ],
+          "base_norm": 1.0
+        },
+        {
+          "step": 0.0001,
+          "metric": {
+            "matrix": [
+              [
+                1269.5535360518425,
+                372.5357177386069,
+                -11.000912265675181,
+                70.73962854363835
+              ],
+              [
+                372.5357177386069,
+                162.07201084193207,
+                33.93938195767403,
+                28.563407832405563
+              ],
+              [
+                -11.000912265675181,
+                33.93938195767403,
+                343.4256738108426,
+                13.668071826927399
+              ],
+              [
+                70.73962854363835,
+                28.563407832405563,
+                13.668071826927399,
+                6.733627813219662
+              ]
+            ],
+            "eigenvalues": [
+              1.3692440332041196,
+              44.752226226263055,
+              348.2757155798318,
+              1387.3876626785377
+            ],
+            "eigenvectors": [
+              [
+                -0.01710543558344089,
+                -0.29393657697775816,
+                -0.03705286073836812,
+                -0.9549532859251296
+              ],
+              [
+                -0.1307306435481336,
+                0.9407901090009001,
+                0.11304944804231987,
+                -0.2916218303572153
+              ],
+              [
+                -0.027173647273205603,
+                -0.12302539401932495,
+                0.9920314140525539,
+                -0.00013730677984879518
+              ],
+              [
+                0.9908978230901826,
+                0.11567200156936505,
+                0.04147989080651565,
+                -0.054962813854035536
+              ]
+            ],
+            "normalized_correlations": [
+              [
+                1.0,
+                0.821274612754639,
+                -0.016660453234978317,
+                0.7650903270353732
+              ],
+              [
+                0.821274612754639,
+                0.9999999999999998,
+                0.14385784151109185,
+                0.8646323023505891
+              ],
+              [
+                -0.016660453234978317,
+                0.14385784151109185,
+                1.0,
+                0.2842276464290264
+              ],
+              [
+                0.7650903270353732,
+                0.8646323023505891,
+                0.2842276464290264,
+                1.0
+              ]
+            ],
+            "condition_number": 1013.2508369833541,
+            "numerical_rank": 4,
+            "psd_residual": 0.0,
+            "eta_effective_information_with_nuisance": 356.4377136227723
+          },
+          "fidelity_diagonal": [
+            1269.5551113495185,
+            162.07202495621686,
+            343.4258710077742,
+            6.733627855304292
+          ],
+          "base_norm": 1.0
+        }
+      ],
+      "relative_step_changes": [
+        0.02604736874581495,
+        0.00026647272866187473
+      ],
+      "convergence_status": "converged",
+      "final_metric": {
+        "matrix": [
+          [
+            1269.5535360518425,
+            372.5357177386069,
+            -11.000912265675181,
+            70.73962854363835
+          ],
+          [
+            372.5357177386069,
+            162.07201084193207,
+            33.93938195767403,
+            28.563407832405563
+          ],
+          [
+            -11.000912265675181,
+            33.93938195767403,
+            343.4256738108426,
+            13.668071826927399
+          ],
+          [
+            70.73962854363835,
+            28.563407832405563,
+            13.668071826927399,
+            6.733627813219662
+          ]
+        ],
+        "eigenvalues": [
+          1.3692440332041196,
+          44.752226226263055,
+          348.2757155798318,
+          1387.3876626785377
+        ],
+        "eigenvectors": [
+          [
+            -0.01710543558344089,
+            -0.29393657697775816,
+            -0.03705286073836812,
+            -0.9549532859251296
+          ],
+          [
+            -0.1307306435481336,
+            0.9407901090009001,
+            0.11304944804231987,
+            -0.2916218303572153
+          ],
+          [
+            -0.027173647273205603,
+            -0.12302539401932495,
+            0.9920314140525539,
+            -0.00013730677984879518
+          ],
+          [
+            0.9908978230901826,
+            0.11567200156936505,
+            0.04147989080651565,
+            -0.054962813854035536
+          ]
+        ],
+        "normalized_correlations": [
+          [
+            1.0,
+            0.821274612754639,
+            -0.016660453234978317,
+            0.7650903270353732
+          ],
+          [
+            0.821274612754639,
+            0.9999999999999998,
+            0.14385784151109185,
+            0.8646323023505891
+          ],
+          [
+            -0.016660453234978317,
+            0.14385784151109185,
+            1.0,
+            0.2842276464290264
+          ],
+          [
+            0.7650903270353732,
+            0.8646323023505891,
+            0.2842276464290264,
+            1.0
+          ]
+        ],
+        "condition_number": 1013.2508369833541,
+        "numerical_rank": 4,
+        "psd_residual": 0.0,
+        "eta_effective_information_with_nuisance": 356.4377136227723
+      },
+      "state_norm": 1.0
+    }
+  ]
+}

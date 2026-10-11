@@ -1,0 +1,15 @@
+{
+  "row_id": "row_6a7f401662ec2ba7",
+  "parameters": {
+    "row_kind": "static",
+    "model": "flux_qubit_like",
+    "d_e": 5,
+    "eta": 1.0
+  },
+  "row_type": "static",
+  "qfi_ground_state": 6.561537651883498,
+  "ground_state_leakage_levels_ge_2": 0.8407958625042623,
+  "ground_state_photon_number": 6.25713597082015,
+  "ground_state_energy": -5.632955048439287,
+  "two_level_adequate": null
+}

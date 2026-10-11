@@ -1,0 +1,40 @@
+{
+  "schema": "trackB_multilevel_drive_sweep_v1",
+  "row_id": "row_69f81a6244e2e252",
+  "parameters": {
+    "model": "transmon_like",
+    "gd": 0.04,
+    "kappa_rel": 0.041,
+    "d_e": 3,
+    "eta": 0.15,
+    "drive_offset": 0.0
+  },
+  "status": "complete",
+  "qfi_peak": 69.93214309769513,
+  "qfi_final": 12.448167172607327,
+  "leakage_max": 0.01339802378379704,
+  "leakage_at_qfi_peak": 0.007814771355649225,
+  "photon_number_peak": 0.03892805399615593,
+  "pump_proxy_gd_squared": 0.0016,
+  "qfi_per_pump_proxy": 43707.589436059454,
+  "qfi_per_peak_photon": 1796.4459026028064,
+  "two_level_adequate": false,
+  "physicality": {
+    "reference": {
+      "max_trace_error": 3.3306690738754696e-16,
+      "max_hermiticity_error": 0.0,
+      "minimum_eigenvalue": -3.2592616594559866e-10,
+      "numerical_acceptance": true,
+      "note": "Numerical acceptance is not a proof of exact positivity."
+    },
+    "perturbed": {
+      "max_trace_error": 2.220446049250313e-16,
+      "max_hermiticity_error": 0.0,
+      "minimum_eigenvalue": -3.2594584639148477e-10,
+      "numerical_acceptance": true,
+      "note": "Numerical acceptance is not a proof of exact positivity."
+    }
+  },
+  "solver": "qutip.mesolve",
+  "leakage_tolerance": 0.01
+}

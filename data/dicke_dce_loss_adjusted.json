@@ -1,0 +1,133 @@
+{
+  "operating_point": {
+    "N": 32,
+    "eta": 1.15,
+    "gd_over_g0": 0.15,
+    "wq_wc": 1.0,
+    "wd_wc": 2.0,
+    "n_cav_truncation": 6,
+    "n_drive_periods": 10,
+    "delta": 0.001,
+    "J": 16.0,
+    "hilbert_dim": 198
+  },
+  "kappa_sweep": [
+    {
+      "kappa_rel": 0.0,
+      "kappa_2pi_MHz": 0.0,
+      "qfi_peak": 2961.8734591538855,
+      "qfi_peak_time_periods": 9.64824120603015,
+      "qfi_ss_mean": 2594.291986957931,
+      "n_peak": 3.3001083416403176,
+      "n_avg": 2.47341783265685,
+      "kappa_t_peak": 0.0,
+      "elapsed_s": 3.9359161853790283,
+      "n_steps": 200,
+      "physicality": {
+        "max_trace_error": 8.881784197001252e-16,
+        "max_hermiticity_error": 0.0,
+        "min_eigenvalue": -8.771780726152667e-16,
+        "samples_checked": 200
+      },
+      "kappa_index": 0
+    },
+    {
+      "kappa_rel": 0.0001,
+      "kappa_2pi_MHz": 0.6,
+      "qfi_peak": 2927.396569074148,
+      "qfi_peak_time_periods": 9.64824120603015,
+      "qfi_ss_mean": 2566.1990101500946,
+      "n_peak": 3.296962578376312,
+      "n_avg": 2.473145612829997,
+      "kappa_t_peak": 0.003031084369292665,
+      "elapsed_s": 149.7470507621765,
+      "n_steps": 200,
+      "physicality": {
+        "max_trace_error": 6.661338147750939e-16,
+        "max_hermiticity_error": 0.0,
+        "min_eigenvalue": -1.4176893724224877e-06,
+        "samples_checked": 200
+      },
+      "kappa_index": 1
+    },
+    {
+      "kappa_rel": 0.001,
+      "kappa_2pi_MHz": 6.0,
+      "qfi_peak": 2827.4744690710563,
+      "qfi_peak_time_periods": 9.64824120603015,
+      "qfi_ss_mean": 2490.0376632925436,
+      "n_peak": 3.268976570937957,
+      "n_avg": 2.4706315116911184,
+      "kappa_t_peak": 0.030310843692926647,
+      "elapsed_s": 147.9066653251648,
+      "n_steps": 200,
+      "physicality": {
+        "max_trace_error": 8.881784197001252e-16,
+        "max_hermiticity_error": 0.0,
+        "min_eigenvalue": -3.228919443251544e-08,
+        "samples_checked": 200
+      },
+      "kappa_index": 2
+    },
+    {
+      "kappa_rel": 0.01,
+      "kappa_2pi_MHz": 60.0,
+      "qfi_peak": 1817.6485378242903,
+      "qfi_peak_time_periods": 9.597989949748744,
+      "qfi_ss_mean": 1677.7683771275865,
+      "n_peak": 3.0811392150725303,
+      "n_avg": 2.442447519192642,
+      "kappa_t_peak": 0.3015297471535932,
+      "elapsed_s": 125.21979475021362,
+      "n_steps": 200,
+      "physicality": {
+        "max_trace_error": 8.881784197001252e-16,
+        "max_hermiticity_error": 0.0,
+        "min_eigenvalue": -1.6773718556332052e-08,
+        "samples_checked": 200
+      },
+      "kappa_index": 3
+    },
+    {
+      "kappa_rel": 0.041,
+      "kappa_2pi_MHz": 246.0,
+      "qfi_peak": 474.271308674723,
+      "qfi_peak_time_periods": 6.130653266331659,
+      "qfi_ss_mean": 321.32504422539563,
+      "n_peak": 2.487244450563077,
+      "n_avg": 2.359010992682153,
+      "kappa_t_peak": 0.7896606257917662,
+      "elapsed_s": 121.43414616584778,
+      "n_steps": 200,
+      "physicality": {
+        "max_trace_error": 1.1102230246251565e-15,
+        "max_hermiticity_error": 0.0,
+        "min_eigenvalue": -1.2657187485532812e-08,
+        "samples_checked": 200
+      },
+      "kappa_index": 4
+    }
+  ],
+  "caveat": "Photon truncation N_CAV=6 (vs N_CAV=28 in the pure-state production data) is used for Lindblad tractability. Validated 2026-09-02 from the complete SLURM checkpoint matrix preserved in jobs 15744/15764/15784 logs: all 20 points pass the physicality gate (trace/Hermiticity/min-eigenvalue with atol=rtol=1e-10 and a 1e-4 numerical eigenvalue acceptance floor; worst min eigenvalue -1.34e-5), and the N_CAV=6 loss curve is monotonic. TRUNCATION IS NOT CONVERGED: absolute peak QFI grows with N_CAV (2962 -> 4833 at kappa=0 over N_CAV=6..12) and retention at the physical point kappa/wc=4.1e-2 falls from 16.0% (N_CAV=6) to 6.6% (N_CAV=12); the earlier ~15% retention figure at kappa/wc=1e-2 was a numerical artifact of default solver tolerances and is superseded by 61.4% at N_CAV=6 (see the DAR §8 and this validation block).",
+  "note": "Mixed-state Dicke+DCE QFI under Lindblad cavity loss, validated SLURM checkpoint matrix (jobs 15744/15764/15784, 2026-09-02), N_CAV=6 row. Published reference (pure-state) peak ~2.5e5x at last window (N_CAV=28, 40 periods); the reduced-N_CAV=6 10-period pure-state peak is 2962x. Per-row diagnostics qfi_peak_time_periods, n_peak, n_avg, kappa_t_peak, and the physicality summary were restored by direct N_CAV=6 reruns with n_steps=200 and atol=rtol=1e-10; peak/SS values reproduce the validated run logs exactly.",
+  "validation": {
+    "checkpoint_dir": null,
+    "jobs": [
+      15744,
+      15764,
+      15784
+    ],
+    "report": null,
+    "physicality": "NUMERICAL_GATE_PASS (all 20 points; eigenvalue floor 1e-4; not exact positivity)",
+    "monotonicity": "PASS at N_CAV=6 and N_CAV=12; 5.0% bump at N_CAV=10 (and 4.7% at N_CAV=8) between kappa 1e-4 and 1e-3, flagged as numerical variation rather than assumed monotonicity",
+    "truncation_convergence": "FAIL within 5% (expected and documented)",
+    "supersedes": "entire earlier default-tolerance kappa_sweep in this file (15% retention at kappa/wc=1e-2 and ss_mean=0.0 were broken-run artifacts); rows replaced 2026-09-02 with values verified from slurm logs"
+  },
+  "provenance": {
+    "diagnostics_restored": {
+      "date": "2026-09-02",
+      "method": "Local rerun of validated N_CAV=6 points (n_steps=200, atol=rtol=1e-10, adaptive)",
+      "note": "Per-row diagnostics (qfi_peak_time_periods, n_peak, n_avg, kappa_t_peak, physicality) restored by direct recomputation; qfi_peak/qfi_ss_mean reproduce the SLURM-validated matrix exactly."
+    }
+  }
+}

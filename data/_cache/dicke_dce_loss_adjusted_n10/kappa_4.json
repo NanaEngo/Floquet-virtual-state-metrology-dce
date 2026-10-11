@@ -1,0 +1,40 @@
+{
+  "operating_point": {
+    "N": 32,
+    "eta": 1.15,
+    "gd_over_g0": 0.15,
+    "wq_wc": 1.0,
+    "wd_wc": 2.0,
+    "n_cav_truncation": 10,
+    "n_drive_periods": 10,
+    "delta": 0.001,
+    "n_steps": 200,
+    "J": 16.0,
+    "hilbert_dim": 330
+  },
+  "kappa_sweep": [
+    {
+      "kappa_rel": 0.041,
+      "kappa_2pi_MHz": 246.0,
+      "qfi_peak": 290.2371652835356,
+      "qfi_peak_time_periods": 4.020100502512563,
+      "qfi_ss_mean": 50.67547560460017,
+      "n_peak": 4.362895898880894,
+      "n_avg": 4.1779823001448495,
+      "kappa_t_peak": 0.5178102464208303,
+      "elapsed_s": 256.95576667785645,
+      "n_steps": 200,
+      "physicality": {
+        "gate": "numerical_eigenvalue_acceptance",
+        "eigenvalue_floor": -0.0001,
+        "max_trace_error": 6.661338147750939e-16,
+        "max_hermiticity_error": 0.0,
+        "min_eigenvalue": -2.979234479441796e-08,
+        "samples_checked": 200
+      },
+      "kappa_index": 4
+    }
+  ],
+  "caveat": "Photon truncation N_CAV=6 (vs N_CAV=28 in the pure-state production data) is used for Lindblad tractability. Absolute QFI values and the loss curve require truncation validation. The reported state check is a numerical physicality acceptance gate with an eigenvalue floor of 1e-4, not a proof of exact positivity; low-loss peak-QFI ordering is also checked empirically rather than assumed monotonic.",
+  "note": "Mixed-state QFI under Lindblad cavity loss. Published reference (pure-state) peak ~2.5e5x at last window."
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "trackB_cavity_heom_validation_v2",
+  "row_id": "row_1e8909a7963e7776",
+  "parameters": {
+    "kappa_target": 0.041,
+    "depth": 4,
+    "lam": 0.13058862024368878,
+    "gamma": 40.0,
+    "temperature": 0.05,
+    "t_final": 1.0
+  },
+  "kappa_target": 0.041,
+  "kappa_markov": 0.041,
+  "kappa_ratio_error": 0.0,
+  "mean_fidelity_error": 0.12334985359185788,
+  "max_fidelity_error": 0.2638847983736594,
+  "final_fidelity": 0.7361152016263406,
+  "hierarchy_depth": 4,
+  "matsubara_terms": 4,
+  "valid_for_agreement": true,
+  "physicality_heom": {
+    "max_trace_error": 2.220446049250313e-16,
+    "max_hermiticity_error": 0.0,
+    "minimum_eigenvalue": -1.39343462328906e-12,
+    "numerical_acceptance": true,
+    "note": "Numerical acceptance is not a proof of exact positivity."
+  },
+  "physicality_lindblad": {
+    "max_trace_error": 5.551115123125783e-16,
+    "max_hermiticity_error": 0.0,
+    "minimum_eigenvalue": -5.976211847031098e-09,
+    "numerical_acceptance": true,
+    "note": "Numerical acceptance is not a proof of exact positivity."
+  },
+  "status": "physical"
+}

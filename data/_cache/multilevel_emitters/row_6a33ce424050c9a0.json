@@ -1,0 +1,15 @@
+{
+  "row_id": "row_6a33ce424050c9a0",
+  "parameters": {
+    "row_kind": "static",
+    "model": "transmon_like",
+    "d_e": 3,
+    "eta": 1.0
+  },
+  "row_type": "static",
+  "qfi_ground_state": 14.037656450582858,
+  "ground_state_leakage_levels_ge_2": 0.2421227378608232,
+  "ground_state_photon_number": 2.8659606235239967,
+  "ground_state_energy": -1.9088358381042412,
+  "two_level_adequate": null
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "trackB_dicke_dce_loss_truncation_extension_v1",
+  "status": "FAIL",
+  "expected_rows": 6,
+  "valid_rows": 6,
+  "missing_checkpoints": [],
+  "failures": [
+    "truncation difference exceeds tolerance at kappa=0.0: 0.412694 > 0.05",
+    "truncation difference exceeds tolerance at kappa=0.01: 0.203024 > 0.05"
+  ],
+  "truncation_convergence_tolerance": 0.05,
+  "truncation_comparison": [
+    {
+      "kappa_rel": 0.0,
+      "relative_peak_qfi_difference": 0.4126941045173581,
+      "within_tolerance": false
+    },
+    {
+      "kappa_rel": 0.01,
+      "relative_peak_qfi_difference": 0.20302385879174217,
+      "within_tolerance": false
+    },
+    {
+      "kappa_rel": 0.041,
+      "relative_peak_qfi_difference": 0.03010437531616556,
+      "within_tolerance": true
+    }
+  ]
+}

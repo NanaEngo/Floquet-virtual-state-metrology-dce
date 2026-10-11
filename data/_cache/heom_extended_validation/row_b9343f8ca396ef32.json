@@ -1,0 +1,32 @@
+{
+  "row_id": "row_b9343f8ca396ef32",
+  "parameters": {
+    "family": "time_window",
+    "depth": 4,
+    "lam": 0.02,
+    "gamma": 20.0,
+    "temperature": 0.07,
+    "t_final": 4.0
+  },
+  "mean_fidelity_error": 0.0006768414988923763,
+  "max_fidelity_error": 0.0010543896380502682,
+  "final_fidelity": 0.9989456103619497,
+  "hierarchy_depth": 4,
+  "matsubara_terms": 4,
+  "valid_for_agreement": true,
+  "physicality_heom": {
+    "max_trace_error": 2.220446049250313e-16,
+    "max_hermiticity_error": 0.0,
+    "minimum_eigenvalue": 0.0,
+    "numerical_acceptance": true,
+    "note": "Numerical acceptance is not a proof of exact positivity."
+  },
+  "physicality_lindblad": {
+    "max_trace_error": 1.1102230246251565e-16,
+    "max_hermiticity_error": 0.0,
+    "minimum_eigenvalue": 0.0,
+    "numerical_acceptance": true,
+    "note": "Numerical acceptance is not a proof of exact positivity."
+  },
+  "status": "physical"
+}

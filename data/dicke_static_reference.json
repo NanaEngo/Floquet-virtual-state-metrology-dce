@@ -1,0 +1,116 @@
+{
+  "schema": "static_references_v1",
+  "generated": "2026-09-03",
+  "generator": "scripts/derive_static_references.py (deterministic; conventions recovered from git b925ee5^ producers, restored as scripts/legacy_*.py)",
+  "dicke_static_qfi": {
+    "method": "ground-state gap-weighted sum F_Q = 4 sum_n |<0|V|n>|^2/(E_n-E_0)^2, V=(a+a^dagger)J_x/sqrt(N), exact QuTiP diagonalization",
+    "points": [
+      {
+        "point": "A1_detuning_sweep_wq1.0",
+        "N": 32,
+        "eta": 1.15,
+        "wq_wc": 1.0,
+        "n_max": 35,
+        "n_eig": 20,
+        "qfi": 228.62056386076281,
+        "stored_value": 228.62056386076293,
+        "matches_stored": true,
+        "stored_source": "data/dicke_sensitivity.json detuning_sweep[10]",
+        "published_as": "228.6 (SI convergence table) / 229 (main text)"
+      },
+      {
+        "point": "A2_no_go_qfi_ideal",
+        "N": 32,
+        "eta": 1.15,
+        "wq_wc": 1.005,
+        "n_max": 35,
+        "n_eig": 30,
+        "qfi": 236.70744443198538,
+        "stored_value": 236.70744443198538,
+        "matches_stored": true,
+        "stored_source": "data/dicke_no_go_boundaries.json qfi_ideal",
+        "published_as": "236.7 (thermal/loss screen reference)"
+      },
+      {
+        "point": "A3_N_sweep_N27",
+        "N": 27,
+        "eta": 1.15,
+        "wq_wc": 1.005,
+        "n_max": 32,
+        "n_eig": 15,
+        "qfi": 229.140533439563,
+        "stored_value": 229.140533439563,
+        "matches_stored": true,
+        "stored_source": "data/dicke_sensitivity.json N_sweep[N=27]",
+        "published_as": "229x (main text saturation data point)"
+      },
+      {
+        "point": "A4_SI_conv_nmax20",
+        "N": 32,
+        "eta": 1.15,
+        "wq_wc": 1.0,
+        "n_max": 20,
+        "n_eig": 20,
+        "qfi": 228.16911945064723,
+        "stored_value": 228.2,
+        "matches_stored": true,
+        "stored_source": "SI tab:si_convergence_dicke (rounded to 1 decimal)",
+        "published_as": "228.2 (SI convergence table)"
+      },
+      {
+        "point": "A5_SI_conv_nmax25",
+        "N": 32,
+        "eta": 1.15,
+        "wq_wc": 1.0,
+        "n_max": 25,
+        "n_eig": 20,
+        "qfi": 228.61742870666794,
+        "stored_value": 228.6,
+        "matches_stored": true,
+        "stored_source": "SI tab:si_convergence_dicke (rounded to 1 decimal)",
+        "published_as": "228.6 (SI convergence table)"
+      },
+      {
+        "point": "A6_SI_conv_nmax30",
+        "N": 32,
+        "eta": 1.15,
+        "wq_wc": 1.0,
+        "n_max": 30,
+        "n_eig": 20,
+        "qfi": 228.62055530756473,
+        "stored_value": 228.6,
+        "matches_stored": true,
+        "stored_source": "SI tab:si_convergence_dicke (rounded to 1 decimal)",
+        "published_as": "228.6 (SI convergence table)"
+      }
+    ],
+    "resolution_note": "229/228.6/236.7 are three stored anchors of the same estimator family, not conflicting values: 228.6 = wq/wc 1.0, 236.7 = wq/wc 1.005 screen reference with n_eig=30, 229.1 = N_sweep N=27."
+  },
+  "rabi_static_qfi": {
+    "conventions": {
+      "exact_fidelity_RabiMetrology_eta0.15": {
+        "qfi": 1.0693668173189508,
+        "eta": 0.15,
+        "n_max": 50,
+        "published_as": "static Rabi reference at the DCE operating point"
+      },
+      "legacy_gaussian_virtual_state_g0_9.815435": {
+        "point": "B1_legacy_benchmark_eta_grid",
+        "eta": 0.08368421052631578,
+        "g0": 9.815435,
+        "qfi": 1.7539430322839316,
+        "stored_value": 1.7539430322908927,
+        "matches_stored": true,
+        "stored_source": "git 7bc1f55 Q1_Papers_Roadmap/code/_cache/trackB_eta_0.084.json",
+        "published_as": "1.75x static-Rabi denominator (legacy, superseded)"
+      },
+      "hardcoded_figure_annotation_1.75": {
+        "value": 1.75,
+        "origin": "legacy_figB_dce_oscillations.py line 70 (git 115f62c): static_qfi_at_eta = 1.75  # Rabi QFI at eta=0.15",
+        "nearest_computed_value": 1.7539430322908927,
+        "nearest_eta": 0.08368421052631578,
+        "interpretation": "The published 1.75x matches the legacy Gaussian virtual-state benchmark value at eta=0.0837, not a value computed at eta=0.15. At eta=0.15 the exact static Rabi QFI is 1.0694x, so the published 97659x driven/undriven ratio used an inconsistent static denominator and is superseded by 159722x (= 170903/1.069)."
+      }
+    }
+  }
+}

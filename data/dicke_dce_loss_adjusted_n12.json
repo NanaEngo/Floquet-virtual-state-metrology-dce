@@ -1,0 +1,125 @@
+{
+  "schema": "trackB_dicke_dce_loss_adjusted",
+  "operating_point": {
+    "N": 32,
+    "eta": 1.15,
+    "gd_over_g0": 0.15,
+    "wq_wc": 1.0,
+    "wd_wc": 2.0,
+    "n_cav_truncation": 12,
+    "n_drive_periods": 10,
+    "delta": 0.001,
+    "n_steps": 200,
+    "J": 16.0,
+    "hilbert_dim": 396
+  },
+  "kappa_sweep": [
+    {
+      "kappa_rel": 0.0,
+      "kappa_2pi_MHz": 0.0,
+      "qfi_peak": 4833.392318280617,
+      "qfi_peak_time_periods": 10.0,
+      "qfi_ss_mean": 3891.017329998636,
+      "n_peak": 5.735983574744104,
+      "n_avg": 4.9632964746478345,
+      "kappa_t_peak": 0.0,
+      "elapsed_s": 28.13928771018982,
+      "n_steps": 200,
+      "physicality": {
+        "gate": "numerical_eigenvalue_acceptance",
+        "eigenvalue_floor": -0.0001,
+        "max_trace_error": 1.3322676295501878e-15,
+        "max_hermiticity_error": 0.0,
+        "min_eigenvalue": -1.1098026924833597e-15,
+        "samples_checked": 200
+      },
+      "kappa_index": 0
+    },
+    {
+      "kappa_rel": 0.0001,
+      "kappa_2pi_MHz": 0.6,
+      "qfi_peak": 4540.59274076446,
+      "qfi_peak_time_periods": 10.0,
+      "qfi_ss_mean": 3637.811921158108,
+      "n_peak": 5.729410078359349,
+      "n_avg": 4.964255221233002,
+      "kappa_t_peak": 0.0031415926535897933,
+      "elapsed_s": 805.986175775528,
+      "n_steps": 200,
+      "physicality": {
+        "gate": "numerical_eigenvalue_acceptance",
+        "eigenvalue_floor": -0.0001,
+        "max_trace_error": 1.1102230246251565e-15,
+        "max_hermiticity_error": 0.0,
+        "min_eigenvalue": -1.342567233572541e-05,
+        "samples_checked": 200
+      },
+      "kappa_index": 1
+    },
+    {
+      "kappa_rel": 0.001,
+      "kappa_2pi_MHz": 6.0,
+      "qfi_peak": 4561.956458456251,
+      "qfi_peak_time_periods": 10.0,
+      "qfi_ss_mean": 3696.3279787501474,
+      "n_peak": 5.675082694532522,
+      "n_avg": 4.972104273175273,
+      "kappa_t_peak": 0.031415926535897934,
+      "elapsed_s": 891.6391181945801,
+      "n_steps": 200,
+      "physicality": {
+        "gate": "numerical_eigenvalue_acceptance",
+        "eigenvalue_floor": -0.0001,
+        "max_trace_error": 9.992007221626409e-16,
+        "max_hermiticity_error": 0.0,
+        "min_eigenvalue": -8.319989161579308e-08,
+        "samples_checked": 200
+      },
+      "kappa_index": 2
+    },
+    {
+      "kappa_rel": 0.01,
+      "kappa_2pi_MHz": 60.0,
+      "qfi_peak": 1897.0515154741463,
+      "qfi_peak_time_periods": 10.0,
+      "qfi_ss_mean": 1742.6121170024403,
+      "n_peak": 5.422611472394348,
+      "n_avg": 5.001267835384924,
+      "kappa_t_peak": 0.3141592653589793,
+      "elapsed_s": 783.5028858184814,
+      "n_steps": 200,
+      "physicality": {
+        "gate": "numerical_eigenvalue_acceptance",
+        "eigenvalue_floor": -0.0001,
+        "max_trace_error": 1.2212453270876722e-15,
+        "max_hermiticity_error": 0.0,
+        "min_eigenvalue": -3.872815207727576e-08,
+        "samples_checked": 200
+      },
+      "kappa_index": 3
+    },
+    {
+      "kappa_rel": 0.041,
+      "kappa_2pi_MHz": 246.0,
+      "qfi_peak": 320.35094823612553,
+      "qfi_peak_time_periods": 3.0150753768844223,
+      "qfi_ss_mean": 45.96694791636491,
+      "n_peak": 4.790918798043826,
+      "n_avg": 4.917112945876131,
+      "kappa_t_peak": 0.38835768481562266,
+      "elapsed_s": 730.1035454273224,
+      "n_steps": 200,
+      "physicality": {
+        "gate": "numerical_eigenvalue_acceptance",
+        "eigenvalue_floor": -0.0001,
+        "max_trace_error": 9.992007221626409e-16,
+        "max_hermiticity_error": 0.0,
+        "min_eigenvalue": -3.218082617121477e-08,
+        "samples_checked": 200
+      },
+      "kappa_index": 4
+    }
+  ],
+  "caveat": "Photon truncation N_CAV=6 (vs N_CAV=28 in the pure-state production data) is used for Lindblad tractability. Absolute QFI values and the loss curve require truncation validation. The reported state check is a numerical physicality acceptance gate with an eigenvalue floor of 1e-4, not a proof of exact positivity; low-loss peak-QFI ordering is also checked empirically rather than assumed monotonic.",
+  "note": "Merged per-kappa recomputation for N_cav=12."
+}

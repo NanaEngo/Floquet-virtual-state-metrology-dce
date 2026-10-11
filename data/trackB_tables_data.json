@@ -1,0 +1,2353 @@
+{
+  "usc_sweep": [
+    {
+      "eta_norm": 0.002,
+      "n_virt_total": 1.000005000010501e-06,
+      "squeezing_r": 0.001000002333343618,
+      "qfi": 0.9983125437429408,
+      "qfi_coherent": 1.0,
+      "qfi_squeezed": 1.0020020060100303,
+      "advantage_over_coherent": 0.9983125437429408,
+      "advantage_over_squeezed": 0.99631790930062,
+      "regime": "weak",
+      "dce_valid": true
+    },
+    {
+      "eta_norm": 0.01,
+      "n_virt_total": 2.5003125164064854e-05,
+      "squeezing_r": 0.005000291669635416,
+      "qfi": 0.9992007221626409,
+      "qfi_coherent": 1.0,
+      "qfi_squeezed": 1.010050756286268,
+      "advantage_over_coherent": 0.9992007221626409,
+      "advantage_over_squeezed": 0.9892579317860023,
+      "regime": "strong",
+      "dce_valid": true
+    },
+    {
+      "eta_norm": 0.05,
+      "n_virt_total": 0.0006269556893882344,
+      "squeezing_r": 0.025036467576381824,
+      "qfi": 1.0054179711005418,
+      "qfi_coherent": 1.0,
+      "qfi_squeezed": 1.0513477737902397,
+      "advantage_over_coherent": 1.0054179711005418,
+      "advantage_over_squeezed": 0.9563134066246078,
+      "regime": "strong",
+      "dce_valid": true
+    },
+    {
+      "eta_norm": 0.1,
+      "n_virt_total": 0.0025314142928998785,
+      "squeezing_r": 0.05029195912457539,
+      "qfi": 1.0302869668521453,
+      "qfi_coherent": 1.0,
+      "qfi_squeezed": 1.1058164359896465,
+      "advantage_over_coherent": 1.0302869668521453,
+      "advantage_over_squeezed": 0.9316980045879799,
+      "regime": "ultra_strong",
+      "dce_valid": true
+    },
+    {
+      "eta_norm": 0.2,
+      "n_virt_total": 0.01051055581672939,
+      "squeezing_r": 0.10234225386307683,
+      "qfi": 1.1244338793403585,
+      "qfi_coherent": 1.0,
+      "qfi_squeezed": 1.2271378513738886,
+      "advantage_over_coherent": 1.1244338793403585,
+      "advantage_over_squeezed": 0.916306084179097,
+      "regime": "ultra_strong",
+      "dce_valid": true
+    },
+    {
+      "eta_norm": 0.3,
+      "n_virt_total": 0.025152137027055002,
+      "squeezing_r": 0.15793683618470655,
+      "qfi": 1.2967404927621828,
+      "qfi_coherent": 1.0,
+      "qfi_squeezed": 1.3714569917700448,
+      "advantage_over_coherent": 1.2967404927621828,
+      "advantage_over_squeezed": 0.9455203484642778,
+      "regime": "deep_strong",
+      "dce_valid": true
+    },
+    {
+      "eta_norm": 0.4,
+      "n_virt_total": 0.048682599555734625,
+      "squeezing_r": 0.218889223406377,
+      "qfi": 1.5631940186722204,
+      "qfi_coherent": 1.0,
+      "qfi_squeezed": 1.549261625542299,
+      "advantage_over_coherent": 1.5631940186722204,
+      "advantage_over_squeezed": 1.0089929246940745,
+      "regime": "deep_strong",
+      "dce_valid": true
+    },
+    {
+      "eta_norm": 0.5,
+      "n_virt_total": 0.08463852450924383,
+      "squeezing_r": 0.28697193045611,
+      "qfi": 1.9531043449205754,
+      "qfi_coherent": 1.0,
+      "qfi_squeezed": 1.775254620683795,
+      "advantage_over_coherent": 1.9531043449205754,
+      "advantage_over_squeezed": 1.1001826567099857,
+      "regime": "deep_strong",
+      "dce_valid": true
+    },
+    {
+      "eta_norm": 0.6,
+      "n_virt_total": 0.13822667059338828,
+      "squeezing_r": 0.36371597561556235,
+      "qfi": 2.5064395003937534,
+      "qfi_coherent": 1.0,
+      "qfi_squeezed": 2.069758536068851,
+      "advantage_over_coherent": 2.5064395003937534,
+      "advantage_over_squeezed": 1.2109815984401266,
+      "regime": "deep_strong",
+      "dce_valid": true
+    },
+    {
+      "eta_norm": 0.7,
+      "n_virt_total": 0.21654662545750483,
+      "squeezing_r": 0.45000334404399456,
+      "qfi": 3.2365221613872563,
+      "qfi_coherent": 1.0,
+      "qfi_squeezed": 2.459619561253985,
+      "advantage_over_coherent": 3.2365221613872563,
+      "advantage_over_squeezed": 1.31586291326175,
+      "regime": "deep_strong",
+      "dce_valid": true
+    },
+    {
+      "eta_norm": 0.8,
+      "n_virt_total": 0.3281990658980457,
+      "squeezing_r": 0.5454367671866656,
+      "qfi": 4.11048972637218,
+      "qfi_coherent": 1.0,
+      "qfi_squeezed": 2.976873338309861,
+      "advantage_over_coherent": 4.11048972637218,
+      "advantage_over_squeezed": 1.3808077332258741,
+      "regime": "deep_strong",
+      "dce_valid": true
+    },
+    {
+      "eta_norm": 0.9,
+      "n_virt_total": 0.4815532075822124,
+      "squeezing_r": 0.647695240492704,
+      "qfi": 5.019096249725408,
+      "qfi_coherent": 1.0,
+      "qfi_squeezed": 3.652421897026744,
+      "advantage_over_coherent": 5.019096249725408,
+      "advantage_over_squeezed": 1.3741830465454186,
+      "regime": "deep_strong",
+      "dce_valid": true
+    },
+    {
+      "eta_norm": 1.0,
+      "n_virt_total": 0.6814047937149608,
+      "squeezing_r": 0.7524355708864191,
+      "qfi": 5.753619802817411,
+      "qfi_coherent": 1.0,
+      "qfi_squeezed": 4.503573270429695,
+      "advantage_over_coherent": 5.753619802817411,
+      "advantage_over_squeezed": 1.2775677128638006,
+      "regime": "deep_strong",
+      "dce_valid": true
+    },
+    {
+      "eta_norm": 1.1,
+      "n_virt_total": 0.9256336129856055,
+      "squeezing_r": 0.8543176886811662,
+      "qfi": 6.09823302966106,
+      "qfi_coherent": 1.0,
+      "qfi_squeezed": 5.521421677290004,
+      "advantage_over_coherent": 6.09823302966106,
+      "advantage_over_squeezed": 1.1044679044789356,
+      "regime": "deep_strong",
+      "dce_valid": true
+    },
+    {
+      "eta_norm": 1.2,
+      "n_virt_total": 1.2051705414113898,
+      "squeezing_r": 0.9488679877461556,
+      "qfi": 6.019185150307749,
+      "qfi_coherent": 1.0,
+      "qfi_squeezed": 6.670774535784034,
+      "advantage_over_coherent": 6.019185150307749,
+      "advantage_over_squeezed": 0.9023217795803224,
+      "regime": "deep_strong",
+      "dce_valid": true
+    },
+    {
+      "eta_norm": 1.3,
+      "n_virt_total": 1.508354670306888,
+      "squeezing_r": 1.0338709097382472,
+      "qfi": 5.6736837450444,
+      "qfi_coherent": 1.0,
+      "qfi_squeezed": 7.906947627271029,
+      "advantage_over_coherent": 5.6736837450444,
+      "advantage_over_squeezed": 0.7175567630517609,
+      "regime": "deep_strong",
+      "dce_valid": true
+    }
+  ],
+  "noise_ablation": [
+    {
+      "eta": 0.002,
+      "loss": 0.0,
+      "temperature": 0.0,
+      "qfi_virtual": 0.9983125437429408,
+      "qfi_gaussian": 1.0,
+      "advantage": 0.9983125437429408,
+      "regime": "weak"
+    },
+    {
+      "eta": 0.002,
+      "loss": 0.1,
+      "temperature": 0.0,
+      "qfi_virtual": 0.9883294183055114,
+      "qfi_gaussian": 0.9,
+      "advantage": 1.0981437981172348,
+      "regime": "weak"
+    },
+    {
+      "eta": 0.002,
+      "loss": 0.3,
+      "temperature": 0.0,
+      "qfi_virtual": 0.9683631674306525,
+      "qfi_gaussian": 0.7,
+      "advantage": 1.3833759534723609,
+      "regime": "weak"
+    },
+    {
+      "eta": 0.002,
+      "loss": 0.5,
+      "temperature": 0.0,
+      "qfi_virtual": 0.9483969165557937,
+      "qfi_gaussian": 0.5,
+      "advantage": 1.8967938331115874,
+      "regime": "weak"
+    },
+    {
+      "eta": 0.002,
+      "loss": 0.8,
+      "temperature": 0.0,
+      "qfi_virtual": 0.9184475402435054,
+      "qfi_gaussian": 0.19999999999999996,
+      "advantage": 4.592237701217528,
+      "regime": "weak"
+    },
+    {
+      "eta": 0.05,
+      "loss": 0.0,
+      "temperature": 0.0,
+      "qfi_virtual": 1.0054179711005418,
+      "qfi_gaussian": 1.0,
+      "advantage": 1.0054179711005418,
+      "regime": "strong"
+    },
+    {
+      "eta": 0.05,
+      "loss": 0.1,
+      "temperature": 0.0,
+      "qfi_virtual": 0.9953637913895363,
+      "qfi_gaussian": 0.9,
+      "advantage": 1.105959768210596,
+      "regime": "strong"
+    },
+    {
+      "eta": 0.05,
+      "loss": 0.3,
+      "temperature": 0.0,
+      "qfi_virtual": 0.9752554319675255,
+      "qfi_gaussian": 0.7,
+      "advantage": 1.3932220456678936,
+      "regime": "strong"
+    },
+    {
+      "eta": 0.05,
+      "loss": 0.5,
+      "temperature": 0.0,
+      "qfi_virtual": 0.9551470725455147,
+      "qfi_gaussian": 0.5,
+      "advantage": 1.9102941450910293,
+      "regime": "strong"
+    },
+    {
+      "eta": 0.05,
+      "loss": 0.8,
+      "temperature": 0.0,
+      "qfi_virtual": 0.9249845334124983,
+      "qfi_gaussian": 0.19999999999999996,
+      "advantage": 4.624922667062493,
+      "regime": "strong"
+    },
+    {
+      "eta": 0.1,
+      "loss": 0.0,
+      "temperature": 0.0,
+      "qfi_virtual": 1.0302869668521453,
+      "qfi_gaussian": 1.0,
+      "advantage": 1.0302869668521453,
+      "regime": "ultra_strong"
+    },
+    {
+      "eta": 0.1,
+      "loss": 0.1,
+      "temperature": 0.0,
+      "qfi_virtual": 1.0199840971836238,
+      "qfi_gaussian": 0.9,
+      "advantage": 1.1333156635373598,
+      "regime": "ultra_strong"
+    },
+    {
+      "eta": 0.1,
+      "loss": 0.3,
+      "temperature": 0.0,
+      "qfi_virtual": 0.9993783578465809,
+      "qfi_gaussian": 0.7,
+      "advantage": 1.4276833683522585,
+      "regime": "ultra_strong"
+    },
+    {
+      "eta": 0.1,
+      "loss": 0.5,
+      "temperature": 0.0,
+      "qfi_virtual": 0.978772618509538,
+      "qfi_gaussian": 0.5,
+      "advantage": 1.957545237019076,
+      "regime": "ultra_strong"
+    },
+    {
+      "eta": 0.1,
+      "loss": 0.8,
+      "temperature": 0.0,
+      "qfi_virtual": 0.9478640095039735,
+      "qfi_gaussian": 0.19999999999999996,
+      "advantage": 4.739320047519869,
+      "regime": "ultra_strong"
+    },
+    {
+      "eta": 0.3,
+      "loss": 0.0,
+      "temperature": 0.0,
+      "qfi_virtual": 1.2967404927621828,
+      "qfi_gaussian": 1.0,
+      "advantage": 1.2967404927621828,
+      "regime": "deep_strong"
+    },
+    {
+      "eta": 0.3,
+      "loss": 0.1,
+      "temperature": 0.0,
+      "qfi_virtual": 1.283773087834561,
+      "qfi_gaussian": 0.9,
+      "advantage": 1.4264145420384011,
+      "regime": "deep_strong"
+    },
+    {
+      "eta": 0.3,
+      "loss": 0.3,
+      "temperature": 0.0,
+      "qfi_virtual": 1.2578382779793174,
+      "qfi_gaussian": 0.7,
+      "advantage": 1.7969118256847392,
+      "regime": "deep_strong"
+    },
+    {
+      "eta": 0.3,
+      "loss": 0.5,
+      "temperature": 0.0,
+      "qfi_virtual": 1.2319034681240737,
+      "qfi_gaussian": 0.5,
+      "advantage": 2.4638069362481474,
+      "regime": "deep_strong"
+    },
+    {
+      "eta": 0.3,
+      "loss": 0.8,
+      "temperature": 0.0,
+      "qfi_virtual": 1.1930012533412082,
+      "qfi_gaussian": 0.19999999999999996,
+      "advantage": 5.965006266706042,
+      "regime": "deep_strong"
+    },
+    {
+      "eta": 0.5,
+      "loss": 0.0,
+      "temperature": 0.0,
+      "qfi_virtual": 1.9531043449205754,
+      "qfi_gaussian": 1.0,
+      "advantage": 1.9531043449205754,
+      "regime": "deep_strong"
+    },
+    {
+      "eta": 0.5,
+      "loss": 0.1,
+      "temperature": 0.0,
+      "qfi_virtual": 1.9335733014713696,
+      "qfi_gaussian": 0.9,
+      "advantage": 2.148414779412633,
+      "regime": "deep_strong"
+    },
+    {
+      "eta": 0.5,
+      "loss": 0.3,
+      "temperature": 0.0,
+      "qfi_virtual": 1.8945112145729581,
+      "qfi_gaussian": 0.7,
+      "advantage": 2.7064445922470832,
+      "regime": "deep_strong"
+    },
+    {
+      "eta": 0.5,
+      "loss": 0.5,
+      "temperature": 0.0,
+      "qfi_virtual": 1.8554491276745466,
+      "qfi_gaussian": 0.5,
+      "advantage": 3.7108982553490932,
+      "regime": "deep_strong"
+    },
+    {
+      "eta": 0.5,
+      "loss": 0.8,
+      "temperature": 0.0,
+      "qfi_virtual": 1.7968559973269291,
+      "qfi_gaussian": 0.19999999999999996,
+      "advantage": 8.984279986634647,
+      "regime": "deep_strong"
+    }
+  ],
+  "critical_params": {
+    "max_temperature_mK": 100.0,
+    "max_kappa_Hz": 100.0,
+    "superradiant_eta_crit": 0.5,
+    "superradiant_eta_crit_basis": "Exact thermodynamic Dicke-model critical coupling at resonance (omega_q = omega_c): eta_c = sqrt(omega_q/omega_c)/2 = 0.5 (Gilmore 1976; see manuscript main text and SI). The historical value 0.15 stored in this field was a metadata error (it coincides with the DCE operating point eta=0.150, not a critical coupling) and is corrected here.",
+    "flux_noise_limit": 5e-07
+  },
+  "qfi_vs_eta": [
+    {
+      "eta": 0.02,
+      "qfi": 1.0018652574217413,
+      "n_virt": 0.00010005001050059961,
+      "squeezing_r": 0.010002333428278191
+    },
+    {
+      "eta": 0.04,
+      "qfi": 1.0054179711005418,
+      "n_virt": 0.0004008006721531863,
+      "squeezing_r": 0.020018669699480324
+    },
+    {
+      "eta": 0.06,
+      "qfi": 1.0125233984581428,
+      "n_virt": 0.0009040576584127041,
+      "squeezing_r": 0.030063022962004506
+    },
+    {
+      "eta": 0.08,
+      "qfi": 1.020517004235444,
+      "n_virt": 0.0016128430468961787,
+      "squeezing_r": 0.04014942968976021
+    },
+    {
+      "eta": 0.1,
+      "qfi": 1.0302869668521453,
+      "n_virt": 0.0025314142928998785,
+      "squeezing_r": 0.05029195912457539
+    },
+    {
+      "eta": 0.12000000000000001,
+      "qfi": 1.042721464727947,
+      "n_virt": 0.0036652908710573646,
+      "squeezing_r": 0.06050472283510391
+    },
+    {
+      "eta": 0.13999999999999999,
+      "qfi": 1.0587086762825493,
+      "n_virt": 0.005021288657384529,
+      "squeezing_r": 0.07080188306590253
+    },
+    {
+      "eta": 0.16,
+      "qfi": 1.0791367799356522,
+      "n_virt": 0.006607562134988235,
+      "squeezing_r": 0.08119765952283384
+    },
+    {
+      "eta": 0.18,
+      "qfi": 1.1004530620084552,
+      "n_virt": 0.008433654509931646,
+      "squeezing_r": 0.09170633420640789
+    },
+    {
+      "eta": 0.19999999999999998,
+      "qfi": 1.1226575225009583,
+      "n_virt": 0.01051055581672939,
+      "squeezing_r": 0.10234225386307683
+    },
+    {
+      "eta": 0.22,
+      "qfi": 1.1501910535116622,
+      "n_virt": 0.012850769072840138,
+      "squeezing_r": 0.11311982957572427
+    },
+    {
+      "eta": 0.24,
+      "qfi": 1.1830536550405668,
+      "n_virt": 0.015468384504968515,
+      "squeezing_r": 0.12405353295895852
+    },
+    {
+      "eta": 0.26,
+      "qfi": 1.2168044349891716,
+      "n_virt": 0.018379161813009783,
+      "squeezing_r": 0.1351578883624275
+    },
+    {
+      "eta": 0.28,
+      "qfi": 1.255884285455977,
+      "n_virt": 0.021600620355402916,
+      "squeezing_r": 0.14644746041696868
+    },
+    {
+      "eta": 0.30000000000000004,
+      "qfi": 1.2967404927621828,
+      "n_virt": 0.025152137027055016,
+      "squeezing_r": 0.15793683618470655
+    },
+    {
+      "eta": 0.32,
+      "qfi": 1.341149413747189,
+      "n_virt": 0.02905505145157298,
+      "squeezing_r": 0.16964060109671802
+    },
+    {
+      "eta": 0.34,
+      "qfi": 1.3873346915715956,
+      "n_virt": 0.033332777916117946,
+      "squeezing_r": 0.18157330778247244
+    },
+    {
+      "eta": 0.36000000000000004,
+      "qfi": 1.4388490399142029,
+      "n_virt": 0.03801092323173901,
+      "squeezing_r": 0.1937494368166784
+    },
+    {
+      "eta": 0.38,
+      "qfi": 1.5054624213917123,
+      "n_virt": 0.04311740939571033,
+      "squeezing_r": 0.20618334833512372
+    },
+    {
+      "eta": 0.4,
+      "qfi": 1.5631940186722204,
+      "n_virt": 0.048682599555734625,
+      "squeezing_r": 0.218889223406377
+    },
+    {
+      "eta": 0.42000000000000004,
+      "qfi": 1.6280310433103296,
+      "n_virt": 0.054739425319148,
+      "squeezing_r": 0.23188099399708198
+    },
+    {
+      "eta": 0.44,
+      "qfi": 1.70174985214544,
+      "n_virt": 0.0613235129039539,
+      "squeezing_r": 0.2451722603428107
+    },
+    {
+      "eta": 0.46,
+      "qfi": 1.7834622667578515,
+      "n_virt": 0.06847330498410668,
+      "squeezing_r": 0.25877619454362544
+    },
+    {
+      "eta": 0.48000000000000004,
+      "qfi": 1.8633983245308627,
+      "n_virt": 0.07623017433254876,
+      "squeezing_r": 0.2727054292552064
+    },
+    {
+      "eta": 0.5,
+      "qfi": 1.9531043449205754,
+      "n_virt": 0.08463852450924383,
+      "squeezing_r": 0.28697193045611
+    },
+    {
+      "eta": 0.52,
+      "qfi": 2.049915792667889,
+      "n_virt": 0.09374587188058917,
+      "squeezing_r": 0.3015868534548712
+    },
+    {
+      "eta": 0.54,
+      "qfi": 2.149391775674303,
+      "n_virt": 0.10360290220189008,
+      "squeezing_r": 0.31656038157416055
+    },
+    {
+      "eta": 0.56,
+      "qfi": 2.2666313270747196,
+      "n_virt": 0.11426349386795515,
+      "squeezing_r": 0.33190154733100324
+    },
+    {
+      "eta": 0.5800000000000001,
+      "qfi": 2.382982700055436,
+      "n_virt": 0.1257846987748317,
+      "squeezing_r": 0.3476180364398836
+    },
+    {
+      "eta": 0.6,
+      "qfi": 2.5064395003937534,
+      "n_virt": 0.13822667059338828,
+      "squeezing_r": 0.36371597561556235
+    },
+    {
+      "eta": 0.62,
+      "qfi": 2.639666263348772,
+      "n_virt": 0.1516525292105697,
+      "squeezing_r": 0.3801997059569366
+    },
+    {
+      "eta": 0.64,
+      "qfi": 2.7711166694643907,
+      "n_virt": 0.16612814925065592,
+      "squeezing_r": 0.3970715446581408
+    },
+    {
+      "eta": 0.66,
+      "qfi": 2.9238833576528123,
+      "n_virt": 0.18172186007934513,
+      "squeezing_r": 0.41433153891413266
+    },
+    {
+      "eta": 0.68,
+      "qfi": 3.070432796903333,
+      "n_virt": 0.19850404467960786,
+      "squeezing_r": 0.4319772171473725
+    },
+    {
+      "eta": 0.7000000000000001,
+      "qfi": 3.2374103398069565,
+      "n_virt": 0.21654662545750467,
+      "squeezing_r": 0.45000334404399445
+    },
+    {
+      "eta": 0.7200000000000001,
+      "qfi": 3.40349970429088,
+      "n_virt": 0.23592242659371587,
+      "squeezing_r": 0.46840168729441867
+    },
+    {
+      "eta": 0.74,
+      "qfi": 3.5704772471945034,
+      "n_virt": 0.2567044052106171,
+      "squeezing_r": 0.4871608053022373
+    },
+    {
+      "eta": 0.76,
+      "qfi": 3.7463365742951282,
+      "n_virt": 0.27896474756397804,
+      "squeezing_r": 0.5062658663480032
+    },
+    {
+      "eta": 0.78,
+      "qfi": 3.9266367934942537,
+      "n_virt": 0.3027738318307038,
+      "squeezing_r": 0.5256985106385784
+    },
+    {
+      "eta": 0.8,
+      "qfi": 4.11048972637218,
+      "n_virt": 0.3281990658980457,
+      "squeezing_r": 0.5454367671866656
+    },
+    {
+      "eta": 0.8200000000000001,
+      "qfi": 4.297007194509206,
+      "n_virt": 0.3553036167806423,
+      "squeezing_r": 0.565455037389552
+    },
+    {
+      "eta": 0.8400000000000001,
+      "qfi": 4.479971948967432,
+      "n_virt": 0.38414505763821805,
+      "squeezing_r": 0.585724156359116
+    },
+    {
+      "eta": 0.86,
+      "qfi": 4.665601238684758,
+      "n_virt": 0.41477396836542474,
+      "squeezing_r": 0.6062115413730627
+    },
+    {
+      "eta": 0.88,
+      "qfi": 4.846789636303583,
+      "n_virt": 0.4472325356750968,
+      "squeezing_r": 0.6268814341989103
+    },
+    {
+      "eta": 0.9,
+      "qfi": 5.019096249725408,
+      "n_virt": 0.4815532075822124,
+      "squeezing_r": 0.647695240492704
+    },
+    {
+      "eta": 0.92,
+      "qfi": 5.186961971048731,
+      "n_virt": 0.5177574641450409,
+      "squeezing_r": 0.6686119650969886
+    },
+    {
+      "eta": 0.9400000000000001,
+      "qfi": 5.3512749786932545,
+      "n_virt": 0.5558547701016373,
+      "squeezing_r": 0.6895887370701504
+    },
+    {
+      "eta": 0.9600000000000001,
+      "qfi": 5.495159882684675,
+      "n_virt": 0.5958417746105872,
+      "squeezing_r": 0.7105814129937575
+    },
+    {
+      "eta": 0.98,
+      "qfi": 5.632827537738194,
+      "n_virt": 0.6377018178813874,
+      "squeezing_r": 0.7315452419382588
+    },
+    {
+      "eta": 1.0,
+      "qfi": 5.753619802817411,
+      "n_virt": 0.6814047937149608,
+      "squeezing_r": 0.7524355708864191
+    },
+    {
+      "eta": 1.02,
+      "qfi": 5.857536677922326,
+      "n_virt": 0.7269074011013622,
+      "squeezing_r": 0.7732085658856183
+    },
+    {
+      "eta": 1.04,
+      "qfi": 5.943689984633238,
+      "n_virt": 0.7741537979260512,
+      "squeezing_r": 0.7938219221317324
+    },
+    {
+      "eta": 1.06,
+      "qfi": 6.012079722950148,
+      "n_virt": 0.8230766470315141,
+      "squeezing_r": 0.8142355358644915
+    },
+    {
+      "eta": 1.08,
+      "qfi": 6.066258606551855,
+      "n_virt": 0.8735985213675498,
+      "squeezing_r": 0.834412112492231
+    },
+    {
+      "eta": 1.1,
+      "qfi": 6.09823302966106,
+      "n_virt": 0.9256336129856055,
+      "squeezing_r": 0.8543176886811662
+    },
+    {
+      "eta": 1.12,
+      "qfi": 6.115108419635362,
+      "n_virt": 0.9790896723719844,
+      "squeezing_r": 0.8739220509649872
+    },
+    {
+      "eta": 1.1400000000000001,
+      "qfi": 6.115996598055062,
+      "n_virt": 1.0338700918738375,
+      "squeezing_r": 0.8931990393177368
+    },
+    {
+      "eta": 1.1600000000000001,
+      "qfi": 6.10089756492016,
+      "n_virt": 1.089876040911726,
+      "squeezing_r": 0.9121267305468599
+    },
+    {
+      "eta": 1.18,
+      "qfi": 6.065370428132155,
+      "n_virt": 1.147008561655604,
+      "squeezing_r": 0.9306875027334718
+    },
+    {
+      "eta": 1.2,
+      "qfi": 6.019185150307749,
+      "n_virt": 1.2051705414113898,
+      "squeezing_r": 0.9488679877461556
+    },
+    {
+      "eta": 1.22,
+      "qfi": 5.966782623545441,
+      "n_virt": 1.2642684909591986,
+      "squeezing_r": 0.9666589236601706
+    },
+    {
+      "eta": 1.24,
+      "qfi": 5.9046101341664325,
+      "n_virt": 1.3242140748477425,
+      "squeezing_r": 0.9840549224485206
+    },
+    {
+      "eta": 1.26,
+      "qfi": 5.835332217429823,
+      "n_virt": 1.3849253583059837,
+      "squeezing_r": 1.0010541704573155
+    },
+    {
+      "eta": 1.28,
+      "qfi": 5.751843445978011,
+      "n_virt": 1.4463277541529675,
+      "squeezing_r": 1.017658079968041
+    },
+    {
+      "eta": 1.3,
+      "qfi": 5.6736837450444,
+      "n_virt": 1.508354670306888,
+      "squeezing_r": 1.0338709097382472
+    }
+  ],
+  "protocols": [
+    {
+      "Protocol": "Real Squeezing",
+      "Scaling": "e^{2\\\\xi}",
+      "Loss_Immunity": "Low"
+    },
+    {
+      "Protocol": "Virtual USC Metrology",
+      "Scaling": "e^{4\\\\xi}",
+      "Loss_Immunity": "Reduced (virtual photons, no extraction channel)"
+    }
+  ],
+  "catalysis_ablation": [
+    {
+      "eta": 0.05,
+      "flux_noise": 50000.0,
+      "temperature": 0.0,
+      "I_Q_virtual": 2.6563499936243165e-18,
+      "I_Q_gaussian": 1e-14,
+      "Advantage": 0.0002656349993624316,
+      "regime": "strong",
+      "dce_valid": false
+    },
+    {
+      "eta": 0.05,
+      "flux_noise": 100000.0,
+      "temperature": 0.0,
+      "I_Q_virtual": 2.6563499936243165e-18,
+      "I_Q_gaussian": 1e-14,
+      "Advantage": 0.0002656349993624316,
+      "regime": "strong",
+      "dce_valid": false
+    },
+    {
+      "eta": 0.05,
+      "flux_noise": 500000.0,
+      "temperature": 0.0,
+      "I_Q_virtual": 2.6563499936243165e-18,
+      "I_Q_gaussian": 1e-14,
+      "Advantage": 0.0002656349993624316,
+      "regime": "strong",
+      "dce_valid": false
+    }
+  ],
+  "no_go_boundaries": {
+    "eta_temperature_map": [
+      {
+        "eta": 0.01,
+        "temperature": 0.0,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.01,
+        "temperature": 0.022222222222222223,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.01,
+        "temperature": 0.044444444444444446,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.01,
+        "temperature": 0.06666666666666667,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.01,
+        "temperature": 0.08888888888888889,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.01,
+        "temperature": 0.11111111111111112,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.01,
+        "temperature": 0.13333333333333333,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.01,
+        "temperature": 0.15555555555555556,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.01,
+        "temperature": 0.17777777777777778,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.01,
+        "temperature": 0.2,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "temperature": 0.0,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "temperature": 0.022222222222222223,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "temperature": 0.044444444444444446,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "temperature": 0.06666666666666667,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "temperature": 0.08888888888888889,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "temperature": 0.11111111111111112,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "temperature": 0.13333333333333333,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "temperature": 0.15555555555555556,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "temperature": 0.17777777777777778,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "temperature": 0.2,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "temperature": 0.0,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "temperature": 0.022222222222222223,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "temperature": 0.044444444444444446,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "temperature": 0.06666666666666667,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "temperature": 0.08888888888888889,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "temperature": 0.11111111111111112,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "temperature": 0.13333333333333333,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "temperature": 0.15555555555555556,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "temperature": 0.17777777777777778,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "temperature": 0.2,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "temperature": 0.0,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "temperature": 0.022222222222222223,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "temperature": 0.044444444444444446,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "temperature": 0.06666666666666667,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "temperature": 0.08888888888888889,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "temperature": 0.11111111111111112,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "temperature": 0.13333333333333333,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "temperature": 0.15555555555555556,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "temperature": 0.17777777777777778,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "temperature": 0.2,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "temperature": 0.0,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "temperature": 0.022222222222222223,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "temperature": 0.044444444444444446,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "temperature": 0.06666666666666667,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "temperature": 0.08888888888888889,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "temperature": 0.11111111111111112,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "temperature": 0.13333333333333333,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "temperature": 0.15555555555555556,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "temperature": 0.17777777777777778,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "temperature": 0.2,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "temperature": 0.0,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "temperature": 0.022222222222222223,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "temperature": 0.044444444444444446,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "temperature": 0.06666666666666667,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "temperature": 0.08888888888888889,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "temperature": 0.11111111111111112,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "temperature": 0.13333333333333333,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "temperature": 0.15555555555555556,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "temperature": 0.17777777777777778,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "temperature": 0.2,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "temperature": 0.0,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "temperature": 0.022222222222222223,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "temperature": 0.044444444444444446,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "temperature": 0.06666666666666667,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "temperature": 0.08888888888888889,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "temperature": 0.11111111111111112,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "temperature": 0.13333333333333333,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "temperature": 0.15555555555555556,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "temperature": 0.17777777777777778,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "temperature": 0.2,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "temperature": 0.0,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "temperature": 0.022222222222222223,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "temperature": 0.044444444444444446,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "temperature": 0.06666666666666667,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "temperature": 0.08888888888888889,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "temperature": 0.11111111111111112,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "temperature": 0.13333333333333333,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "temperature": 0.15555555555555556,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "temperature": 0.17777777777777778,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "temperature": 0.2,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "temperature": 0.0,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "temperature": 0.022222222222222223,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "temperature": 0.044444444444444446,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "temperature": 0.06666666666666667,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "temperature": 0.08888888888888889,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "temperature": 0.11111111111111112,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "temperature": 0.13333333333333333,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "temperature": 0.15555555555555556,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "temperature": 0.17777777777777778,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "temperature": 0.2,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "temperature": 0.0,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "temperature": 0.022222222222222223,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "temperature": 0.044444444444444446,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "temperature": 0.06666666666666667,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "temperature": 0.08888888888888889,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "temperature": 0.11111111111111112,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "temperature": 0.13333333333333333,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "temperature": 0.15555555555555556,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "temperature": 0.17777777777777778,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "temperature": 0.2,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "temperature": 0.0,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "temperature": 0.022222222222222223,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "temperature": 0.044444444444444446,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "temperature": 0.06666666666666667,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "temperature": 0.08888888888888889,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "temperature": 0.11111111111111112,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "temperature": 0.13333333333333333,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "temperature": 0.15555555555555556,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "temperature": 0.17777777777777778,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "temperature": 0.2,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "temperature": 0.0,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "temperature": 0.022222222222222223,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "temperature": 0.044444444444444446,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "temperature": 0.06666666666666667,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "temperature": 0.08888888888888889,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "temperature": 0.11111111111111112,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "temperature": 0.13333333333333333,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "temperature": 0.15555555555555556,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "temperature": 0.17777777777777778,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "temperature": 0.2,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      }
+    ],
+    "eta_kappa_map": [
+      {
+        "eta": 0.01,
+        "kappa_loss": 10000.0,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.01,
+        "kappa_loss": 16681.005372000593,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.01,
+        "kappa_loss": 27825.59402207126,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.01,
+        "kappa_loss": 46415.88833612782,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.01,
+        "kappa_loss": 77426.36826811277,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.01,
+        "kappa_loss": 129154.96650148828,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.01,
+        "kappa_loss": 215443.46900318822,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.01,
+        "kappa_loss": 359381.36638046254,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.01,
+        "kappa_loss": 599484.2503189408,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.01,
+        "kappa_loss": 1000000.0,
+        "advantage": 3.882997433045154e-07,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "kappa_loss": 10000.0,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "kappa_loss": 16681.005372000593,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "kappa_loss": 27825.59402207126,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "kappa_loss": 46415.88833612782,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "kappa_loss": 77426.36826811277,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "kappa_loss": 129154.96650148828,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "kappa_loss": 215443.46900318822,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "kappa_loss": 359381.36638046254,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "kappa_loss": 599484.2503189408,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.04090909090909091,
+        "kappa_loss": 1000000.0,
+        "advantage": 0.00011755107058471235,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "kappa_loss": 10000.0,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "kappa_loss": 16681.005372000593,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "kappa_loss": 27825.59402207126,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "kappa_loss": 46415.88833612782,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "kappa_loss": 77426.36826811277,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "kappa_loss": 129154.96650148828,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "kappa_loss": 215443.46900318822,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "kappa_loss": 359381.36638046254,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "kappa_loss": 599484.2503189408,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.07181818181818181,
+        "kappa_loss": 1000000.0,
+        "advantage": 0.001185762092626643,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "kappa_loss": 10000.0,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "kappa_loss": 16681.005372000593,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "kappa_loss": 27825.59402207126,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "kappa_loss": 46415.88833612782,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "kappa_loss": 77426.36826811277,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "kappa_loss": 129154.96650148828,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "kappa_loss": 215443.46900318822,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "kappa_loss": 359381.36638046254,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "kappa_loss": 599484.2503189408,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.10272727272727271,
+        "kappa_loss": 1000000.0,
+        "advantage": 0.00551142102265429,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "kappa_loss": 10000.0,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "kappa_loss": 16681.005372000593,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "kappa_loss": 27825.59402207126,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "kappa_loss": 46415.88833612782,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "kappa_loss": 77426.36826811277,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "kappa_loss": 129154.96650148828,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "kappa_loss": 215443.46900318822,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "kappa_loss": 359381.36638046254,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "kappa_loss": 599484.2503189408,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.13363636363636364,
+        "kappa_loss": 1000000.0,
+        "advantage": 0.018344134408953324,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "kappa_loss": 10000.0,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "kappa_loss": 16681.005372000593,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "kappa_loss": 27825.59402207126,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "kappa_loss": 46415.88833612782,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "kappa_loss": 77426.36826811277,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "kappa_loss": 129154.96650148828,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "kappa_loss": 215443.46900318822,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "kappa_loss": 359381.36638046254,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "kappa_loss": 599484.2503189408,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.16454545454545455,
+        "kappa_loss": 1000000.0,
+        "advantage": 0.05192822101328321,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "kappa_loss": 10000.0,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "kappa_loss": 16681.005372000593,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "kappa_loss": 27825.59402207126,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "kappa_loss": 46415.88833612782,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "kappa_loss": 77426.36826811277,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "kappa_loss": 129154.96650148828,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "kappa_loss": 215443.46900318822,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "kappa_loss": 359381.36638046254,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "kappa_loss": 599484.2503189408,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.19545454545454544,
+        "kappa_loss": 1000000.0,
+        "advantage": 0.1373231775875388,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "kappa_loss": 10000.0,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "kappa_loss": 16681.005372000593,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "kappa_loss": 27825.59402207126,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "kappa_loss": 46415.88833612782,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "kappa_loss": 77426.36826811277,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "kappa_loss": 129154.96650148828,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "kappa_loss": 215443.46900318822,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "kappa_loss": 359381.36638046254,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "kappa_loss": 599484.2503189408,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.22636363636363635,
+        "kappa_loss": 1000000.0,
+        "advantage": 0.3663419888319665,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "kappa_loss": 10000.0,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "kappa_loss": 16681.005372000593,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "kappa_loss": 27825.59402207126,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "kappa_loss": 46415.88833612782,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "kappa_loss": 77426.36826811277,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "kappa_loss": 129154.96650148828,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "kappa_loss": 215443.46900318822,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "kappa_loss": 359381.36638046254,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "kappa_loss": 599484.2503189408,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.25727272727272726,
+        "kappa_loss": 1000000.0,
+        "advantage": 1.0857200839458416,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "kappa_loss": 10000.0,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "kappa_loss": 16681.005372000593,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "kappa_loss": 27825.59402207126,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "kappa_loss": 46415.88833612782,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "kappa_loss": 77426.36826811277,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "kappa_loss": 129154.96650148828,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "kappa_loss": 215443.46900318822,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "kappa_loss": 359381.36638046254,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "kappa_loss": 599484.2503189408,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.28818181818181815,
+        "kappa_loss": 1000000.0,
+        "advantage": 4.37949487552302,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "kappa_loss": 10000.0,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "kappa_loss": 16681.005372000593,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "kappa_loss": 27825.59402207126,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "kappa_loss": 46415.88833612782,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "kappa_loss": 77426.36826811277,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "kappa_loss": 129154.96650148828,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "kappa_loss": 215443.46900318822,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "kappa_loss": 359381.36638046254,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "kappa_loss": 599484.2503189408,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.3190909090909091,
+        "kappa_loss": 1000000.0,
+        "advantage": 60.03447826755481,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "kappa_loss": 10000.0,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "kappa_loss": 16681.005372000593,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "kappa_loss": 27825.59402207126,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "kappa_loss": 46415.88833612782,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "kappa_loss": 77426.36826811277,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "kappa_loss": 129154.96650148828,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "kappa_loss": 215443.46900318822,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "kappa_loss": 359381.36638046254,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "kappa_loss": 599484.2503189408,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      },
+      {
+        "eta": 0.35,
+        "kappa_loss": 1000000.0,
+        "advantage": 2.2417723401079843e-06,
+        "viable": false
+      }
+    ]
+  },
+  "dicke_reference": [
+    {
+      "eta": 0.05,
+      "n_virt": 0.000627,
+      "qfi": 1.0075
+    },
+    {
+      "eta": 0.1,
+      "n_virt": 0.00253,
+      "qfi": 1.0303
+    },
+    {
+      "eta": 0.15,
+      "n_virt": 0.00578,
+      "qfi": 1.07
+    },
+    {
+      "eta": 0.5,
+      "n_virt": 0.0846,
+      "qfi": 1.955
+    },
+    {
+      "eta": 1.0,
+      "n_virt": 0.681,
+      "qfi": 5.752
+    }
+  ],
+  "verified_dce": [
+    {
+      "eta": 0.15,
+      "qfi": 1.07,
+      "valid": true,
+      "dce_type": "resonant"
+    },
+    {
+      "eta": 0.5,
+      "qfi": 1.96,
+      "valid": true,
+      "dce_type": "ultra_strong"
+    }
+  ]
+}

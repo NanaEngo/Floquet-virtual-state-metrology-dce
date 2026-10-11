@@ -1,0 +1,30 @@
+{
+  "artifact_path": "data/dicke_dce_loss_truncation_extension.json",
+  "schema": "trackB_dicke_dce_loss_truncation_extension_v1",
+  "status": "PASS",
+  "expected_rows": 6,
+  "loaded_rows": 6,
+  "complete_rows": 6,
+  "missing_row_ids": [],
+  "inconclusive_or_failed_row_ids": [],
+  "all_rows_complete": true,
+  "all_available_truncation_comparisons_within_tolerance": false,
+  "truncation_convergence_tolerance": 0.05,
+  "truncation_comparison": [
+    {
+      "kappa_rel": 0.0,
+      "relative_peak_qfi_difference": 0.4126941045173581,
+      "within_tolerance": false
+    },
+    {
+      "kappa_rel": 0.01,
+      "relative_peak_qfi_difference": 0.20302385879174217,
+      "within_tolerance": false
+    },
+    {
+      "kappa_rel": 0.041,
+      "relative_peak_qfi_difference": 0.03010437531616556,
+      "within_tolerance": true
+    }
+  ]
+}

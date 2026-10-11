@@ -1,0 +1,3740 @@
+{
+  "schema": "trackB_cavity_heom_validation_v2",
+  "status": "cavity_mode_heom_screen_complete",
+  "purpose": "Validate the Markovian cavity-decay assumption by comparing HEOM (cavity Fock space, position-quadrature Drude-Lorentz bath) against Lindblad (sqrt(kappa)*a collapse operators) at target kappa/omega_c values.",
+  "scope": {
+    "system": "Fock space, dim=12",
+    "bath": "Drude-Lorentz structured bath coupled through position quadrature (a + a\u2020)",
+    "cavity_mode_included": true,
+    "full_cavity_heom_claim": true,
+    "relationship_to_track_b": "Validates the Markovian cavity-loss assumption used for all headline retention numbers in the manuscript"
+  },
+  "configuration": {
+    "cavity_frequency": 1.0,
+    "cavity_truncation": 12,
+    "kappa_targets": [
+      0.0001,
+      0.041
+    ],
+    "drude_cutoffs": [
+      5.0,
+      10.0,
+      20.0,
+      40.0
+    ],
+    "hierarchy_depths": [
+      2,
+      3,
+      4
+    ],
+    "temperatures": [
+      0.01,
+      0.05
+    ],
+    "final_times": [
+      1.0,
+      2.0
+    ],
+    "time_points": 81,
+    "matsubara_terms_base": 2,
+    "eigenvalue_floor": -1e-06
+  },
+  "units": {
+    "omega_cavity": "cavity angular frequency (1.0, normalized)",
+    "kappa": "kappa/omega_c, dimensionless",
+    "lam": "Drude reorganization coupling in omega_c units",
+    "gamma": "Drude cutoff in omega_c units",
+    "temperature": "k_B T / (hbar omega_c), dimensionless",
+    "t_final": "inverse omega_c units",
+    "fidelity_error": "1 - squared Uhlmann fidelity, dimensionless"
+  },
+  "markovian_comparator": {
+    "construction": "kappa_markov = 2*pi*J(omega_c) with J(w) = 2*lam*gamma*w/(w^2+gamma^2); collapse operators: sqrt(kappa*(n+1))*a, sqrt(kappa*n)*a\u2020",
+    "note": "The Markovian kappa is derived from the same Drude-Lorentz parameters used for the HEOM bath; kappa_ratio_error reports the self-consistency."
+  },
+  "physical_temperature_equivalences": [
+    {
+      "normalized_temperature": 0.01,
+      "cavity_frequency_GHz": 6.0,
+      "equivalent_temperature_mK": 2.87954605692255
+    },
+    {
+      "normalized_temperature": 0.05,
+      "cavity_frequency_GHz": 6.0,
+      "equivalent_temperature_mK": 14.397730284612747
+    }
+  ],
+  "solver": {
+    "heom": "qutip.solver.heom.HEOMSolver with DrudeLorentzBath (Matsubara)",
+    "lindblad": "qutip.mesolve (adams)",
+    "python": "3.11.15",
+    "numpy": "1.26.4",
+    "qutip": "5.3.1"
+  },
+  "validation": {
+    "rows_requested": 96,
+    "rows_in_grid": 96,
+    "rows_completed": 96,
+    "valid_for_agreement_count": 36,
+    "inconclusive_count": 60,
+    "kappa_convergence_summary": {
+      "0.0001": {
+        "entries": [
+          {
+            "depth": 2,
+            "mean_fidelity_error": 0.0003679274182439948,
+            "max_fidelity_error": 0.0007337624584784486
+          },
+          {
+            "depth": 2,
+            "mean_fidelity_error": 0.00017999068684473318,
+            "max_fidelity_error": 0.00036378168591899573
+          },
+          {
+            "depth": 2,
+            "mean_fidelity_error": 9.183607246153331e-05,
+            "max_fidelity_error": 0.00019011989673545227
+          },
+          {
+            "depth": 2,
+            "mean_fidelity_error": 0.00011909284074521632,
+            "max_fidelity_error": 0.0002567445100860599
+          },
+          {
+            "depth": 2,
+            "mean_fidelity_error": 0.00019265679809736812,
+            "max_fidelity_error": 0.0003895327351451927
+          },
+          {
+            "depth": 2,
+            "mean_fidelity_error": 0.0002613266303589948,
+            "max_fidelity_error": 0.0005399979885652995
+          },
+          {
+            "depth": 3,
+            "mean_fidelity_error": 0.00019257094332219838,
+            "max_fidelity_error": 0.00038839476458352173
+          },
+          {
+            "depth": 3,
+            "mean_fidelity_error": 0.0001799964508673646,
+            "max_fidelity_error": 0.00036377105027762813
+          },
+          {
+            "depth": 3,
+            "mean_fidelity_error": 0.0003678203174883432,
+            "max_fidelity_error": 0.0007331990116347109
+          },
+          {
+            "depth": 3,
+            "mean_fidelity_error": 0.00011910139734717246,
+            "max_fidelity_error": 0.0002567527675796377
+          },
+          {
+            "depth": 3,
+            "mean_fidelity_error": 0.0002613269935832066,
+            "max_fidelity_error": 0.0005400011645935177
+          },
+          {
+            "depth": 3,
+            "mean_fidelity_error": 9.191914968166848e-05,
+            "max_fidelity_error": 0.0001901344022592344
+          },
+          {
+            "depth": 4,
+            "mean_fidelity_error": 0.00036787477630072647,
+            "max_fidelity_error": 0.0007337463455944215
+          },
+          {
+            "depth": 4,
+            "mean_fidelity_error": 0.0002613232429426626,
+            "max_fidelity_error": 0.0005399807792665356
+          },
+          {
+            "depth": 4,
+            "mean_fidelity_error": 0.0001191018553657816,
+            "max_fidelity_error": 0.0002567464602565295
+          },
+          {
+            "depth": 4,
+            "mean_fidelity_error": 0.00017997641464856802,
+            "max_fidelity_error": 0.00036375702955837586
+          },
+          {
+            "depth": 4,
+            "mean_fidelity_error": 9.193365644759172e-05,
+            "max_fidelity_error": 0.00019012355451542007
+          },
+          {
+            "depth": 4,
+            "mean_fidelity_error": 0.00019273934290303245,
+            "max_fidelity_error": 0.00038952527465974107
+          }
+        ],
+        "converged_depth_or_none": null
+      },
+      "0.041": {
+        "entries": [
+          {
+            "depth": 2,
+            "mean_fidelity_error": 0.048122301745385614,
+            "max_fidelity_error": 0.10178606487623143
+          },
+          {
+            "depth": 2,
+            "mean_fidelity_error": 0.10022946968236641,
+            "max_fidelity_error": 0.19606665872356221
+          },
+          {
+            "depth": 2,
+            "mean_fidelity_error": 0.12342170959318413,
+            "max_fidelity_error": 0.26398799210084223
+          },
+          {
+            "depth": 2,
+            "mean_fidelity_error": 0.24131209697536127,
+            "max_fidelity_error": 0.4182819755138475
+          },
+          {
+            "depth": 2,
+            "mean_fidelity_error": 0.05092871400559833,
+            "max_fidelity_error": 0.11099618984373893
+          },
+          {
+            "depth": 2,
+            "mean_fidelity_error": 0.10597164729680959,
+            "max_fidelity_error": 0.1978361102302617
+          },
+          {
+            "depth": 3,
+            "mean_fidelity_error": 0.2412312830561964,
+            "max_fidelity_error": 0.41820034380788096
+          },
+          {
+            "depth": 3,
+            "mean_fidelity_error": 0.10023117549305716,
+            "max_fidelity_error": 0.1960989334389316
+          },
+          {
+            "depth": 3,
+            "mean_fidelity_error": 0.04811470796496696,
+            "max_fidelity_error": 0.10177577493213874
+          },
+          {
+            "depth": 3,
+            "mean_fidelity_error": 0.050890378425024606,
+            "max_fidelity_error": 0.11092004939563205
+          },
+          {
+            "depth": 3,
+            "mean_fidelity_error": 0.1059104849264217,
+            "max_fidelity_error": 0.19775085874675657
+          },
+          {
+            "depth": 3,
+            "mean_fidelity_error": 0.1233491233963637,
+            "max_fidelity_error": 0.2638831785478176
+          },
+          {
+            "depth": 4,
+            "mean_fidelity_error": 0.12334985359185788,
+            "max_fidelity_error": 0.2638847983736594
+          },
+          {
+            "depth": 4,
+            "mean_fidelity_error": 0.24123251540223262,
+            "max_fidelity_error": 0.418202028402764
+          },
+          {
+            "depth": 4,
+            "mean_fidelity_error": 0.04811503857970678,
+            "max_fidelity_error": 0.10177644050741941
+          },
+          {
+            "depth": 4,
+            "mean_fidelity_error": 0.10591103277175262,
+            "max_fidelity_error": 0.19775176105480052
+          },
+          {
+            "depth": 4,
+            "mean_fidelity_error": 0.050890598484193625,
+            "max_fidelity_error": 0.1109206610748058
+          },
+          {
+            "depth": 4,
+            "mean_fidelity_error": 0.10023148730878648,
+            "max_fidelity_error": 0.19609879097669136
+          }
+        ],
+        "converged_depth_or_none": 3
+      }
+    },
+    "numerical_physicality_note": "Trace/Hermiticity/eigenvalue acceptance is not a proof of exact positivity.",
+    "positivity_gate_note": "Rows whose HEOM trajectory violates the numerical eigenvalue gate are preserved as inconclusive and excluded from agreement claims."
+  },
+  "caveats": [
+    "This validates the Markovian cavity-decay assumption, not the full Dicke+DCE protocol.",
+    "The Drude-Lorentz spectral density is a model for the transmission-line continuum; real cavities may have different bath structures.",
+    "Agreement is conditional on the tested truncation, hierarchy depth, temperature, and time window.",
+    "Inconclusive rows are retained, not hidden."
+  ],
+  "rows": [
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_01d9c919b111a705",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 3,
+        "lam": 0.13058862024368878,
+        "gamma": 40.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.2412312830561964,
+      "max_fidelity_error": 0.41820034380788096,
+      "final_fidelity": 0.581799656192119,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -2.2601754980815694e-10,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2866485804311676e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_023370d977e95a5d",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 4,
+        "lam": 0.0001595528304496251,
+        "gamma": 20.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.00018673731429637164,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596776237011587e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_0342da42f9aab756",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 2,
+        "lam": 0.03295303096717693,
+        "gamma": 10.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.048122301745385614,
+      "max_fidelity_error": 0.10178606487623143,
+      "final_fidelity": 0.8982139351237686,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -3.028902635612883e-11,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.002930760663929e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_045a90f9cc9dadc4",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 2,
+        "lam": 0.0003185088298626556,
+        "gamma": 40.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0003679274182439948,
+      "max_fidelity_error": 0.0007337624584784486,
+      "final_fidelity": 0.9992662375415216,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -8.476674940803418e-10,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094823553631027e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_094f7e9f6e1f97bd",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 3,
+        "lam": 0.03295303096717693,
+        "gamma": 10.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.10023117549305716,
+      "max_fidelity_error": 0.1960989334389316,
+      "final_fidelity": 0.8039010665610684,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.269392713587736e-11,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2925238134268124e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_0bd3113a972855c8",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 2,
+        "lam": 8.037324626140715e-05,
+        "gamma": 10.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.0002610079543902859,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596776237011587e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_15b1a1b6288b159d",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 3,
+        "lam": 0.03295303096717693,
+        "gamma": 10.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.04811470796496696,
+      "max_fidelity_error": 0.10177577493213874,
+      "final_fidelity": 0.8982242250678613,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.7224875981952334e-11,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.002930760663929e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_1620e44a20c99ff1",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 3,
+        "lam": 0.03295303096717693,
+        "gamma": 10.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.15608076494428713,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 5.551115123125783e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -5.976211847031098e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_1650243d2e69aefe",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 3,
+        "lam": 0.0003185088298626556,
+        "gamma": 40.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.00026080098272777887,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596840664307843e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_1c5bf6f35eb70953",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 4,
+        "lam": 4.13802852038928e-05,
+        "gamma": 5.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.00025256262719635335,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596776237011587e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_1e28eddf44c8ff86",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 3,
+        "lam": 0.06541666048434627,
+        "gamma": 20.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.040999999999999995,
+      "kappa_ratio_error": 1.692413147294446e-16,
+      "mean_fidelity_error": 0.050890378425024606,
+      "max_fidelity_error": 0.11092004939563205,
+      "final_fidelity": 0.889079950604368,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -2.1932231081242167e-10,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.002930620062057e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_1e48d5d312e2204c",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 2,
+        "lam": 0.0003185088298626556,
+        "gamma": 40.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.00017999068684473318,
+      "max_fidelity_error": 0.00036378168591899573,
+      "final_fidelity": 0.999636218314081,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.818028319764074e-10,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596776237011587e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_1e8909a7963e7776",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 4,
+        "lam": 0.13058862024368878,
+        "gamma": 40.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.12334985359185788,
+      "max_fidelity_error": 0.2638847983736594,
+      "final_fidelity": 0.7361152016263406,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.39343462328906e-12,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 5.551115123125783e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -5.976211847031098e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_1edd0602d1fc35ee",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 3,
+        "lam": 0.03295303096717693,
+        "gamma": 10.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.5398154503620228,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2866485804311676e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_1ef1c84afdac66f0",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 4,
+        "lam": 0.13058862024368878,
+        "gamma": 40.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.24123251540223262,
+      "max_fidelity_error": 0.418202028402764,
+      "final_fidelity": 0.581797971597236,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.0594962947659264e-12,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2866485804311676e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_1fac14cef2168482",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 2,
+        "lam": 0.0001595528304496251,
+        "gamma": 20.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 9.183607246153331e-05,
+      "max_fidelity_error": 0.00019011989673545227,
+      "final_fidelity": 0.9998098801032645,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.641836586655033e-11,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596840664307843e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_20f06c8a1199225d",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 2,
+        "lam": 0.03295303096717693,
+        "gamma": 10.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.5274601156447533,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2866485804311676e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_212dd2e555a3d3cb",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 3,
+        "lam": 4.13802852038928e-05,
+        "gamma": 5.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.0002525967726717264,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596776237011587e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_226ab940adf584bf",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 3,
+        "lam": 0.0003185088298626556,
+        "gamma": 40.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.0005293090118403271,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094967164990933e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_27ec86f43cf7df15",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 3,
+        "lam": 0.0001595528304496251,
+        "gamma": 20.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.00038675801031367414,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094823553631027e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_287ab87c9eea7a51",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 3,
+        "lam": 4.13802852038928e-05,
+        "gamma": 5.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.0005682439417231374,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094823553631027e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_28a860ae516c70f2",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 4,
+        "lam": 0.0003185088298626556,
+        "gamma": 40.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.0002608732780949266,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596840664307843e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_2e235261cbb18c92",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 2,
+        "lam": 0.016965916933596045,
+        "gamma": 5.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.027413097960367904,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2925238134268124e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_2e3f4420dd5bc856",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 4,
+        "lam": 0.13058862024368878,
+        "gamma": 40.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.032694601339362125,
+      "max_fidelity_error": 0.11761565333877388,
+      "final_fidelity": 0.8823843466612261,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.1806865191065667,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.002930760663929e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_2f48df7b7b3c86b4",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 3,
+        "lam": 0.06541666048434627,
+        "gamma": 20.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.040999999999999995,
+      "kappa_ratio_error": 1.692413147294446e-16,
+      "mean_fidelity_error": 0.1059104849264217,
+      "max_fidelity_error": 0.19775085874675657,
+      "final_fidelity": 0.8022491412532434,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.935615759354486e-10,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2925238385998917e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_32452b5846dddc2b",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 3,
+        "lam": 0.0001595528304496251,
+        "gamma": 20.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.00019257094332219838,
+      "max_fidelity_error": 0.00038839476458352173,
+      "final_fidelity": 0.9996116052354165,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -3.16058210959435e-11,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094967164990933e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_32baf80d44f8c3c7",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 4,
+        "lam": 0.03295303096717693,
+        "gamma": 10.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.04811503857970678,
+      "max_fidelity_error": 0.10177644050741941,
+      "final_fidelity": 0.8982235594925806,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -7.918907381926404e-12,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.002930760663929e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_34d4e99d7036d84d",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 2,
+        "lam": 4.13802852038928e-05,
+        "gamma": 5.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -2.6179438290480916e-05,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596840664307843e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_375e59692297fef1",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 4,
+        "lam": 0.016965916933596045,
+        "gamma": 5.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.14709076525928744,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 5.551115123125783e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -5.976211847031098e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_37f431dc4b437564",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 2,
+        "lam": 0.0001595528304496251,
+        "gamma": 20.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.0003867581665952454,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094823553631027e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_3ee9ee92a07f651a",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 3,
+        "lam": 0.0003185088298626556,
+        "gamma": 40.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0001799964508673646,
+      "max_fidelity_error": 0.00036377105027762813,
+      "final_fidelity": 0.9996362289497224,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2139657349415674e-10,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596776237011587e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_46ed8caf9bb3048d",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 3,
+        "lam": 0.06541666048434627,
+        "gamma": 20.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.040999999999999995,
+      "kappa_ratio_error": 1.692413147294446e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.31937744264431117,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2866485817348658e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_4d4f67cf59e15632",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 4,
+        "lam": 0.0001595528304496251,
+        "gamma": 20.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.00038676158704942964,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094823553631027e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_50dd8d6d6e6872e5",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 4,
+        "lam": 0.0003185088298626556,
+        "gamma": 40.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.00036787477630072647,
+      "max_fidelity_error": 0.0007337463455944215,
+      "final_fidelity": 0.9992662536544056,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.3853415051262069e-11,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094823553631027e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_5228c7ed4c4b1cb4",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 2,
+        "lam": 8.037324626140715e-05,
+        "gamma": 10.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.0005547962105800618,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094823553631027e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_5302028a6247febf",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 3,
+        "lam": 8.037324626140715e-05,
+        "gamma": 10.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.0005547758481509611,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094823553631027e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_53d6dc99c223631c",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 4,
+        "lam": 0.03295303096717693,
+        "gamma": 10.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.15608956645077943,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 5.551115123125783e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -5.976211847031098e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_56f1eb7184278af8",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 4,
+        "lam": 8.037324626140715e-05,
+        "gamma": 10.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0002613232429426626,
+      "max_fidelity_error": 0.0005399807792665356,
+      "final_fidelity": 0.9994600192207335,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -3.26058479927934e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094967164990933e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_581dddf8ae50f7d2",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 2,
+        "lam": 0.03295303096717693,
+        "gamma": 10.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.10022946968236641,
+      "max_fidelity_error": 0.19606665872356221,
+      "final_fidelity": 0.8039333412764378,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -3.296753101995631e-11,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2925238134268124e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_5b091b0deacdf8bd",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 4,
+        "lam": 8.037324626140715e-05,
+        "gamma": 10.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0001191018553657816,
+      "max_fidelity_error": 0.0002567464602565295,
+      "final_fidelity": 0.9997432535397435,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -3.295677064610427e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596840664307843e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_5d607b3e68e3af5e",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 2,
+        "lam": 4.13802852038928e-05,
+        "gamma": 5.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.0005682271754782037,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094823553631027e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_5dfffa9762108f46",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 4,
+        "lam": 0.0003185088298626556,
+        "gamma": 40.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.00017997641464856802,
+      "max_fidelity_error": 0.00036375702955837586,
+      "final_fidelity": 0.9996362429704416,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -5.6356056092514327e-11,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596776237011587e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_602b2daa1424856a",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 4,
+        "lam": 0.06541666048434627,
+        "gamma": 20.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.040999999999999995,
+      "kappa_ratio_error": 1.692413147294446e-16,
+      "mean_fidelity_error": 0.10591103277175262,
+      "max_fidelity_error": 0.19775176105480052,
+      "final_fidelity": 0.8022482389451995,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -8.837378657757475e-13,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2925238385998917e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_64b304c89f2d99b5",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 3,
+        "lam": 0.13058862024368878,
+        "gamma": 40.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.032696800727162044,
+      "max_fidelity_error": 0.11762104681527386,
+      "final_fidelity": 0.8823789531847261,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.1806988239874368,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.002930760663929e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_6635e361cd70d312",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 3,
+        "lam": 0.0003185088298626556,
+        "gamma": 40.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0003678203174883432,
+      "max_fidelity_error": 0.0007331990116347109,
+      "final_fidelity": 0.9992668009883653,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.1711470389044967e-10,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094823553631027e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_670f8ba71cea1600",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 2,
+        "lam": 0.06541666048434627,
+        "gamma": 20.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.040999999999999995,
+      "kappa_ratio_error": 1.692413147294446e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.10353182648575746,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -5.976211806179296e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_69f49e6b405d6326",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 3,
+        "lam": 4.13802852038928e-05,
+        "gamma": 5.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.206995795118259e-05,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094967164990933e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_6dab4666ad22efc8",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 3,
+        "lam": 0.016965916933596045,
+        "gamma": 5.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.011085157627264867,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.002930760663929e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_70c1553c73c82548",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 4,
+        "lam": 4.13802852038928e-05,
+        "gamma": 5.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.0005681794783402955,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094823553631027e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_710d1b504d7a7f4b",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 2,
+        "lam": 0.0003185088298626556,
+        "gamma": 40.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.00026080445536381453,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596840664307843e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_7192edff9d4ef30a",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 4,
+        "lam": 0.016965916933596045,
+        "gamma": 5.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.5287748682206236,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2866485804311676e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_7481f66f06055351",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 2,
+        "lam": 0.13058862024368878,
+        "gamma": 40.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.032743086740248846,
+      "max_fidelity_error": 0.11783351504107575,
+      "final_fidelity": 0.8821664849589242,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.18182236108066008,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.002930760663929e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_76b7da96dbac3328",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 4,
+        "lam": 0.06541666048434627,
+        "gamma": 20.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.040999999999999995,
+      "kappa_ratio_error": 1.692413147294446e-16,
+      "mean_fidelity_error": 0.050890598484193625,
+      "max_fidelity_error": 0.1109206610748058,
+      "final_fidelity": 0.8890793389251942,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -8.837918202565126e-13,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.002930620062057e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_788023ca64d2c8f0",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 2,
+        "lam": 4.13802852038928e-05,
+        "gamma": 5.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.209059750227357e-05,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094967164990933e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_7bf783cd4b8db076",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 3,
+        "lam": 8.037324626140715e-05,
+        "gamma": 10.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.00011910139734717246,
+      "max_fidelity_error": 0.0002567527675796377,
+      "final_fidelity": 0.9997432472324204,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -3.52748961795385e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596840664307843e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_7d2ab6b9ac8e00af",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 4,
+        "lam": 0.0001595528304496251,
+        "gamma": 20.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 9.193365644759172e-05,
+      "max_fidelity_error": 0.00019012355451542007,
+      "final_fidelity": 0.9998098764454846,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -2.760038531146957e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596840664307843e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_8644a2f8b5f9bdaa",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 4,
+        "lam": 0.0001595528304496251,
+        "gamma": 20.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.00019273934290303245,
+      "max_fidelity_error": 0.00038952527465974107,
+      "final_fidelity": 0.9996104747253403,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.167531550126802e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094967164990933e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_8c4f55f7d190c935",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 2,
+        "lam": 0.0001595528304496251,
+        "gamma": 20.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.00018672932243074975,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596776237011587e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_8dfe0f73e45e9a62",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 2,
+        "lam": 0.13058862024368878,
+        "gamma": 40.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.12342170959318413,
+      "max_fidelity_error": 0.26398799210084223,
+      "final_fidelity": 0.7360120078991578,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -5.212359378238402e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 5.551115123125783e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -5.976211847031098e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_91154b72e1497507",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 3,
+        "lam": 0.016965916933596045,
+        "gamma": 5.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.14696813859448354,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 5.551115123125783e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -5.976211847031098e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_915e7269f235b39c",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 2,
+        "lam": 0.03295303096717693,
+        "gamma": 10.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.15562328650775648,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 5.551115123125783e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -5.976211847031098e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_916fcf908bc98649",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 4,
+        "lam": 0.13058862024368878,
+        "gamma": 40.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.10204005631191346,
+      "max_fidelity_error": 0.1929341140463754,
+      "final_fidelity": 0.8578189170526612,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.4267830388946925,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2925238134268124e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_930c3dee76e5cf01",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 4,
+        "lam": 8.037324626140715e-05,
+        "gamma": 10.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.0002610182153426177,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596776237011587e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_955cee096218d009",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 2,
+        "lam": 8.037324626140715e-05,
+        "gamma": 10.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.00011909284074521632,
+      "max_fidelity_error": 0.0002567445100860599,
+      "final_fidelity": 0.9997432554899139,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.4994567951619024e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596840664307843e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_9a993f7a99abf124",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 2,
+        "lam": 0.016965916933596045,
+        "gamma": 5.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.14536904816787238,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 5.551115123125783e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -5.976211847031098e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_9f4c65f6b7289b0d",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 3,
+        "lam": 8.037324626140715e-05,
+        "gamma": 10.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0002613269935832066,
+      "max_fidelity_error": 0.0005400011645935177,
+      "final_fidelity": 0.9994599988354065,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -3.540181554082205e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094967164990933e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_a01eaf60e6a2f853",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 3,
+        "lam": 0.0001595528304496251,
+        "gamma": 20.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.00018672941412970718,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596776237011587e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_a060143e06e628f2",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 2,
+        "lam": 0.06541666048434627,
+        "gamma": 20.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.040999999999999995,
+      "kappa_ratio_error": 1.692413147294446e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.3195830548425635,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2866485817348658e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_a1be448dfcf519fc",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 2,
+        "lam": 0.0003185088298626556,
+        "gamma": 40.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.0005293163430876007,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094967164990933e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_a31aea748b8911fb",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 4,
+        "lam": 0.016965916933596045,
+        "gamma": 5.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.011085123679685959,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.002930760663929e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_a4442643a8bf3629",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 2,
+        "lam": 0.016965916933596045,
+        "gamma": 5.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.49901547132862745,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2866485804311676e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_a606ecca6a6c7755",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 3,
+        "lam": 0.0001595528304496251,
+        "gamma": 20.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 9.191914968166848e-05,
+      "max_fidelity_error": 0.0001901344022592344,
+      "final_fidelity": 0.9998098655977408,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -5.831143974395192e-11,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596840664307843e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_a7f48ed7a9f3419a",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 2,
+        "lam": 0.0001595528304496251,
+        "gamma": 20.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.00019265679809736812,
+      "max_fidelity_error": 0.0003895327351451927,
+      "final_fidelity": 0.9996104672648548,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -2.0363488087530025e-11,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094967164990933e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_a921cc804e3279a9",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 2,
+        "lam": 0.016965916933596045,
+        "gamma": 5.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.011103322080068923,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.002930760663929e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_ac7801cc8d0d874f",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 3,
+        "lam": 0.06541666048434627,
+        "gamma": 20.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.040999999999999995,
+      "kappa_ratio_error": 1.692413147294446e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.10320534729489185,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -5.976211806179296e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_adfd7dbea8efa994",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 3,
+        "lam": 0.13058862024368878,
+        "gamma": 40.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.10204623870711409,
+      "max_fidelity_error": 0.19294342726696068,
+      "final_fidelity": 0.8577983839372589,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 6.661338147750939e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.4277691103977708,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2925238134268124e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_b2288697f603c61f",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 3,
+        "lam": 4.13802852038928e-05,
+        "gamma": 5.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -2.616984633133333e-05,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596840664307843e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_b245ab061b30f125",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 2,
+        "lam": 0.13058862024368878,
+        "gamma": 40.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.24131209697536127,
+      "max_fidelity_error": 0.4182819755138475,
+      "final_fidelity": 0.5817180244861525,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -3.829862929137218e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2866485804311676e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_b672fe6fe39c1ece",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 2,
+        "lam": 0.06541666048434627,
+        "gamma": 20.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.040999999999999995,
+      "kappa_ratio_error": 1.692413147294446e-16,
+      "mean_fidelity_error": 0.05092871400559833,
+      "max_fidelity_error": 0.11099618984373893,
+      "final_fidelity": 0.8890038101562611,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -3.750171832040424e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.002930620062057e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_b786b409c35e4311",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 4,
+        "lam": 4.13802852038928e-05,
+        "gamma": 5.0,
+        "temperature": 0.01,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -2.6177299729959507e-05,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596840664307843e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_be3931cb280f0326",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 4,
+        "lam": 0.0003185088298626556,
+        "gamma": 40.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 9.999999999999999e-05,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.0005293683498595605,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094967164990933e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_c0d45e00ce93dddf",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 4,
+        "lam": 0.03295303096717693,
+        "gamma": 10.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.5409931618845635,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2866485804311676e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_c4b83da6a32c10de",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 3,
+        "lam": 8.037324626140715e-05,
+        "gamma": 10.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.0002609992359765183,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596776237011587e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_cbce7d07965a20e5",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 3,
+        "lam": 0.13058862024368878,
+        "gamma": 40.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.1233491233963637,
+      "max_fidelity_error": 0.2638831785478176,
+      "final_fidelity": 0.7361168214521824,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -3.401136624338346e-10,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 5.551115123125783e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -5.976211847031098e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_d313ab86937b4ed1",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 2,
+        "lam": 0.06541666048434627,
+        "gamma": 20.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.040999999999999995,
+      "kappa_ratio_error": 1.692413147294446e-16,
+      "mean_fidelity_error": 0.10597164729680959,
+      "max_fidelity_error": 0.1978361102302617,
+      "final_fidelity": 0.8021638897697383,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -3.3456204990866114e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2925238385998917e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_d3f85047d09d0193",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 4,
+        "lam": 0.03295303096717693,
+        "gamma": 10.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.10023148730878648,
+      "max_fidelity_error": 0.19609879097669136,
+      "final_fidelity": 0.8039012090233086,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -8.389907077087247e-12,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2925238134268124e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_dbe55e1fb243b471",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 4,
+        "lam": 0.016965916933596045,
+        "gamma": 5.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.027372108630310962,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2925238134268124e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_e0d735997916f895",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 3,
+        "lam": 0.016965916933596045,
+        "gamma": 5.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.5241128235867497,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2866485804311676e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_e2243a72ee7bda41",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 2,
+        "lam": 8.037324626140715e-05,
+        "gamma": 10.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0002613266303589948,
+      "max_fidelity_error": 0.0005399979885652995,
+      "final_fidelity": 0.9994600020114347,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": true,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.4972071402752387e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094967164990933e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "physical"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_e37cef8c552177f4",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 2,
+        "lam": 0.13058862024368878,
+        "gamma": 40.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.10232758359837568,
+      "max_fidelity_error": 0.1935024750101242,
+      "final_fidelity": 0.8570327985221022,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 6.661338147750939e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.4259635882690456,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2925238134268124e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_eb62b9a5729a962d",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 4,
+        "lam": 0.06541666048434627,
+        "gamma": 20.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.040999999999999995,
+      "kappa_ratio_error": 1.692413147294446e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.31934342786337727,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2866485817348658e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_f575221a28ece5c4",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 4,
+        "lam": 8.037324626140715e-05,
+        "gamma": 10.0,
+        "temperature": 0.05,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.000554825965521836,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094823553631027e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_f638c294ba838d05",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 3,
+        "lam": 0.016965916933596045,
+        "gamma": 5.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.041,
+      "kappa_ratio_error": 0.0,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 3,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.027372447754025968,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.2925238134268124e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_f94eb88cfc9a1a2b",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 2,
+        "lam": 4.13802852038928e-05,
+        "gamma": 5.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 2,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.0002526017045957524,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.596776237011587e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_fd5bdd8318f2d3db",
+      "parameters": {
+        "kappa_target": 0.041,
+        "depth": 4,
+        "lam": 0.06541666048434627,
+        "gamma": 20.0,
+        "temperature": 0.05,
+        "t_final": 1.0
+      },
+      "kappa_target": 0.041,
+      "kappa_markov": 0.040999999999999995,
+      "kappa_ratio_error": 1.692413147294446e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 4.440892098500626e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -0.10319769523119007,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 3.3306690738754696e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -5.976211806179296e-09,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    },
+    {
+      "schema": "trackB_cavity_heom_validation_v2",
+      "row_id": "row_ff21897441406323",
+      "parameters": {
+        "kappa_target": 0.0001,
+        "depth": 4,
+        "lam": 4.13802852038928e-05,
+        "gamma": 5.0,
+        "temperature": 0.01,
+        "t_final": 2.0
+      },
+      "kappa_target": 0.0001,
+      "kappa_markov": 0.00010000000000000002,
+      "kappa_ratio_error": 1.3552527156068805e-16,
+      "mean_fidelity_error": 0.0,
+      "max_fidelity_error": 0.0,
+      "final_fidelity": 1.0,
+      "hierarchy_depth": 4,
+      "matsubara_terms": 4,
+      "valid_for_agreement": false,
+      "physicality_heom": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -6.204332375308965e-05,
+        "numerical_acceptance": false,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "physicality_lindblad": {
+        "max_trace_error": 2.220446049250313e-16,
+        "max_hermiticity_error": 0.0,
+        "minimum_eigenvalue": -1.6094967164990933e-08,
+        "numerical_acceptance": true,
+        "note": "Numerical acceptance is not a proof of exact positivity."
+      },
+      "status": "inconclusive_solver_positivity_gate"
+    }
+  ],
+  "determinism": "Payload contains no wall-clock values or random state."
+}

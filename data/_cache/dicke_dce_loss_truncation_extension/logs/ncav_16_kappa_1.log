@@ -1,0 +1,3 @@
+/home/nanaengo/miniforge3/envs/qom/lib/python3.11/site-packages/qutip/solver/mesolve.py:148: FutureWarning: The signature f(t, args) is deprecated and will be removed in QuTiP 5.5. Please update your function to the pythonic signature f(t, **kwargs) to maintain compatibility.
+  H = QobjEvo(H, args=args, tlist=tlist)
+Wrote complete row row_26966705ff6d7756 to data/_cache/dicke_dce_loss_truncation_extension/row_26966705ff6d7756.json

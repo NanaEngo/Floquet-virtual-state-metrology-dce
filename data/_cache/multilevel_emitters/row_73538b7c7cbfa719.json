@@ -1,0 +1,15 @@
+{
+  "row_id": "row_73538b7c7cbfa719",
+  "parameters": {
+    "row_kind": "static",
+    "model": "fluxonium_like",
+    "d_e": 2,
+    "eta": 1.0
+  },
+  "row_type": "static",
+  "qfi_ground_state": 5.768640194858676,
+  "ground_state_leakage_levels_ge_2": 0.0,
+  "ground_state_photon_number": 0.672436186262923,
+  "ground_state_energy": -0.6405801193683068,
+  "two_level_adequate": null
+}

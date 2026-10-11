@@ -1,0 +1,83 @@
+{
+  "schema": "adaptive_comparison_v2_estimands_explicit",
+  "n_sweep": [
+    {
+      "n": 0.1,
+      "sql_qfi": 0.4,
+      "adaptive_uncertainty_bound": 10.0,
+      "helstrom_reference": 139.99999999999997,
+      "dce_qfi_reference": null,
+      "dce_reference_basis": null
+    },
+    {
+      "n": 1.0,
+      "sql_qfi": 4.0,
+      "adaptive_uncertainty_bound": 1.0,
+      "helstrom_reference": 5.0,
+      "dce_qfi_reference": null,
+      "dce_reference_basis": null
+    },
+    {
+      "n": 5.0,
+      "sql_qfi": 20.0,
+      "adaptive_uncertainty_bound": 0.2,
+      "helstrom_reference": 0.84,
+      "dce_qfi_reference": null,
+      "dce_reference_basis": null
+    },
+    {
+      "n": 5.72,
+      "sql_qfi": 22.88,
+      "adaptive_uncertainty_bound": 0.17482517482517484,
+      "helstrom_reference": 0.7298645410533523,
+      "dce_qfi_reference": 170902.7,
+      "dce_reference_basis": "peak_qfi_reused_at_time_average_budget_not_matched"
+    },
+    {
+      "n": 9.0,
+      "sql_qfi": 36.0,
+      "adaptive_uncertainty_bound": 0.1111111111111111,
+      "helstrom_reference": 0.4567901234567901,
+      "dce_qfi_reference": 170902.7,
+      "dce_reference_basis": "peak_qfi_at_peak_photon_budget_rounded_n"
+    },
+    {
+      "n": 9.01,
+      "sql_qfi": 36.04,
+      "adaptive_uncertainty_bound": 0.11098779134295228,
+      "helstrom_reference": 0.4562694551989958,
+      "dce_qfi_reference": 170902.7,
+      "dce_reference_basis": "peak_qfi_at_peak_photon_budget"
+    },
+    {
+      "n": 20.0,
+      "sql_qfi": 80.0,
+      "adaptive_uncertainty_bound": 0.05,
+      "helstrom_reference": 0.2025,
+      "dce_qfi_reference": null,
+      "dce_reference_basis": null
+    },
+    {
+      "n": 50.0,
+      "sql_qfi": 200.0,
+      "adaptive_uncertainty_bound": 0.02,
+      "helstrom_reference": 0.0804,
+      "dce_qfi_reference": null,
+      "dce_reference_basis": null
+    }
+  ],
+  "headline": {
+    "n_target": 9.01,
+    "sql_qfi": 36.04,
+    "adaptive_uncertainty_bound": 0.11098779134295228,
+    "helstrom_reference": 0.4562694551989958,
+    "dce_qfi": 170902.7,
+    "dce_vs_sql_qfi": 4742.028301886793
+  },
+  "method": {
+    "sql_qfi": "F_Q = 4 n (coherent-state QFI reference)",
+    "adaptive_uncertainty_bound": "uncertainty bound ~ 1/n (known amplitude, optimal feedback assumptions)",
+    "helstrom_reference": "formal reference expression (4n+1)/n^2; not an adaptive QFI"
+  },
+  "caveat": "Adaptive entries are uncertainty-bound or formal reference expressions, whereas DCE entries are pure-state QFI values. No DCE-to-adaptive ratio is computed. The n=5.72 row reuses the peak QFI only as a label for the time-average photon budget; it is not a matched-probe calculation. A meaningful device comparison requires a common estimation task, prior, observation time, loss model, drive budget, and readout (see SI)."
+}
