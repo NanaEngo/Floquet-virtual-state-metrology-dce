@@ -2,6 +2,12 @@
 
 The helpers in this module are deliberately small and dependency-light. They
 support resumable HPC jobs without silently repairing numerical results.
+
+Frozen API (B-1): the public names are listed in __all__ and pinned by
+scripts/test_trackb_recompute_utils.py. Adding, removing or renaming a
+public helper requires updating that gate: the 20-point checkpoint matrix
+(SLURM 15744/15764/15784) and every recomputation producer depend on these
+exact semantics (stable_row_id feeds checkpoint filenames and merge keys).
 """
 
 from __future__ import annotations
@@ -13,6 +19,16 @@ import os
 import tempfile
 from pathlib import Path
 from typing import Any, Iterable
+
+__all__ = [
+    "stable_row_id",
+    "atomic_write_json",
+    "require_schema",
+    "assert_finite_json",
+    "numerical_gate",
+    "merge_checkpoints",
+    "failure_row",
+]
 
 
 def stable_row_id(parameters: dict[str, Any], prefix: str = "row") -> str:

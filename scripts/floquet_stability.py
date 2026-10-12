@@ -199,6 +199,31 @@ def _physicality_summary(
     }
 
 
+def _propagate(hamiltonian: qt.Qobj, initial_state: qt.Qobj,
+               times: np.ndarray, collapse_ops: list,
+               options: dict) -> list:
+    """Propagate one trajectory set, dispatching sesolve/mesolve on loss.
+
+    Args:
+        hamiltonian: System Hamiltonian, normalized frequency units.
+        initial_state: Vacuum tensor ground state, dimensionless.
+        times: Sample times in drive-period units.
+        collapse_ops: Collapse operators (empty without loss).
+        options: Solver options with store_states enabled.
+
+    Returns:
+        list: Propagated states (kets without loss, density operators
+        with loss).
+    """
+    if not collapse_ops:
+        result = qt.sesolve(hamiltonian, initial_state, times,
+                            e_ops=[], options=options)
+        return result.states
+    result = qt.mesolve(hamiltonian, initial_state, times,
+                        c_ops=collapse_ops, e_ops=[], options=options)
+    return result.states
+
+
 def _simulate_truncation(
     eta: float,
     gd_over_g0: float,
@@ -253,42 +278,19 @@ def _simulate_truncation(
         config.wq_wc,
     )
     if kappa_rel == 0.0:
-        result = qt.sesolve(
-            hamiltonian,
-            initial_state,
-            times,
-            e_ops=[],
-            options=options,
-        )
-        perturbed = qt.sesolve(
-            perturbed_hamiltonian,
-            initial_state,
-            times,
-            e_ops=[],
-            options=options,
-        )
+        states = _propagate(hamiltonian, initial_state, times, [], options)
+        perturbed_states = _propagate(perturbed_hamiltonian, initial_state,
+                                      times, [], options)
         solver_name = "qutip.sesolve"
     else:
-        result = qt.mesolve(
-            hamiltonian,
-            initial_state,
-            times,
-            c_ops=collapse_ops,
-            e_ops=[],
-            options=options,
-        )
-        perturbed = qt.mesolve(
-            perturbed_hamiltonian,
-            initial_state,
-            times,
-            c_ops=collapse_ops,
-            e_ops=[],
-            options=options,
-        )
+        states = _propagate(hamiltonian, initial_state, times,
+                            collapse_ops, options)
+        perturbed_states = _propagate(perturbed_hamiltonian, initial_state,
+                                      times, collapse_ops, options)
         solver_name = "qutip.mesolve"
-    qfi = _qfi_trace(result.states, perturbed.states, config.delta_eta)
+    qfi = _qfi_trace(states, perturbed_states, config.delta_eta)
     photons = np.asarray(
-        [float(np.real(qt.expect(number, state))) for state in result.states],
+        [float(np.real(qt.expect(number, state))) for state in states],
         dtype=float,
     )
     qfi_peak_index = int(np.argmax(qfi))
@@ -321,10 +323,10 @@ def _simulate_truncation(
         "boundary_growth_flag": bool(boundary_growth),
         "solver": solver_name,
         "physicality": _physicality_summary(
-            result.states, config.numerical_eigenvalue_floor
+            states, config.numerical_eigenvalue_floor
         ),
         "perturbed_physicality": _physicality_summary(
-            perturbed.states, config.numerical_eigenvalue_floor
+            perturbed_states, config.numerical_eigenvalue_floor
         ),
     }
 

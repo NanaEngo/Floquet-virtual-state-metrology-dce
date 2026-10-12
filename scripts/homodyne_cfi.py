@@ -24,6 +24,8 @@ from typing import Any
 import numpy as np
 import qutip as qt
 
+from trackb_qutip_utils import density_matrix, squared_fidelity
+
 try:
     from config import DEFAULT_HOMODYNE, HomodyneConfig
 except ImportError as exc:  # pragma: no cover - environment-specific
@@ -99,39 +101,9 @@ def _hamiltonian(
     return qt.QobjEvo([static, [interaction, coefficient]])
 
 
-def _density_matrix(state: qt.Qobj) -> qt.Qobj:
-    """Return a unit-trace density operator for a ket or density operator.
-
-    Args:
-        state: QuTiP state, dimensionless.
-
-    Returns:
-        qt.Qobj: Unit-trace density operator, dimensionless.
-    """
-    rho = state.proj() if state.isket else state
-    trace = float(np.real(rho.tr()))
-    if trace <= 0.0:
-        raise ValueError("State trace is non-positive.")
-    return rho / trace
-
-
-def _squared_fidelity(state_a: qt.Qobj, state_b: qt.Qobj) -> float:
-    """Compute squared Uhlmann fidelity for two states.
-
-    Args:
-        state_a: First ket or density operator, dimensionless.
-        state_b: Second ket or density operator, dimensionless.
-
-    Returns:
-        float: Squared Uhlmann fidelity in [0, 1], dimensionless.
-    """
-    rho_a = _density_matrix(state_a)
-    rho_b = _density_matrix(state_b)
-    root_a = rho_a.sqrtm()
-    product = root_a * rho_b * root_a
-    eigenvalues = np.real_if_close(product.eigenenergies()).real
-    root_fidelity = float(np.sum(np.sqrt(np.clip(eigenvalues, 0.0, None))))
-    return float(np.clip(root_fidelity**2, 0.0, 1.0))
+# State kernels (density_matrix, squared_fidelity) are shared with the other
+# screen producers via trackb_qutip_utils (B-2); screen-specific acceptance
+# criteria stay local.
 
 
 def _fidelity_qfi(reference: qt.Qobj, plus: qt.Qobj, minus: qt.Qobj, step: float) -> float:
@@ -150,7 +122,7 @@ def _fidelity_qfi(reference: qt.Qobj, plus: qt.Qobj, minus: qt.Qobj, step: float
     if step <= 0.0:
         raise ValueError("The finite-difference step must be positive.")
     estimates = [
-        8.0 * (1.0 - math.sqrt(_squared_fidelity(reference, state))) / step**2
+        8.0 * (1.0 - math.sqrt(squared_fidelity(reference, state))) / step**2
         for state in (plus, minus)
     ]
     return float(np.mean(estimates))
@@ -489,7 +461,7 @@ def _gaussian_output_qfi(
     qfi_terms = []
     for moments in (plus_moments, minus_moments):
         state = _gaussian_mode_state(moments, truncation)
-        fidelity = _squared_fidelity(base, state)
+        fidelity = squared_fidelity(base, state)
         qfi_terms.append(8.0 * (1.0 - math.sqrt(fidelity)) / step**2)
     return float(np.mean(qfi_terms))
 
@@ -583,7 +555,7 @@ def _physicality_summary(state: qt.Qobj) -> dict[str, float | bool]:
         dict[str, float | bool]: Trace, Hermiticity, and minimum eigenvalue
         diagnostics; numerical acceptance is not exact positivity.
     """
-    rho = _density_matrix(state)
+    rho = density_matrix(state)
     eigenvalues = np.real_if_close(rho.eigenenergies()).real
     trace_error = abs(float(np.real(rho.tr())) - 1.0)
     hermiticity_error = float((rho - rho.dag()).norm())

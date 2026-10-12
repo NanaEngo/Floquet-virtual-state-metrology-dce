@@ -26,6 +26,8 @@ from typing import Any
 import numpy as np
 import qutip as qt
 
+from trackb_qutip_utils import density_matrix, purity, squared_fidelity_pure
+
 try:
     from config import (
         DEFAULT_THERMAL,
@@ -237,42 +239,6 @@ def _collapse_operators(
     return collapse
 
 
-def _density_matrix(state: qt.Qobj) -> qt.Qobj:
-    """Return a unit-trace density operator for a ket or density operator.
-
-    Args:
-        state: QuTiP state, dimensionless.
-
-    Returns:
-        qt.Qobj: Unit-trace density operator, dimensionless.
-    """
-    rho = state.proj() if state.isket else state
-    trace = float(np.real(rho.tr()))
-    if trace <= 0.0:
-        raise ValueError("State trace is non-positive.")
-    return rho / trace
-
-
-def _squared_fidelity(state_a: qt.Qobj, state_b: qt.Qobj) -> float:
-    """Compute squared Uhlmann fidelity for two states.
-
-    Args:
-        state_a: First ket or density operator, dimensionless.
-        state_b: Second ket or density operator, dimensionless.
-
-    Returns:
-        float: Squared Uhlmann fidelity in [0, 1], dimensionless.
-    """
-    if state_a.isket and state_b.isket:
-        overlap = abs(complex(state_a.dag() * state_b)) ** 2
-        return float(np.clip(overlap, 0.0, 1.0))
-    rho_a = _density_matrix(state_a)
-    rho_b = _density_matrix(state_b)
-    root_a = rho_a.sqrtm()
-    product = root_a * rho_b * root_a
-    eigenvalues = np.real_if_close(product.eigenenergies()).real
-    root_fidelity = float(np.sum(np.sqrt(np.clip(eigenvalues, 0.0, None))))
-    return float(np.clip(root_fidelity**2, 0.0, 1.0))
 
 
 def _qfi_trace(
@@ -295,7 +261,7 @@ def _qfi_trace(
         raise ValueError("delta_eta must be positive")
     values = []
     for state_a, state_b in zip(states_a, states_b):
-        fidelity = _squared_fidelity(state_a, state_b)
+        fidelity = squared_fidelity_pure(state_a, state_b)
         if not math.isfinite(fidelity) or fidelity < -1.0e-8 or fidelity > 1.0 + 1.0e-8:
             raise ValueError(f"Invalid fidelity value: {fidelity}")
         values.append(8.0 * (1.0 - math.sqrt(float(np.clip(fidelity, 0.0, 1.0)))) / delta_eta**2)
@@ -317,17 +283,6 @@ def _von_neumann_entropy_bits(rho: qt.Qobj) -> float:
     return float(-np.sum(probabilities * np.log2(probabilities)))
 
 
-def _purity(rho: qt.Qobj) -> float:
-    """Compute the purity of a density operator.
-
-    Args:
-        rho: Unit-trace density operator, dimensionless.
-
-    Returns:
-        float: Purity Tr(rho^2), dimensionless, clipped to [0, 1].
-    """
-    return float(np.clip(np.real((rho * rho).tr()), 0.0, 1.0))
-
 
 def _physicality_summary(states: list[qt.Qobj], numerical_eigenvalue_floor: float) -> dict[str, Any]:
     """Summarize trace, Hermiticity, and minimum eigenvalue diagnostics.
@@ -345,7 +300,7 @@ def _physicality_summary(states: list[qt.Qobj], numerical_eigenvalue_floor: floa
     hermiticity_errors = []
     minimum_eigenvalue = float("inf")
     for state in states:
-        rho = _density_matrix(state)
+        rho = density_matrix(state)
         traces.append(float(np.real(rho.tr())))
         hermiticity_errors.append(float((rho - rho.dag()).norm()))
         if rho.isoper:
@@ -476,11 +431,11 @@ def _simulate_row(parameters: dict[str, Any], config: ThermalConfig) -> dict[str
         dtype=float,
     )
     entropy = np.asarray(
-        [_von_neumann_entropy_bits(_density_matrix(state)) for state in reference["states"]],
+        [_von_neumann_entropy_bits(density_matrix(state)) for state in reference["states"]],
         dtype=float,
     )
     purities = np.asarray(
-        [_purity(_density_matrix(state)) for state in reference["states"]],
+        [purity(density_matrix(state)) for state in reference["states"]],
         dtype=float,
     )
     qfi_peak_index = int(np.argmax(qfi))
