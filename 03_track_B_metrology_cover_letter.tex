@@ -1,0 +1,36 @@
+\documentclass[11pt,a4paper]{letter}
+\usepackage[a4paper,margin=1.5cm]{geometry}
+\usepackage{siunitx}
+\usepackage{amssymb}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\setlength{\parskip}{4pt plus2pt minus1pt}
+\address{%
+P. Djorw\'e \\
+Department of Physics, Faculty of Science, University of Ngaoundere, P.O. Box 454, Ngaoundere, Cameroon \\
+Stellenbosch Institute for Advanced Study (STIAS), Stellenbosch 7600, South Africa \\
+\texttt{djorwepp@gmail.com}
+}
+\signature{P. Djorw\'e\\ (on behalf of all authors)}
+\date{\today}
+
+\begin{document}
+
+\begin{letter}{The Editors\\ \textit{PRX Quantum}}
+\opening{Dear Editors,}
+
+We submit our manuscript, ``The Cavity-Loss Barrier to Ultrastrong-Coupling Quantum Metrology,'' for consideration as a Research Article in \textit{PRX Quantum}.
+
+\textbf{Context and significance.} Ultrastrongly coupled light--matter systems host dressed ground states with virtual excitations, and a dynamical Casimir (DCE) drive can convert this bound dressing into real, extractable photons. Idealized quantum Fisher information (QFI) values are often quoted for such protocols, but they do not share the same loss sensitivity. The central question we address is whether the DCE-induced conversion of virtual dressing into real, extractable photons preserves the idealized metrological gain at experimentally accessible cavity linewidths, or whether the cavity-loss channel opened by that conversion dominates. The answer is that the loss channel dominates: via Lindblad master-equation simulations we quantify how much of each idealized QFI gain survives realistic cavity loss, and we identify this loss barrier, not the idealized gains, as the operationally decisive result.
+
+\textbf{Main results.} Within a common baseline-relative framework we compute three idealized QFI contributions (upper bounds within their scans): static virtual dressing in the quantum Rabi model ($6.12\times$ at $\eta=1.14$), Floquet DCE amplification (single-qubit peak $\sim\!1.7\times10^{5}\times$ at $\eta=0.150$ on a $16\times14$ fixed-detuning scan grid), and collective Dicke enhancement ($229\times$ static at $N=32$, late-window average $\sim\!1.7\times10^{5}\times$ with DCE at $N_{\mathrm{cav}}=6$). Lindblad simulations collapse the single-qubit DCE QFI to below \qty{1}{\percent} at the physical coplanar-waveguide linewidth $\kappa/2\pi\simeq\qty{248}{\mega\hertz}$. For Dicke+DCE, retention falls from \qty{16.0}{\percent} ($N_{\mathrm{cav}}=6$) to \qty{2.6}{\percent} ($N_{\mathrm{cav}}=24$), reported as a truncation-dependent range. The Markovian retention values carry a \qty{4.8}{\percent}--\qty{24}{\percent} cavity-bath memory uncertainty at the physical linewidth, as quantified by a cavity-mode HEOM cross-check. The multilevel-emitter screen shows that the two-level approximation used for the main-text QFI factors is not validated at the drive amplitudes where those factors are computed; platform-specific safe operating windows exist only at reduced drive ($g_d\le0.06$) with correspondingly reduced enhancement. Supporting checks, numerical convergence, the single-qubit and collective loss calculations, the cavity-channel HEOM cross-check, the multilevel-leakage screen, the finite-size scaling, and the additional model-specific screens are in the Supplemental Information. We make no claim of loss immunity, experimental demonstration, or truncation-converged device performance.
+
+\textbf{Relevance to \textit{PRX Quantum}.} The result supplies a general operational test for metrological resources in driven light--matter systems: information gains must be evaluated together with whether the information sits in virtual dressing or lossy real excitations. Any protocol extracting information from bound, non-emissive correlations by conversion into real excitations faces the same trade-off, connecting quantum information, quantum optics, nonequilibrium dynamics, and superconducting circuits, with concrete coherence targets for experiments. The work belongs to the journal's scope in quantum metrology and sensing. Its negative-result framing identifies the loss barrier as the operational constraint and points to loss-controlled benchmarks, rather than idealized pure-state gains, as the figure of merit.
+
+\textbf{Submission information.} This manuscript has not previously been submitted to an APS journal and is not part of a joint submission. The work is original, unpublished, and is not under consideration elsewhere. All authors have approved the manuscript and agree with its submission to \textit{PRX Quantum}: Juste Deuyekbe, P.~Djorw\'e (corresponding author), A.-H.~Abdel-Aty, A.~Elrashidi, Nsangou Mama, and S.~G.~Nana Engo. We have no recommended or excluded referees to report. The manuscript is accompanied by its Supplemental Information; manuscript sources, deterministic analysis scripts, and the environment specification are publicly archived at \url{https://github.com/NanaEngo/Floquet-virtual-state-metrology-dce}.
+
+Thank you for your consideration.
+
+\closing{Sincerely,}
+
+\end{letter}
+\end{document}

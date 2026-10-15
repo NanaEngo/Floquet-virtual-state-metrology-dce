@@ -1,0 +1,29 @@
+name: track-b-qom
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11.15
+  - numpy=1.26.4
+  - scipy=1.13.1
+  - matplotlib=3.11.1
+  - h5py=3.16.0
+  - joblib=1.5.3
+  - numba=0.66.0
+  - pip
+  - pip:
+      - qutip==5.3.1
+      - scienceplots==2.2.2
+      - pydantic==2.13.4
+      - tqdm==4.70.0
+      - jax==0.4.28
+      - jaxlib==0.4.28
+      # fl_qom (editable install of the FL_QOM repository) is required by
+      # scripts/derive_static_references.py for the single-qubit static-Rabi
+      # conventions. Install after environment creation, e.g.:
+      #   pip install -e <path-to-FL_QOM>
+      # It is not pinned here because it is distributed as a separate repository,
+      # not on PyPI.
+
+# This file records the verified qom runtime used for the Track B reruns on
+# 2026-09-02. It is a reproducibility snapshot, not a platform-independent
+# lockfile; solver behavior should be checked again after environment creation.
